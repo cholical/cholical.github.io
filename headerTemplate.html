@@ -21,13 +21,13 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-init="changeBarActive()">
               <ul class="nav navbar-nav">
-                <li class="active"><a ui-sref="home">Home</a></li>
-                <li><a ui-sref="textbooks">Textbooks</a></li>
-                <li><a ui-sref="accessories">Accessories</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About Us</a></li>
+                <li id="homeBar" class=""><a ui-sref="home">Home</a></li>
+                <li id="textbooksBar" class=""><a ui-sref="textbooks">Textbooks</a></li>
+                <li id="accessoriesBar" class=""><a ui-sref="accessories">Accessories</a></li>
+                <li id="servicesBar" class=""><a href="#">Services</a></li>
+                <li id="aboutBar" class=""><a href="#">About Us</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->

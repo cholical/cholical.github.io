@@ -11,7 +11,10 @@
     	$scope.mac = false;
     	$scope.showButton = true;
     }
-    $scope.headerTemplateUrl = "headerTemplate.html"
+    $scope.barName = "homeBar";
+    $scope.changeBarActive = function() {
+        document.getElementById("homeBar").className = "active";
+    }
     
   }]);
-}());
+}());1

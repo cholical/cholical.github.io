@@ -27,6 +27,10 @@
     $scope.createNewListing = function() {
       console.log("create new listing");
     }
+    $scope.changeBarActive = function() {
+        document.getElementById("textbooksBar").className = "active";
+    }
+    
 
     
   }]);
