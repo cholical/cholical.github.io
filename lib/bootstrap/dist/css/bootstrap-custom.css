@@ -4,3 +4,25 @@
   margin-left: auto;
   max-width: 1300px; /* or 950px */
 }
+
+.navbar-default {
+    background-color: #56A0D3;
+    color:#fff;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color:#fff;
+}
+
+.navbar-default .navbar-nav .active > a,
+.navbar-default .navbar-nav .active > a:hover,
+.navbar-default .navbar-nav .active > a:focus {
+    background-color:#1a242f;
+}
+
+.navbar-default .navbar-nav > li:hover,
+.navbar-default .navbar-nav > li:focus {
+    background-color:#fff;
+    color: #56A0D3;
+    transition: color 500ms;
+}
