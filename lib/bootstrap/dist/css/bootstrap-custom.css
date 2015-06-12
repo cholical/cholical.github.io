@@ -7,22 +7,23 @@
 
 .navbar-default {
     background-color: #56A0D3;
-    color:#fff;
+    color:#f8f8f8;
 }
 
 .navbar-default .navbar-nav > li > a {
-    color:#fff;
+    color:#f8f8f8;
 }
 
 .navbar-default .navbar-nav .active > a,
 .navbar-default .navbar-nav .active > a:hover,
 .navbar-default .navbar-nav .active > a:focus {
-    background-color:#1a242f;
+    background-color:#4790C2;
+    color:#f8f8f8;
 }
 
 .navbar-default .navbar-nav > li:hover,
 .navbar-default .navbar-nav > li:focus {
-    background-color:#fff;
+    background-color:#f8f8f8;
     color: #56A0D3;
-    transition: color 500ms;
+    transition:color 500ms;
 }
