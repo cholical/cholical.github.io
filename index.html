@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="tclassified">
+
+  <head>
+
+    <title>TClassified</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Timeline CSS -->
+    <link href="styles/timeline.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="lib/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">    
+    
+    <!-- Custom SB Admin Theme CSS -->
+    <link href="styles/sb-admin-2.css" rel="stylesheet">    
+
+    <!-- Custom ABC CSS -->
+            
+    
+    <!-- MetisMenu CSS -->
+    <link href="lib/metisMenu/dist/metisMenu.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->    
+   
+  </head>
+
+  <body>
+    <div id="wrapper" ui-view>
+    </div>
+
+    
+    <!-- vendor scripts -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/lodash/lodash.js"></script>
+    <script src="lib/moment/min/moment.min.js"></script>
+    <script src="lib/spin.js/spin.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    
+
+    
+    <!-- inject:js -->
+    <script src="app/app.js"></script>
+    <script src="app/dirPagination.js"></script>
+    <script src="app/uiBreadcrumbs.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/home.service.js"></script>
+    <script src="app/textbooks/textbooks.controller.js"></script>
+    <script src="app/textbooks/textbooks.service.js"></script>
+    <script src="app/accessories/accessories.controller.js"></script>
+    <script src="app/accessories/accessories.service.js"></script>
+
+
+  </body>
+</html>
