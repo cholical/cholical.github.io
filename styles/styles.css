@@ -32,6 +32,10 @@
   padding: 10px 30px;
 }
 
+.navbar {
+  background-color: #56A0D3;
+}
+
 [ng-click],
 [data-ng-click],
 [x-ng-click] {
