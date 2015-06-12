@@ -44,6 +44,7 @@
 
 .btn-default {
     background-color:#56A0D3;
+    color:#f8f8f8;
     color:;
     transition: color 400ms, background-color, 400ms;
 }
@@ -51,5 +52,5 @@
 .btn-default:hover,
 .btn-default:focus {
     background-color:#f8f8f8;
-    /*color:#56A0d3;*/
+    color:#333;
 }
