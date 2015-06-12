@@ -41,3 +41,14 @@
 .jumbotron {
     background-color:#e8e8e8;
 }
+
+.btn-default {
+    background-color:#56A0D3;
+    transition: color 400ms, background-color, 400ms;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    background-color:#f8f8f8;
+    color:#56A0d3;
+}
