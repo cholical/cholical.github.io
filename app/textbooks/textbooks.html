@@ -27,18 +27,26 @@
 	<table class="table table-striped table-bordered table-hover" id="dataTables-example" style="width-100%">
     	<thead>
     		<tr>                       
-		        <th><a ng-click="sortType = 'textbookName'; sortReverse = !sortReverse">Textbook Name</a></th>
-		        <th><a ng-click="sortType = 'author'; sortReverse = !sortReverse">Author</a></th>
-		        <th><a ng-click="sortType = 'edition'; sortReverse = !sortReverse">Edition</a></th>
-		        <th><a ng-click="sortType = 'price'; sortReverse = !sortReverse">Price</a></th>
+		        <th><a ng-click="sortType = 'textbookName'; sortReverse = !sortReverse; tnSortReverse = !tnSortReverse; aSortReverse = false; eSortReverse = false; pSortReverse = false">Textbook Name
+					<span ng-show= "!tnSortReverse" class="fa fa-caret-down"></span><span ng-show= "tnSortReverse" class="fa fa-caret-up"></span>
+		        </a></th>
+		        <th><a ng-click="sortType = 'author'; sortReverse = !sortReverse; aSortReverse = !aSortReverse; tnSortReverse = false; eSortReverse = false; pSortReverse = false">Author
+		        	<span ng-show= "!aSortReverse" class="fa fa-caret-down"></span><span ng-show= "aSortReverse" class="fa fa-caret-up"></span>
+		        </a></th>
+		        <th><a ng-click="sortType = 'edition'; sortReverse = !sortReverse; eSortReverse = !eSortReverse; tnsSortReverse = false; aSortReverse = false; pSortReverse = false">Edition
+		        <span ng-show= "!eSortReverse" class="fa fa-caret-down"></span><span ng-show= "eSortReverse" class="fa fa-caret-up"></span>
+		    	</a></th>
+		        <th><a ng-click="sortType = 'price'; sortReverse = !sortReverse; pSortReverse = !pSortReverse; tnSortReverse = false; aSortReverse = false; eSortReverse = false">Price
+		        <span ng-show= "!pSortReverse" class="fa fa-caret-down"></span><span ng-show= "pSortReverse" class="fa fa-caret-up"></span>
+		    	</a></th>
 	        </tr>
         </thead>
         <tbody>
-        	<tr class="odd gradeX" dir-paginate-start="textbook in textbooks | orderBy:sortType:sortReverse | filter:query | itemsPerPage:pageSize" current-page="currentPage">
+        	<tr class="odd gradeX" dir-paginate-start="textbook in textbooks | orderBy:sortType:sortReverse | filter:searchBar | itemsPerPage:pageSize" current-page="currentPage">
         		<td>{{textbook.textbookName}}</td>
         		<td>{{textbook.author}}</td>
         		<td>{{textbook.edition}}</td>
-        		<td>{{textbook.price}}</td>
+        		<td>{{textbook.price | currency}}</td>
         	</tr>
         	<tr dir-paginate-end></tr>
    	</table>
