@@ -40,7 +40,23 @@
 
 .jumbotron {
     background-color:#e8e8e8;
+
 }
+    .texPanel {
+        background:url('../../../../img/textbooks.jpg');
+        color:#f8f8f8;
+        text-shadow:2px 2px 3px black;
+    }
+
+    .texPanel > h2 {
+    }
+    
+    .accPanel {
+        background: url('../../../../img/computers.jpg');
+        color:#f8f8f8;
+        text-shadow:2px 2px 3px black;
+
+    }
 
 .btn-default {
     background-color:#56A0D3;
