@@ -25,6 +25,29 @@
 			</button>
 		</div>
 	</div>
+
+	<!--Hidden form for creating new listings-->
+	<div class="panel panel-default" ng-hide="hideNewListing">
+		<div class="panel panel-default"> 
+			<h2>Congratulations! You finally got off your ass and decided to create your own listing!</h2>
+		</div>
+		<div> 
+			Textbook Title:
+			<input type="text" ng-model="cnTextbookName"><br>
+			Edition:
+			<input type="text" ng-model="cnTextbookEdition"><br>
+
+		</div><br>
+
+		<div>Input Test:<br>
+			<div>Title Input: {{cnTextbookName}}</div>
+			<div>Edition Input: {{cnTextbookEdition}}</div>
+
+		</div>
+
+	</div>
+	<!--End of new listings form-->
+
 	<br>
 	<div>
 		<dir-pagination-controls></dir-pagination-controls>                             

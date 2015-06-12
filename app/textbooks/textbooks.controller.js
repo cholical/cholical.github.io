@@ -25,12 +25,17 @@
     	})
     }
     $scope.createNewListing = function() {
+      $scope.hideNewListing = false;
       console.log("create new listing");
     }
+
+    $scope.hideNewListing = true;
     $scope.changeBarActive = function() {
         document.getElementById("textbooksBar").className = "active";
     }
-    
+
+    $scope.cnTextbookName;
+    $scope.cnTextbookEdition;
 
     
   }]);
