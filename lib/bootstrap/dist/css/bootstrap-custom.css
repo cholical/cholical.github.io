@@ -15,22 +15,22 @@
     font-size:20px;
 }
 
-.navbar-default .navbar-nav .active,
-.navbar-default .navbar-nav .active:hover,
-.navbar-default .navbar-nav .active:focus {
+.navbar-default .navbar-nav .active > a,
+.navbar-default .navbar-nav .active > a:hover,
+.navbar-default .navbar-nav .active > a:focus {
     background-color:#4790C2;
     color:#f8f8f8;
 }
 
-.navbar-default .navbar-nav > li {
+.navbar-default .navbar-nav > li > a{
     background-color: #56A0D3;
     color:#f8f8f8;
     transition: color 400ms, background-color, 400ms;
     padding:0px 15px;
 }
 
-.navbar-default .navbar-nav > li:hover,
-.navbar-default .navbar-nav > li:focus {
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
     background-color:#f8f8f8;
     color: #56A0D3;
   
