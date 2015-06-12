@@ -1,0 +1,110 @@
+Controller: Responds to http request from front end
+------------------------------------------------
+	Class Objects:
+		TextbookController {
+			//provides response to specific http request
+		}
+		AccessoryController {
+			//provides response to specific http request
+		}
+
+
+Model: Defines the classes
+------------------------------------------------
+	Class Objects:
+		Textbook {
+			var classes;
+			var acceptingOffers;
+			getName();
+			setName(name);
+			getAuthor();
+			setAuthor(name);
+			getEdition();
+			setEdition(edition);
+			addCourse(class);
+			removeCourse(class);
+			getClasses();
+			getPrice();
+			setPrice(num);
+			getAccetingOffers();
+			setAcceptingOffers(boolean);
+			getSellerName();
+			setSellerName(sellerName);
+			getDescription();
+			setDescription(description);
+			getContactInfo();
+			setContactInfo(contactInfo);
+			getPassword();
+			setPassword(password);
+		}
+
+		Assessories {
+			var classes;
+			var acceptingOffers;
+			getName();
+			setName(name);
+			addCourse(class);
+			removeCourse(class);
+			getClasses();
+			getPrice();
+			setPrice(num);
+			getAccetingOffers();
+			setAcceptingOffers(boolean);
+			getSellerName();
+			setSellerName(sellerName);
+			getDescription();
+			setDescription(description);
+			getContactInfo();
+			setContactInfo(contactInfo);
+			getPassword();
+			setPassword(password);
+		}
+
+	Arrays:
+		Textbooks [
+			Textbook {
+				textBookName: "",
+				author: "",
+				edition: "",
+				classes: {
+					course: "courseId | lowercase"
+				},
+				price: num,
+				acceptingOffers: boolean,
+				sellerName: "",
+				description: "",
+				contactInfo: "",
+				password: ""
+			}
+		]
+		Accessories [
+			Accessory {
+				name: "",
+				classes: {
+					course: "courseId | lowercase"
+				},
+				price: num,
+				acceptingOffers: boolean,
+				sellerName: "",
+				description: "",
+				contactInfo: "",
+				password: ""
+			}
+		]
+
+Repository: Interacts with the MySQL database
+------------------------------------------------
+	Class Objects:
+		TextbookRepository {
+			getTextbookList();
+			//retrieves textbook information from MySQL database
+			publishTextbookList();
+			//add textbook information from java to MySQL
+		}
+
+		AccessoryRepository {
+			getAccessoryList();
+			//retrieves accessory information from MySQL database
+			publishAccessoryList();
+			//add accessory information from java to MySQL
+		}

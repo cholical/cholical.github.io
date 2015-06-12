@@ -1,0 +1,26 @@
+Index.html:
+--------------------------------------
+	Injected Scripts: [
+		angularJS,
+		jQuery,
+		bootstrap.css,
+		bootstrap-ui.css
+	]
+
+Views:
+--------------------------------------
+	NavBar.html
+	SideBar.html
+	Textbook.html
+	Accessory.html
+
+Controllers:
+--------------------------------------
+	navbar.controller.js
+	sidebar.controller.js
+	textbook.controller.js
+	accessory.controller.js
+
+App:
+--------------------------------------
+	app.js

@@ -1,0 +1,16 @@
+Textbook Classifieds Architecture Overview
+
+Front End: WAMP
+------------------------------------
+Javascript: angularJS, jquery
+CSS: bootstrap, bootstrapUI 
+
+Back End: Tomcat
+------------------------------------
+Java
+MySQL
+
+------------------------------------
+
+
+
