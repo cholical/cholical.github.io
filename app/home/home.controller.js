@@ -11,6 +11,7 @@
     	$scope.mac = false;
     	$scope.showButton = true;
     }
+    $scope.headerTemplateUrl = "headerTemplate.html"
     
   }]);
 }());
