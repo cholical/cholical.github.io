@@ -24,6 +24,9 @@
     	    size: 'lg'
     	})
     }
+    $scope.createNewListing = function() {
+      console.log("create new listing");
+    }
 
     
   }]);
