@@ -13,7 +13,6 @@ Model: Defines the classes
 ------------------------------------------------
 	Class Objects:
 		Textbook {
-			var classes;
 			var acceptingOffers;
 			getName();
 			setName(name);
@@ -66,9 +65,7 @@ Model: Defines the classes
 				textBookName: "",
 				author: "",
 				edition: "",
-				classes: {
-					course: "courseId | lowercase"
-				},
+				classes: []
 				price: num,
 				acceptingOffers: boolean,
 				sellerName: "",

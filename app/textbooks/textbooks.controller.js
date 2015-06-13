@@ -4,7 +4,7 @@
   var app, onTextbookSuccess;
 
   app = angular.module("tclassified");
-  app.controller('textbooksCtrl', ['$scope', 'textbooksSvc', '$modal', '$stateParams', '$log', function textbooksCtrl($scope, textbooksSvc, $modal, $stateParams, $log){
+  app.controller('textbooksCtrl', ['$scope', 'textbooksSvc', 'newListingSvc', '$modal', '$stateParams', '$log', function textbooksCtrl($scope, textbooksSvc, newListingSvc, $modal, $stateParams, $log){
 
     $scope.textbooks = textbooksSvc.getTextbooks();
     $scope.pageSize = 10;
@@ -21,21 +21,30 @@
     				return textbook;
     			}
     		},
-    	    size: 'lg'
+    	  size: 'lg'
     	})
-    }
-    $scope.createNewListing = function() {
-      $scope.hideNewListing = false;
-      console.log("create new listing");
-    }
+    };
 
-    $scope.hideNewListing = true;
+    $scope.createNewListing = function() {
+      var modalInstance = $modal.open({
+        templateUrl: 'app/newlisting/newListing.html',
+        controller: 'newListingCtrl',
+        size: 'lg'
+      })
+      modalInstance.result.then(function() {
+        $scope.textbooks.push(newListingSvc.getNewListing());
+        //Function to store new $scope.textbooks into the backend
+      }, 
+      function() {
+        console.log("new list not created");
+      });
+    };
+
     $scope.changeBarActive = function() {
         document.getElementById("textbooksBar").className = "active";
-    }
+    };
 
-    $scope.cnTextbookName;
-    $scope.cnTextbookEdition;
+    
 
     
   }]);
