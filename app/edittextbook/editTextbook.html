@@ -1,5 +1,5 @@
 <div class="modal-header">
-	<h3>Congratulations! You finally got off your ass and decided to make a listing!</h3>
+	<h3>Edit Your Listing</h3>
 </div>
 <div class="modal-body">
 	<form>
@@ -7,11 +7,11 @@
 		Textbook Title: <input type="text" ng-model="newListing.textbookName" /><br />
 		Author:         <input type="text" ng-model="newListing.author" /><br />
 		Edition:        <input type="text" ng-model="newListing.edition" /><br />
-		Classes:        <input type="text" ng-model="newListing.classes[0]" /> <input type="button" ng-hide="hidebutton1" value="Add Another Class" ng-click="addClass2(); hidebutton1=true"><br />
-		<span ng-hide="class2">Classes:        <input type="text" ng-model="newListing.classes[1]" /> <input type="button" ng-hide="hidebutton2" value="Add Another Class" ng-click="addClass3(); hidebutton2 = true"><br /></span>
-		<span ng-hide="class3">Classes:        <input type="text" ng-model="newListing.classes[2]" /> <input type="button" ng-hide="hidebutton3" value="Add Another Class" ng-click="addClass4(); hidebutton3 = true"><br /></span>
-		<span ng-hide="class4">Classes:        <input type="text" ng-model="newListing.classes[3]" /> <input type="button" ng-hide="hidebutton4" value="Add Another Class" ng-click="addClass5(); hidebutton4 = true"><br /></span>
-		<span ng-hide="class5">Classes:        <input type="text" ng-model="newListing.classes[4]" /><br /></span>
+		Classes:        <input type="text" ng-model="newListing.classes[0]" /><br />
+		<span>Classes:        <input type="text" ng-model="newListing.classes[1]" /> <br /></span>
+		<span>Classes:        <input type="text" ng-model="newListing.classes[2]" /> <br /></span>
+		<span>Classes:        <input type="text" ng-model="newListing.classes[3]" /> <br /></span>
+		<span>Classes:        <input type="text" ng-model="newListing.classes[4]" /><br /></span>
 		Price:          <input type="number" ng-model="newListing.price" /><br />
 		Description:    <input type="text" ng-model="newListing.description" /><br />
 		<h4>Your Information</h4>
