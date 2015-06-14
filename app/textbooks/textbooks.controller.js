@@ -10,7 +10,7 @@
     $scope.pageSize = 10;
     $scope.currentPage = 1;
     $scope.sortType = "date";
-    $scope.sortReverse = false;
+    $scope.sortReverse = true;
 
     $scope.getTextbookInfo = function(textbook) {
     	var modalInstance = $modal.open({
