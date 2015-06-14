@@ -14,13 +14,23 @@
       })
       .state('textbooks', {
         url: '/textbooks',
-    	templateUrl: 'app/textbooks/textbooks.html',
-    	controller: 'textbooksCtrl'
+    	  templateUrl: 'app/textbooks/textbooks.html',
+    	  controller: 'textbooksCtrl'
       })
       .state('accessories', {
         url: '/accessories',
-      templateUrl: 'app/accessories/accessories.html',
-      controller: 'accessoriesCtrl'
+        templateUrl: 'app/accessories/accessories.html',
+        controller: 'accessoriesCtrl'
+      })
+      .state('services', {
+        url: '/services',
+        templateUrl: 'app/services/services.html',
+        controller: 'servicesCtrl'
+      })
+      .state('about', {
+        url: '/about',
+        templateUrl: 'app/about/about.html',
+        controller: 'aboutCtrl'
       })
     
     $urlRouterProvider.otherwise('/home');
