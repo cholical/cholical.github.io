@@ -9,7 +9,6 @@
     
     makeAccessories = function () {
       //Sample textbooks stored on the front end
-      var date1 = new Date();
       return [
         {
             accessoryName: "Wide Screen TV",
@@ -19,7 +18,7 @@
             description: "55 inch television by Samsung. May or may not work",
             contactInfo: "911-911-9111",
             password: "no",
-            date: date1
+            date: new Date()
         },
         {
             accessoryName: "iClicker Newest Version",
@@ -29,7 +28,7 @@
             description: "Use this to answer questions in class. There are free clicker apps out there but your professor doesn't trust you enough",
             contactInfo: "Facebook Message me at facebook.com/nobodycares",
             password: "no",
-            date: date1
+            date: 1288323623006
         },
         {
             accessoryName: "Cardboard Box",
@@ -39,7 +38,7 @@
             description: "Special cardboard box",
             contactInfo: "veryspecialbox@live.unc.edu",
             password: "no",
-            date: date1
+            date: 128323623006
         },
       ]
     };

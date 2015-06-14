@@ -24,7 +24,8 @@
           sellerName: "Cholical",
           description: "Buy this book please",
           contactInfo: "abc123@yahoo.com",
-          password: "no"
+          password: "no",
+          date: new Date()
         },
         {
           textbookName: "Mac's Book",
@@ -38,7 +39,8 @@
           sellerName: "mac",
           description: "cheap",
           contactInfo: "macattack@gmail.com",
-          password: "no"
+          password: "no",
+          date: 1288323623006
         },
         {
           textbookName: "One more book",
@@ -52,7 +54,8 @@
           sellerName: "Cholical",
           description: "I am desperate, buy my stuff",
           contactInfo: "abc123@yahoo.com",
-          password: "no"
+          password: "no",
+          date: 128323623006
         },
       ]
     };

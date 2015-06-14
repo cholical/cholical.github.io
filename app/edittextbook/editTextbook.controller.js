@@ -43,8 +43,8 @@
         $scope.storedTextbook.sellerName = $scope.newListing.sellerName;
         $scope.storedTextbook.description = $scope.newListing.description;
         $scope.storedTextbook.contactInfo = $scope.newListing.contactInfo;
-        $scope.storedTextbook.password == $scope.newListing.password;
-          
+        $scope.storedTextbook.password = $scope.newListing.password;
+        $scope.storedTextbook.date = new Date();
         $modalInstance.close();
     };
 

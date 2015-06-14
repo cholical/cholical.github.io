@@ -38,6 +38,7 @@
         $modalInstance.dismiss('close');
     };
     $scope.submitListing = function() {
+        $scope.newListing.date = new Date();
         newListingSvc.setNewListing($scope.newListing);
         $modalInstance.close();
     };

@@ -41,18 +41,21 @@
 	<table class="table table-striped table-bordered table-hover" id="dataTables-example" style="width-100%">
     	<thead>
     		<tr>                       
-		        <th><a ng-click="sortType = 'textbookName'; sortReverse = !sortReverse; tnSortReverse = !tnSortReverse; aSortReverse = false; eSortReverse = false; pSortReverse = false">Textbook Title
+		        <th><a ng-click="sortType = 'textbookName'; sortReverse = !sortReverse; tnSortReverse = !tnSortReverse; aSortReverse = false; eSortReverse = false; pSortReverse = false; dSortReverse = false">Textbook Title
 					<span ng-show= "!tnSortReverse" class="fa fa-caret-down"></span><span ng-show= "tnSortReverse" class="fa fa-caret-up"></span>
 		        </a></th>
-		        <th><a ng-click="sortType = 'author'; sortReverse = !sortReverse; aSortReverse = !aSortReverse; tnSortReverse = false; eSortReverse = false; pSortReverse = false">Author
+		        <th><a ng-click="sortType = 'author'; sortReverse = !sortReverse; aSortReverse = !aSortReverse; tnSortReverse = false; eSortReverse = false; pSortReverse = false; dSortReverse = false">Author
 		        	<span ng-show= "!aSortReverse" class="fa fa-caret-down"></span><span ng-show= "aSortReverse" class="fa fa-caret-up"></span>
 		        </a></th>
-		        <th><a ng-click="sortType = 'edition'; sortReverse = !sortReverse; eSortReverse = !eSortReverse; tnsSortReverse = false; aSortReverse = false; pSortReverse = false">Edition
+		        <th><a ng-click="sortType = 'edition'; sortReverse = !sortReverse; eSortReverse = !eSortReverse; tnsSortReverse = false; aSortReverse = false; pSortReverse = false; dSortReverse = false">Edition
 		        <span ng-show= "!eSortReverse" class="fa fa-caret-down"></span><span ng-show= "eSortReverse" class="fa fa-caret-up"></span>
 		    	</a></th>
-		        <th><a ng-click="sortType = 'price'; sortReverse = !sortReverse; pSortReverse = !pSortReverse; tnSortReverse = false; aSortReverse = false; eSortReverse = false">Price
+		        <th><a ng-click="sortType = 'price'; sortReverse = !sortReverse; pSortReverse = !pSortReverse; tnSortReverse = false; aSortReverse = false; eSortReverse = false; dSortReverse = false">Price
 		        <span ng-show= "!pSortReverse" class="fa fa-caret-down"></span><span ng-show= "pSortReverse" class="fa fa-caret-up"></span>
 		    	</a></th>
+		    	<th><a ng-click="sortType = 'date'; sortReverse = !sortReverse; dSortReverse = !dSortReverse; tnSortReverse = false; pSortReverse = false; eSortReverse = false">Date Listed
+				<span ng-show= "!dSortReverse" class="fa fa-caret-down"></span><span ng-show= "dSortReverse" class="fa fa-caret-up"></span>
+		        </a></th>
 	        </tr>
         </thead>
         <tbody>
@@ -61,6 +64,7 @@
         		<td>{{textbook.author}}</td>
         		<td>{{textbook.edition}}</td>
         		<td>{{textbook.price | currency}}</td>
+        		<td>{{textbook.date | date:'medium'}}</td>
         	</tr>
         	<tr dir-paginate-end></tr>
    	</table>
