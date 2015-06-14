@@ -42,8 +42,31 @@
     </head>
 
     <body>
-    <div class="container-fluid" id="wrapper" ui-view>
+
+    <div class="" id="wrapper" ui-view></div>
+    <div class="pageFooter container-fluid">
+            <div id="stripe"></div>
+            <div id="midStripe">Footer Heading</div>
+            <div id="footerContent">
+                <div class="row">
+                    <div class="col-md-5">
+                        <p>Random Legal stuff can go here, aka "The fine print"</p>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-5">
+                        <p>Also links to sitemap, support, contact, and shit that no one wants to see but should be included anyway</p>
+                    </div>
+                </div>
+                <div class="row infoAtBottom">
+                    <br><br>
+                    Copyright &#169; 2015 - Cholical Incorporated <br>
+                    Site last updated: <span id="updated">test</span>
+                </div>
+
+            </div>
     </div>
+    
+    
 
     
     <!-- vendor scripts -->
@@ -73,6 +96,9 @@
     <script src="app/edittextbook/editTextbook.controller.js"></script>
     <script src="app/about/about.controller.js"></script>
     <script src="app/services/services.controller.js"></script>
+
+    <!-- Styling Scripts -->
+    <script src="styleScript.js"></script>
 
 
   </body>

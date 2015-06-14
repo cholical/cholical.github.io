@@ -1,0 +1,1 @@
+$('#updated').text('June 14th, 2015');
