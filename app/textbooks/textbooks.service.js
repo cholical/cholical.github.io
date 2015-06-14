@@ -24,24 +24,24 @@
           sellerName: "Cholical",
           description: "Buy this book please",
           contactInfo: "abc123@yahoo.com",
-          password: "fuck"
+          password: "no"
         },
         {
           textbookName: "Mac's Book",
           author: "Mac",
           edition: 3,
           classes: [
-            "Not a real class 123", "BUTT 101"
+            "Not a real class 123", "ABCD 101"
           ],
           price: 10,
           acceptingOffers: true,
           sellerName: "mac",
           description: "cheap",
           contactInfo: "macattack@gmail.com",
-          password: "fuck"
+          password: "no"
         },
         {
-          textbookName: "One more dumb book",
+          textbookName: "One more book",
           author: "nobody cares",
           edition: 101,
           classes: [
@@ -50,9 +50,9 @@
           price: 2,
           acceptingOffers: false,
           sellerName: "Cholical",
-          description: "urination attacks",
+          description: "I am desperate, buy my stuff",
           contactInfo: "abc123@yahoo.com",
-          password: "fuck"
+          password: "no"
         },
       ]
     };
