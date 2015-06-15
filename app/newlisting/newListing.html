@@ -1,38 +1,135 @@
-<div class="modal-header">
+<div class="modal-header text-center">
 	<h3>Congratulations! You finally got off your ass and decided to make a listing!</h3>
 </div>
 <div class="modal-body">
-	<form>
+	<form class="form-horizontal">
 		<h4>Textbook Information</h4>
-		Textbook Title: <input type="text" ng-model="newListing.textbookName" /><br />
-		Author:         <input type="text" ng-model="newListing.author" /><br />
-		Edition:        <input type="text" ng-model="newListing.edition" /><br />
-		Classes:        <input type="text" ng-model="newListing.classes[0]" /> <input type="button" ng-hide="hidebutton1" value="Add Another Class" ng-click="addClass2(); hidebutton1=true"><br />
-		<span ng-hide="class2">Classes:        <input type="text" ng-model="newListing.classes[1]" /> <input type="button" ng-hide="hidebutton2" value="Add Another Class" ng-click="addClass3(); hidebutton2 = true"><br /></span>
-		<span ng-hide="class3">Classes:        <input type="text" ng-model="newListing.classes[2]" /> <input type="button" ng-hide="hidebutton3" value="Add Another Class" ng-click="addClass4(); hidebutton3 = true"><br /></span>
-		<span ng-hide="class4">Classes:        <input type="text" ng-model="newListing.classes[3]" /> <input type="button" ng-hide="hidebutton4" value="Add Another Class" ng-click="addClass5(); hidebutton4 = true"><br /></span>
-		<span ng-hide="class5">Classes:        <input type="text" ng-model="newListing.classes[4]" /><br /></span>
-		Price:          <input type="number" ng-model="newListing.price" /><br />
-		Description:    <input type="text" ng-model="newListing.description" /><br />
-		<h4>Your Information</h4>
-		Name: <input type="text" ng-model="newListing.sellerName" /><br />
-		Contact Information (unc.edu e-mail preferred): <input type="text" ng-model="newListing.contactInfo" /><br />
-		Password (Needed to edit this post): <input type="text" ng-model="newListing.password" /><br />
+		
+		<div class="form-group">
+			<label for="inputTitle" class="col-sm-2 control-label">Textbook Title</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="inputTitle" placeholder="Rising Up: A book on Erectile Dysfunction" ng-model="newListing.textbookName">
+			</div>
 
+			<label for="inputEdition" class="col-sm-1 control-label">Edition</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="inputEdition" placeholder="Third" ng-model="newListing.edition">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputAuthor" class="col-sm-2 control-label">Author</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="inputAuthor" placeholder="Ronald Ding" ng-model="newListing.author">
+			</div>
+
+			<label for="inputPrice" class="col-sm-1 control-label">Price</label>
+			<div class="col-sm-4">
+				<input type="number" class="form-control" id="inputPrice" placeholder="$666" ng-model="newListing.price">
+			</div>
+		</div>
+		
+
+		<div class="form-group">
+			<label for="inputDescription" class="col-sm-2 control-label">Description</label>
+			<div class="col-sm-9">
+				<textarea type="text" rows="5" class="form-control" id="inputDescription" placeholder="ASDFASDFASDF" ng-model="newListing.Description"></textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputClass" class="col-sm-2 control-label">Class</label>
+			<div class="col-sm-9">
+				<form class="form-inline">
+					<div class="classRow row">
+						<div class="col-sm-2">
+							<input type="text" class="form-control" id="inputClass" placeholder="BIOL 322" ng-model="newListing.classes[0]">
+							<div type="button" class="btn-xs btn-default" ng-hide="hidebutton1" value="+" title="Add Another Class" ng-click="addClass2(); hidebutton1=true">
+							+
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<span ng-hide="class2">
+								<input type="text" class="form-control" id="inputClass" ng-model="newListing.classes[1]"> 
+								<div type="button" class="btn-xs btn-default" ng-hide="hidebutton2" value="+" title="Add Another Class" ng-click="addClass3(); hidebutton2=true">
+									+
+								</div>
+							</span>
+						</div>
+						<div class="col-sm-2">
+							<span ng-hide="class3">
+								<input type="text" class="form-control" id="inputClass" ng-model="newListing.classes[2]"> 
+								<button type="button" class="btn-xs btn-default" ng-hide="hidebutton3" value="+" title="Add Another Class" ng-click="addClass4(); hidebutton3=true">
+								+
+									</button>
+							</span>
+						</div>
+						<div class="col-sm-2">
+							<span ng-hide="class4">
+								<input type="text" class="form-control" id="inputClass" ng-model="newListing.classes[3]"> 
+								<button type="button" class="btn-xs btn-default" ng-hide="hidebutton4" value="+" title="Add Another Class" ng-click="addClass5(); hidebutton4=true">
+									+
+								</button>
+							</span>
+						</div>
+						<div class="col-sm-2">
+							<span ng-hide="class5">
+								<input type="text" class="form-control" id="inputClass" ng-model="newListing.classes[4]">
+							</span>
+						</div>
+
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</form><br>
+
+	<form class="form-horizontal">
+		<h4>Your Information</h4>
+
+		<div class="form-group">
+			<label for="inputName" class="col-sm-4 control-label">Name</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="inputName" placeholder="Ronald the Prophet" ng-model="newListing.sellerName">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputContactInfo" class="col-sm-4 control-label">Contact Information <br><em>unc.edu e-mail preferred</em></label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="inputContactInfo" placeholder="fuckyou@duke.edu" ng-model="newListing.contactInfo">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword" class="col-sm-4 control-label">Password<br><em>used to edit this post later</em></label>
+			<div class="col-sm-5">
+				<input type="password" class="form-control" id="inputPassword" placeholder="123456" ng-model="newListing.password">
+			</div>
+		</div>
+	</form><br>
+	<form class="form-horizontal">
+		<h4>Other Settings</h4>
+		<div class="form-group">
+			<label for="inputBuyorSell" class="col-sm-4 control-label">Submission Type</label>
+			<div class="col-sm-5">
+				<select class="form-control">
+				  <option>I want to sell this item</option>
+				  <option>I want to buy this item</option>
+				</select>
+			</div>
+		</div>
 	</form>
 </div>
 <div class="modal-footer">
 	<div class="col-xs-12">
 		<div class="col-xs-6">
 			<div class="col-xs-1">
-				<button type="button" class="btn btn-default btn-lg" ng-click="close()">
+				<button type="button" class="btn btn-default btn-lg cancelBtn" ng-click="close()">
 					  <span class="glyphicon glyphicon-remove" aria-hidden="true">
 					  </span> Cancel
 				</button>
 			</div>
 		</div>
 		<div class="col-xs-6">
-			<button type="button" class="btn btn-default btn-lg" ng-click="submitListing()">
+			<button type="button" class="btn btn-default btn-lg submitBtn" ng-click="submitListing()">
 				  <span class="glyphicon glyphicon-ok" aria-hidden="true">
 				  </span> Submit Listing
 			</button>

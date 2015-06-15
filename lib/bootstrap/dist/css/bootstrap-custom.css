@@ -15,8 +15,13 @@
 }
 
 .navbar-default {
-    background-color: #56A0D3;
+    background: #56A0D3;
     color:#f8f8f8;
+    box-shadow:0 3px 10px rgba(0,0,0,.3);
+    border-left:none;
+    border-right:none;
+    border:none;
+    border-radius:0px;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -34,7 +39,7 @@
 .navbar-default .navbar-nav > li > a{
     background-color: #56A0D3;
     color:#f8f8f8;
-    transition: color 400ms, background-color, 400ms;
+    transition: color 350ms, background-color, 350ms;
     padding-left:20px;
     padding-right:20px;
 
@@ -79,7 +84,7 @@
     background-color:#56A0D3;
     color:#f8f8f8;
     color:;
-    transition: color 400ms, background-color, 400ms;
+    transition: color 350ms, background-color, 350ms;
 }
 
 .btn-default:hover,
