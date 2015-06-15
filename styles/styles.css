@@ -115,3 +115,33 @@ body {
 .homeBody {
   font-size:18px;
 }
+
+.classRow input.form-control{
+  
+  display:inline;
+}
+
+.classRow .btn-xs{
+  position:absolute;
+  top:1px;
+  right:-40px;
+  height:30px;
+  width:30px;
+  border:1px solid #777;
+  text-align:center;
+  line-height:25px;
+  font-size:25px;
+  font-weight:bold;
+}
+
+form.form-horizontal em {
+  color:#aaa;
+}
+
+.cancelBtn {
+  background:#FF5050;
+}
+
+.submitBtn {
+  background:#33CC33;
+}
