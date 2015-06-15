@@ -42,8 +42,6 @@
 
   	$scope.changeBarActive = function() {
         document.getElementById("accessoriesBar").className = "active";
-        console.log("Current time");
-        console.log(new Date());
     }
     
   }]);
