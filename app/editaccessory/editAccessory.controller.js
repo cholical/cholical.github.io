@@ -20,7 +20,7 @@
         $scope.storedAccessory.description = $scope.newListing.description;
         $scope.storedAccessory.contactInfo = $scope.newListing.contactInfo;
         $scope.storedAccessory.password = $scope.newListing.password;
-        $scope.storedAccessory.date = new Date();
+        $scope.storedAccessory.date = angular.copy(new Date());
         $modalInstance.close();
     };
 
