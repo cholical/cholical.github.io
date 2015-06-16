@@ -43,6 +43,15 @@
   	$scope.changeBarActive = function() {
         document.getElementById("accessoriesBar").className = "active";
     }
+
+    $scope.makeActive = function(sortParameter) {
+        var activeParameter = sortParameter + "SortId";
+        document.getElementById("accessoryNameSortId").className = "clickSort";
+        document.getElementById("priceSortId").className = "clickSort";
+        document.getElementById("dateSortId").className = "clickSort";
+        document.getElementById(activeParameter).className = "clickSort activeSort";
+
+    }
     
   }]);
 }());
