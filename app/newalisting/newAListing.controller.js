@@ -19,7 +19,7 @@
         $modalInstance.dismiss('close');
     };
     $scope.submitListing = function() {
-        $scope.newListing.date = angular.copy(new Date();
+        $scope.newListing.date = angular.copy(new Date());
         newAListingSvc.setNewListing($scope.newListing);
         $modalInstance.close();
     };

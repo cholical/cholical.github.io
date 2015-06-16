@@ -6,7 +6,10 @@
   app = angular.module("tclassified");
   app.controller('textbooksCtrl', ['$scope', 'textbooksSvc', 'newListingSvc', '$modal', '$stateParams', '$log', function textbooksCtrl($scope, textbooksSvc, newListingSvc, $modal, $stateParams, $log){
 
-    $scope.textbooks = textbooksSvc.getTextbooks();
+    var onTextbookSuccess = function(data) {
+      $scope.textbooks = data;
+    };
+    textbooksSvc.getTextbooks().then(onTextbookSuccess);
     $scope.pageSize = 10;
     $scope.currentPage = 1;
     $scope.sortType = "date";
@@ -25,6 +28,10 @@
     	})
     };
 
+    var onPostSuccess = function(data) {
+      console.log("Post Success!");
+    };
+
     $scope.createNewListing = function() {
       var modalInstance = $modal.open({
         templateUrl: 'app/newlisting/newListing.html',
@@ -33,7 +40,7 @@
       })
       modalInstance.result.then(function() {
         $scope.textbooks.push(newListingSvc.getNewListing());
-        //Function to store new $scope.textbooks into the backend
+        textbooksSvc.postTextbooks($scope.textbooks).then(onPostSuccess);
       }, 
       function() {
         console.log("new list not created");
