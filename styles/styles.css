@@ -210,10 +210,10 @@ form.form-horizontal em {
   font-size:17px;
   margin:10px 0px;
 }
-/*.navbar-nav .activeSort {
-  border-bottom:2px solid #ff7863;
+.navbar-nav .activeSort {
+  color:#ff7863 !important;
 }
-*/
+
 .listinCard {
 }
 .listingCard .mainPanel{
