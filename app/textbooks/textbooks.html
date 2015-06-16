@@ -2,70 +2,157 @@
 <div class="container-fluid limWidth mainContent">
 
     <div class="row">
-        <div class="col-md-12"><h2>Textbook Listings</h2></div>
+        <div class="col-md-6"><h2>Textbook Listings</h2></div>
+        
+        <div class="col-md-6 text-right">
+            <button type="button" class="btn btn-default btn-lg newListing" ng-click="createNewListing()">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                  </span> Create New Listing
+            </button>
+        </div>
         
     </div>
 
 
 
+	
 	<div class="row">
-		<div class="col-lg-6">
-		<input type="text" class="top-nav-search-text" placeholder="Search..." ng-model="searchBar">
-		<span class="input-roup-btn">
-			<button class="btn btn-default top-nav-search-icon" type="button">
-				<i class="fa fa-search"></i>
-			</button>
-		</span>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-6">
-			<button type="button" class="btn btn-default btn-lg" ng-click="createNewListing()">
-				  <span class="glyphicon glyphicon-plus" aria-hidden="true">
-				  </span> Create New Listing
-			</button>
+		<div class="col-md-12">
+			<div class="content">
+                A place for information or whatever. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+            </div>
 		</div>
 	</div>
 
 
 	<br>
-	<div>
-		<dir-pagination-controls></dir-pagination-controls>                             
-        <div class="col-xs-8">
-			<label for="search">Items Per Page:</label>
-			<input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
-		</div>
-                                        
-	</div>
 	
-	<table class="table table-striped table-bordered table-hover" id="dataTables-example" style="width-100%">
-    	<thead>
-    		<tr>                       
-		        <th><a ng-click="sortType = 'textbookName'; sortReverse = !sortReverse; tnSortReverse = !tnSortReverse; aSortReverse = false; eSortReverse = false; pSortReverse = false; dSortReverse = false">Textbook Title
-					<span ng-show= "!tnSortReverse" class="fa fa-caret-down"></span><span ng-show= "tnSortReverse" class="fa fa-caret-up"></span>
-		        </a></th>
-		        <th><a ng-click="sortType = 'author'; sortReverse = !sortReverse; aSortReverse = !aSortReverse; tnSortReverse = false; eSortReverse = false; pSortReverse = false; dSortReverse = false">Author
-		        	<span ng-show= "!aSortReverse" class="fa fa-caret-down"></span><span ng-show= "aSortReverse" class="fa fa-caret-up"></span>
-		        </a></th>
-		        <th><a ng-click="sortType = 'edition'; sortReverse = !sortReverse; eSortReverse = !eSortReverse; tnsSortReverse = false; aSortReverse = false; pSortReverse = false; dSortReverse = false">Edition
-		        <span ng-show= "!eSortReverse" class="fa fa-caret-down"></span><span ng-show= "eSortReverse" class="fa fa-caret-up"></span>
-		    	</a></th>
-		        <th><a ng-click="sortType = 'price'; sortReverse = !sortReverse; pSortReverse = !pSortReverse; tnSortReverse = false; aSortReverse = false; eSortReverse = false; dSortReverse = false">Price
-		        <span ng-show= "!pSortReverse" class="fa fa-caret-down"></span><span ng-show= "pSortReverse" class="fa fa-caret-up"></span>
-		    	</a></th>
-		    	<th><a ng-click="sortType = 'date'; sortReverse = !sortReverse; dSortReverse = !dSortReverse; tnSortReverse = false; pSortReverse = false; eSortReverse = false">Date Listed
-				<span ng-show= "!dSortReverse" class="fa fa-caret-down"></span><span ng-show= "dSortReverse" class="fa fa-caret-up"></span>
-		        </a></th>
-	        </tr>
-        </thead>
-        <tbody>
-        	<tr class="odd gradeX" dir-paginate-start="textbook in textbooks | orderBy:sortType:sortReverse | filter:searchBar | itemsPerPage:pageSize" current-page="currentPage">
-        		<td><a ng-click="getTextbookInfo(textbook)">{{textbook.textbookName}}</a></td>
-        		<td>{{textbook.author}}</td>
-        		<td>{{textbook.edition}}</td>
-        		<td>{{textbook.price | currency}}</td>
-        		<td>{{textbook.date | date:'medium'}}</td>
-        	</tr>
-        	<tr dir-paginate-end></tr>
-   	</table>
+	
+	
+    <div class="row">
+        <nav class="navbar navbar-default navbar-listings">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="">Sort by</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              
+              
+
+              <!--Main Filtering links-->
+              <ul class="nav navbar-nav">
+                <li class="">
+                    <a  class="clickSort activeSort" ng-click="sortType = 'textbookName'; sortReverse = !sortReverse; tnSortReverse = !tnSortReverse; aSortReverse = false; eSortReverse = false; pSortReverse = false; dSortReverse = false">Textbook Title
+                        <span ng-show= "!tnSortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show= "tnSortReverse" class="fa fa-caret-up"></span>
+
+                    </a>
+                </li>
+                <li>
+                    <a  class="clickSort" ng-click="sortType = 'author'; sortReverse = !sortReverse; aSortReverse = !aSortReverse; tnSortReverse = false; eSortReverse = false; pSortReverse = false; dSortReverse = false">Author
+                        <span ng-show= "!aSortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show= "aSortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </li>
+                <li>
+                    <a  class="clickSort" ng-click="sortType = 'edition'; sortReverse = !sortReverse; eSortReverse = !eSortReverse; tnsSortReverse = false; aSortReverse = false; pSortReverse = false; dSortReverse = false">Edition
+                        <span ng-show= "!eSortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show= "eSortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="clickSort" ng-click="sortType = 'price'; sortReverse = !sortReverse; pSortReverse = !pSortReverse; tnSortReverse = false; aSortReverse = false; eSortReverse = false; dSortReverse = false">Price
+                        <span ng-show= "!pSortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show= "pSortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </li>
+                <li>
+                    <a  class="clickSort" ng-click="sortType = 'date'; sortReverse = !sortReverse; dSortReverse = !dSortReverse; tnSortReverse = false; pSortReverse = false; eSortReverse = false">Date Listed
+                        <span ng-show= "!dSortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show= "dSortReverse" class="fa fa-caret-up"></span>
+
+                    </a>
+                </li>
+              </ul>
+              
+
+              <!--Search bar-->
+
+              <ul class="nav navbar-nav navbar-right">
+
+                <form class="navbar-form navbar-left" >
+                    <div class="form-group">
+                        <label for="search">Items Per Page</label>
+                        <input type="number" min="1" max="100" class="inNavbar form-control" ng-model="pageSize">
+                    </div>
+                    <div class="form-group" style="width:20px">
+                        <br><br>
+                    </div>
+                  <div class="form-group" role="search">
+                      <input type="text" class="top-nav-search-text" placeholder="Search..." ng-model="searchBar">
+                      <span class="input-roup-btn">
+                          <button class="btn btn-default top-nav-search-icon" type="button">
+                              <i class="fa fa-search"></i>
+                          </button>
+                      </span>
+                  </div>
+                </form>  
+              </ul>
+
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+    <div class="row paginateControls">
+        <center>
+        <div>            
+            <dir-pagination-controls class=""></dir-pagination-controls>
+        </div>   
+        </center>
+    </div>
+    <div class="row" >
+        <div class="listingCard col-lg-4" dir-paginate-start="textbook in textbooks | orderBy:sortType:sortReverse | filter:searchBar | itemsPerPage:pageSize" current-page="currentPage">
+            <!-- <div class="clickLayer" ng-click="getTextbookInfo(textbook)">
+            </div> -->
+            <div class="mainPanel" ng-click="getTextbookInfo(textbook)">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <h3>{{textbook.textbookName}}</h3>
+                        
+                        <h4>{{textbook.author}} <small>{{textbook.edition}} edition</small> </h4>
+
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="priceTag">{{textbook.price | currency}}</div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="listingDescription">
+                            {{textbook.description}}
+                        </p>
+                    </div>
+                </div>
+                <div class="row text-right listingDate">
+                    <div class="col-xs-12">
+                            <p>{{textbook.date | date:'mediumDate'}}</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div dir-paginate-end></div>
+    </div>
+    
 </div>

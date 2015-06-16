@@ -13,7 +13,29 @@
 
 			<label for="inputEdition" class="col-sm-1 control-label">Edition</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control" id="inputEdition" placeholder="Third" ng-model="newListing.edition">
+				<select type="text" class="form-control" id="inputEdition" placeholder="First" ng-model="newListing.edition">
+					<option>First</option>
+					<option>Second</option>
+					<option>Third</option>
+					<option>Fourth</option>
+					<option>Fifth</option>
+					<option>Sixth</option>
+					<option>Seventh</option>
+					<option>Eighth</option>
+					<option>Ninth</option>
+					<option>Tenth</option>
+					<option>Eleventh</option>
+					<option>Twelfth</option>
+					<option>Thirteenth</option>
+					<option>Fourteenth</option>
+					<option>Fifteenth</option>
+					<option>Sixteenth</option>
+					<option>Seventeenth</option>
+					<option>Eighteenth</option>
+					<option>Nineteenth</option>
+					<option>Twentieth</option>
+
+				</select>
 			</div>
 		</div>
 		<div class="form-group">
@@ -24,7 +46,10 @@
 
 			<label for="inputPrice" class="col-sm-1 control-label">Price</label>
 			<div class="col-sm-4">
-				<input type="number" class="form-control" id="inputPrice" placeholder="$666" ng-model="newListing.price">
+				<div class="input-group">
+				  <span class="input-group-addon">$</span>
+				  <input type="number" class="form-control" aria-label="Price" id="inputPrice" placeholder="$666" ng-model="newListing.price">
+				</div>
 			</div>
 		</div>
 		

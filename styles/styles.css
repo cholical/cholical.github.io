@@ -116,6 +116,10 @@ body {
   font-size:18px;
 }
 
+.homeBlurb {
+  padding:10px;
+}
+
 .classRow input.form-control{
   
   display:inline;
@@ -144,4 +148,139 @@ form.form-horizontal em {
 
 .submitBtn {
   background:#33CC33;
+}
+
+.navbar-listings {
+  box-shadow:none;
+  font-size:14px;
+  background:#c9e3f5;
+}
+
+.navbar-listings .navbar-brand {
+  color:#444;
+  margin-left:inherit !important;
+  cursor:default;
+}
+.navbar-listings .navbar-nav > li > a {
+  font-size:14px;
+  background:#c9e3f5;
+  color:#555;
+}
+
+.navbar-listings .navbar-nav > li > a:hover,
+.navbar-listings .navbar-nav > li > a:focus {
+  color:#ff7863;
+  background:#c9e3f5;
+  transition: color 400ms;
+}
+
+.navbar-listings form {
+  color:#333;
+}
+
+.navbar-listings label {
+  font-weight:normal;
+  color:#444;
+}
+.paginateControls div{
+  display:inline;
+  width:auto;
+  margin:5px auto;
+}
+
+.inNavbar  {
+  width:auto;
+  display:inline;
+}
+
+.pagination {
+  margin:0px 5px;
+}
+
+.newListing {
+  position:relative;
+  top:10px;
+  background:#FF732F;
+}
+.content {
+  background:#e8e8e8;
+    border-radius:6px;
+  color:#333;
+  padding:15px;
+  font-size:17px;
+  margin:10px 0px;
+}
+/*.navbar-nav .activeSort {
+  border-bottom:2px solid #ff7863;
+}
+*/
+.listinCard {
+}
+.listingCard .mainPanel{
+  background-color:#fff;
+  margin:10px 0px;
+  padding:;
+  box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+  height:200px;
+  transition:background-color 400ms;
+  border-radius:5px;
+}
+
+/*.clickLayer {
+  z-index:2;
+  position:absolute;
+  height:200px;
+  background:#56a0d3;
+  opacity:0;
+  margin:10px 0px;
+  width:100%;
+  transition:opacity 400ms;
+}
+
+.clickLayer:hover,
+.clickLayer:focus {
+    opacity:0.2;
+}*/
+
+.listingCard .mainPanel:hover,
+.listingCard .mainPanel:focus {
+    background-color:rgba(255, 171, 138,0.3)
+}
+
+.priceTag {
+  background:#ffab8a;
+  border-radius:0%;
+  padding:10px;
+  font-size:16px;
+  height:40px;
+  width:;
+  text-align:center;
+  margin:15px 0px;
+  color:#333;
+  overflow:hidden;
+}
+
+.listingCard h3 {
+    color:#3C7094;
+}
+
+.listingCard h4{
+    text-align:left;
+}
+
+.listingDate {
+  position:absolute;
+  bottom:15px;
+  right:15px;
+  font-style:italic;
+  font-size:14px;
+}
+
+.listingDescription {
+  border-top:1px solid #ddd;
+  padding:5px;
+  width:100%;
+  height:82px;
+  font-size:13px;
+  overflow:hidden;
 }
