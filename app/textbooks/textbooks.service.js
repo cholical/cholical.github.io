@@ -62,11 +62,17 @@
 
     getTextbooks = function() {
       //This function will eventually be the ajax call to the backend server
-      return makeTextbooks();
+       return $http.get("http://localhost:8888/tclassifieds/json/textbooks.json").then(
+        function (response) {
+          return response.data;
+        });
     }
 
-    postTextbooks = function() {
-      //This function will eventually be the ajax push to the backend server
+    postTextbooks = function(updateJsonObject) {
+      return $http.post("http://localhost:8888/tclassifieds/json/textbooks.json", updateJsonObject).then(
+        function(response){
+          return response.data;
+        });      
     }
 
     return {
