@@ -51,6 +51,17 @@
         document.getElementById("textbooksBar").className = "active";
     };
 
+    $scope.makeActive = function(sortParameter) {
+        var activeParameter = sortParameter + "SortId";
+        document.getElementById("textbookNameSortId").className = "clickSort";
+        document.getElementById("authorSortId").className = "clickSort";
+        document.getElementById("editionSortId").className = "clickSort";
+        document.getElementById("priceSortId").className = "clickSort";
+        document.getElementById("dateSortId").className = "clickSort";
+        document.getElementById(activeParameter).className = "clickSort activeSort";
+
+    }
+
     
 
     

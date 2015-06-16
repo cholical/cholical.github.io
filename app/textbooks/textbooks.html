@@ -51,32 +51,32 @@
               <!--Main Filtering links-->
               <ul class="nav navbar-nav">
                 <li class="">
-                    <a  class="clickSort activeSort" ng-click="sortType = 'textbookName'; sortReverse = !sortReverse; tnSortReverse = !tnSortReverse; aSortReverse = false; eSortReverse = false; pSortReverse = false; dSortReverse = false">Textbook Title
+                    <a  id="textbookNameSortId" class="clickSort" ng-click="sortType = 'textbookName'; sortReverse = !sortReverse; tnSortReverse = !tnSortReverse; aSortReverse = false; eSortReverse = false; pSortReverse = false; dSortReverse = false; makeActive('textbookName');">Textbook Title
                         <span ng-show= "!tnSortReverse" class="fa fa-caret-down"></span>
                         <span ng-show= "tnSortReverse" class="fa fa-caret-up"></span>
 
                     </a>
                 </li>
                 <li>
-                    <a  class="clickSort" ng-click="sortType = 'author'; sortReverse = !sortReverse; aSortReverse = !aSortReverse; tnSortReverse = false; eSortReverse = false; pSortReverse = false; dSortReverse = false">Author
+                    <a id="authorSortId" class="clickSort" ng-click="sortType = 'author'; sortReverse = !sortReverse; aSortReverse = !aSortReverse; tnSortReverse = false; eSortReverse = false; pSortReverse = false; dSortReverse = false; makeActive('author');">Author
                         <span ng-show= "!aSortReverse" class="fa fa-caret-down"></span>
                         <span ng-show= "aSortReverse" class="fa fa-caret-up"></span>
                     </a>
                 </li>
                 <li>
-                    <a  class="clickSort" ng-click="sortType = 'edition'; sortReverse = !sortReverse; eSortReverse = !eSortReverse; tnsSortReverse = false; aSortReverse = false; pSortReverse = false; dSortReverse = false">Edition
+                    <a id="editionSortId" class="clickSort" ng-click="sortType = 'edition'; sortReverse = !sortReverse; eSortReverse = !eSortReverse; tnsSortReverse = false; aSortReverse = false; pSortReverse = false; dSortReverse = false; makeActive('edition');">Edition
                         <span ng-show= "!eSortReverse" class="fa fa-caret-down"></span>
                         <span ng-show= "eSortReverse" class="fa fa-caret-up"></span>
                     </a>
                 </li>
                 <li>
-                    <a class="clickSort" ng-click="sortType = 'price'; sortReverse = !sortReverse; pSortReverse = !pSortReverse; tnSortReverse = false; aSortReverse = false; eSortReverse = false; dSortReverse = false">Price
+                    <a id="priceSortId" class="clickSort" ng-click="sortType = 'price'; sortReverse = !sortReverse; pSortReverse = !pSortReverse; tnSortReverse = false; aSortReverse = false; eSortReverse = false; dSortReverse = false; makeActive('price');">Price
                         <span ng-show= "!pSortReverse" class="fa fa-caret-down"></span>
                         <span ng-show= "pSortReverse" class="fa fa-caret-up"></span>
                     </a>
                 </li>
                 <li>
-                    <a  class="clickSort" ng-click="sortType = 'date'; sortReverse = !sortReverse; dSortReverse = !dSortReverse; tnSortReverse = false; pSortReverse = false; eSortReverse = false">Date Listed
+                    <a id="dateSortId" class="clickSort activeSort" ng-click="sortType = 'date'; sortReverse = !sortReverse; dSortReverse = !dSortReverse; tnSortReverse = false; pSortReverse = false; eSortReverse = false; makeActive('date')">Date Listed
                         <span ng-show= "!dSortReverse" class="fa fa-caret-down"></span>
                         <span ng-show= "dSortReverse" class="fa fa-caret-up"></span>
 
