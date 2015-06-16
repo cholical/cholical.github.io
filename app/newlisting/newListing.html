@@ -3,16 +3,21 @@
 </div>
 <div class="modal-body">
 	<form class="form-horizontal">
-		<h4>Textbook Information</h4>
+		<h4 ng-hide="textbookHideObject">Textbook Information</h4><h4 ng-hide="accessoryHideObject">Accessory Information</h4><h4 ng-hide="serviceHideObject">Service Information</h4>
 		
 		<div class="form-group">
-			<label for="inputTitle" class="col-sm-2 control-label">Textbook Title</label>
+			<label ng-hide="textbookHideObject" for="inputTitle" class="col-sm-2 control-label">Textbook Title</label>
+			<label ng-hide="accessoryHideObject" for="inputTitle" class="col-sm-2 control-label">Accessory Title</label>
+			<label ng-hide="serviceHideObject" for="inputTitle" class="col-sm-2 control-label">Service Title</label>
+
 			<div class="col-sm-4">
-				<input type="text" class="form-control" id="inputTitle" placeholder="Rising Up: A book on Erectile Dysfunction" ng-model="newListing.textbookName">
+				<input ng-hide="textbookHideObject" type="text" class="form-control" id="inputTitle" placeholder="Rising Up: A book on Erectile Dysfunction" ng-model="newListing.textbookName">
+				<input ng-hide="accessoryHideObject" type="text" class="form-control" id="inputTitle" placeholder="Rising Up: Not a book on Erectile Dysfunction" ng-model="newListing.accessoryName">
+				<input ng-hide="serviceHideObject" type="text" class="form-control" id="inputTitle" placeholder="Rising Up: Mac will never read this" ng-model="newListing.serviceName">
 			</div>
 
-			<label for="inputEdition" class="col-sm-1 control-label">Edition</label>
-			<div class="col-sm-4">
+			<label ng-hide="textbookHideObject" for="inputEdition" class="col-sm-1 control-label">Edition</label>
+			<div ng-hide="textbookHideObject" class="col-sm-4">
 				<select type="text" class="form-control" id="inputEdition" placeholder="First" ng-model="newListing.edition">
 					<option>First</option>
 					<option>Second</option>
@@ -39,8 +44,8 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputAuthor" class="col-sm-2 control-label">Author</label>
-			<div class="col-sm-4">
+			<label ng-hide="textbookHideObject" for="inputAuthor" class="col-sm-2 control-label">Author</label>
+			<div ng-hide="textbookHideObject" class="col-sm-4">
 				<input type="text" class="form-control" id="inputAuthor" placeholder="Ronald Ding" ng-model="newListing.author">
 			</div>
 
@@ -60,7 +65,7 @@
 				<textarea type="text" rows="5" class="form-control" id="inputDescription" placeholder="ASDFASDFASDF" ng-model="newListing.description"></textarea>
 			</div>
 		</div>
-		<div class="form-group">
+		<div ng-hide="textbookHideObject" class="form-group">
 			<label for="inputClass" class="col-sm-2 control-label">Class</label>
 			<div class="col-sm-9">
 				<form class="form-inline">
@@ -135,9 +140,9 @@
 		<div class="form-group">
 			<label for="inputBuyorSell" class="col-sm-4 control-label">Submission Type</label>
 			<div class="col-sm-5">
-				<select class="form-control">
-				  <option>I want to sell this item</option>
-				  <option>I want to buy this item</option>
+				<select class="form-control" ng-model="newListing.acceptingOffers">
+				  <option value="true">I want to sell this item</option>
+				  <option value="false">I want to buy this item</option>
 				</select>
 			</div>
 		</div>

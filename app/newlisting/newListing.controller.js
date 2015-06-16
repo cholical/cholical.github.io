@@ -4,24 +4,36 @@
   var app;
 
   app = angular.module("tclassified");
-  app.controller('newListingCtrl', ['$scope', '$modalInstance', 'newListingSvc', '$stateParams', '$log', function newListingCtrl($scope, $modalInstance, newListingSvc, $stateParams, $log){
+  app.controller('newListingCtrl', ['$scope', '$modalInstance', 'newListingSvc', '$stateParams', '$log', 'type', function newListingCtrl($scope, $modalInstance, newListingSvc, $stateParams, $log, type) {
+
+    $scope.typeOfObject = type;
+
+    if ($scope.typeOfObject === "textbook") {
+        console.log("textbook type");
+        $scope.textbookHideObject = false;
+        $scope.accessoryHideObject = true;
+        $scope.serviceHideObject = true;
+    } else if ($scope.typeOfObject === "accessory") {
+        console.log("accessory type");
+        $scope.accessoryHideObject = false;
+        $scope.textbookHideObject = true;
+        $scope.serviceHideObject = true;
+    } else if ($scope.typeOfObject === "service") {
+        console.log("service type");
+        $scope.accessoryHideObject = true;
+        $scope.textbookHideObject = true;
+        $scope.serviceHideObject = false;
+    }
 
     $scope.class2 = true;
     $scope.class3 = true;
     $scope.class4 = true;
     $scope.class5 = true;
     $scope.newListing = {
-        textbookName: "",
-        author: "",
-        edition: "",
-        classes: [],
         price: 0,
         acceptingOffers: true,
-        sellerName: "",
-        description: "",
-        contactInfo: "",
-        password: ""
     };
+
     $scope.addClass2 = function() {
         $scope.class2 = false;
     };

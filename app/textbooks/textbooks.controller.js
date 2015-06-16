@@ -17,8 +17,8 @@
 
     $scope.getTextbookInfo = function(textbook) {
     	var modalInstance = $modal.open({
-    		templateUrl: 'app/textbookinfo/textbookInfo.html',
-    		controller: 'textbookInfoCtrl',
+    		templateUrl: 'app/info/info.html',
+    		controller: 'infoCtrl',
     		resolve: {
     			data: function() {
     				return textbook;
@@ -36,7 +36,12 @@
       var modalInstance = $modal.open({
         templateUrl: 'app/newlisting/newListing.html',
         controller: 'newListingCtrl',
-        size: 'lg'
+        size: 'lg',
+        resolve:  {
+          type: function() {
+            return "textbook";
+          }
+        }
       })
       modalInstance.result.then(function() {
         $scope.textbooks.push(newListingSvc.getNewListing());
