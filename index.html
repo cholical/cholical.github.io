@@ -5,48 +5,28 @@
 
     <title>TClassified</title>
 
-    <!-- Bootstrap Core CSS -->
+    <!-- BootyStrap -->
     <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-
-     <!-- Bootstrap Custom CSS -->
     <link href="lib/bootstrap/dist/css/bootstrap-custom.css" rel="stylesheet" />
 
-    <!-- Main CSS -->
+    <!-- StylishSheets -->
     <link href="styles/styles.css" rel="stylesheet">
-
-    <!-- Timeline CSS -->
     <link href="styles/timeline.css" rel="stylesheet">
 
-    <!-- DataTables CSS -->
+    <!-- You're a (Data)Table -->
     <link href="lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
-
-    <!-- DataTables Responsive CSS -->
     <link href="lib/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">    
-    
-    <!-- Custom SB Admin Theme CSS -->
     <link href="styles/sb-admin-2.css" rel="stylesheet">    
-
-    <!-- MetisMenu CSS -->
     <link href="lib/metisMenu/dist/metisMenu.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
     <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->   
 
     <!-- vendor scripts -->
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="lib/lodash/STOPlodash.js"></script>
+    <script src="lib/lodash/lodash.js"></script>
     <script src="lib/moment/min/moment.min.js"></script>
     <script src="lib/spin.js/spin.js"></script>
     <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
     
@@ -72,35 +52,13 @@
 
     <!-- Styling Scripts -->
     <script type="text/javascript" src="styleScript.js"></script>
+    <script src="app/styleScripts.js"></script>
 
     </head>
 
     <body>
 
-    <div class="" id="wrapper" ui-view></div>
-    <div class="pageFooter container-fluid">
-            <div id="stripe"></div>
-            <div id="midStripe">Footer Heading</div>
-            <div id="footerContent">
-                <div class="row">
-                    <div class="col-md-5">
-                        <p>This is the random legal stuff. We don't have a laywer yet. Please don't sue us.</p>
-                        <p>If you have to, please be gentle. Remember, we did say "please".</p>
-                    </div>
-                    <div class="col-md-2"></div>
-                    <div class="col-md-5">
-                        <p>Also links to sitemap, support, contact, and shit that no one wants to see but should be included anyway.</p>
-                        <p>For example here is a link to <a href="https://www.google.com/">Google</a> and here is a link to <a href="http://www.staggeringbeauty.com/">Staggering Beauty</a>.
-                    </div>
-                </div>
-                <div class="row infoAtBottom">
-                    <br><br>
-                    Copyright &#169; 2015 - Cholical Incorporated <br>
-                    Site last updated: <span id="updated">test</span>
-                </div>
-
-            </div>
-    </div>
+    <div ng-include="'footerTemplate.html'"></div>
     
     
 
