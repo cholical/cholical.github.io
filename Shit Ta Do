@@ -1,0 +1,13 @@
+Shit Ta Do
+
+1. Fix editing listings so that all classes are displayed;
+	a. Pass in listing variable; detect type of listing using hasOwnProperty for sellerName property
+	b. If sellerName property is defined, then unhide all classes and hide all buttons
+	c. If sellerName property is undefined, then proceed normally
+
+2. Research validation and error checking for forms; implement error checking on create new listing and edit listing
+3. Write blurbs for textbook and accessory listings
+4. Write blurbs for about us
+5. Stylize the textbook and accessory info pages
+
+6. Create backend yo!
