@@ -4,7 +4,7 @@
   var app;
 
   app = angular.module("tclassified");
-  app.controller('newListingCtrl', ['$scope', '$modalInstance', 'newListingSvc', '$stateParams', '$log', 'type', function newListingCtrl($scope, $modalInstance, newListingSvc, $stateParams, $log, type) {
+  app.controller('newListingCtrl', ['$scope', '$modalInstance', 'newListingSvc', '$stateParams', '$log', 'listing', 'type', function newListingCtrl($scope, $modalInstance, newListingSvc, $stateParams, $log, listing, type) {
 
     $scope.typeOfObject = type;
 
@@ -25,14 +25,19 @@
         $scope.serviceHideObject = false;
     }
 
+    if (listing.hasOwnProperty("sellerName")) {
+        $scope.hideNewMessage = true;
+        $scope.hideEditMessage = false;
+    } else {
+        $scope.hideNewMessage = false;
+        $scope.hideEditMessage = true;
+    }
+
     $scope.class2 = true;
     $scope.class3 = true;
     $scope.class4 = true;
     $scope.class5 = true;
-    $scope.newListing = {
-        price: 0,
-        acceptingOffers: true,
-    };
+    $scope.newListing = angular.copy(listing);
 
     $scope.addClass2 = function() {
         $scope.class2 = false;

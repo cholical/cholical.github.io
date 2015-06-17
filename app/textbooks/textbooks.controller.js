@@ -14,6 +14,10 @@
     $scope.currentPage = 1;
     $scope.sortType = "date";
     $scope.sortReverse = true;
+    $scope.listing = {
+      price: 0,
+      acceptingOffers: true
+    };
 
     $scope.getTextbookInfo = function(textbook) {
     	var modalInstance = $modal.open({
@@ -38,6 +42,9 @@
         controller: 'newListingCtrl',
         size: 'lg',
         resolve:  {
+          listing: function() {
+            return $scope.listing;
+          },
           type: function() {
             return "textbook";
           }

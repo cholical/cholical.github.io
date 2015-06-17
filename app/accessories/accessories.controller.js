@@ -11,6 +11,10 @@
     $scope.currentPage = 1;
     $scope.sortType = "date";
     $scope.sortReverse = true;
+    $scope.listing = {
+      price: 0,
+      acceptingOffers: true
+    }
 
     $scope.getAccessoryInfo = function(accessory) {
       var modalInstance = $modal.open({
@@ -30,6 +34,9 @@
         controller: 'newListingCtrl',
         size: 'lg',
         resolve:  {
+          listing: function() {
+            return $scope.listing;
+          },
           type: function() {
             return "accessory";
           }

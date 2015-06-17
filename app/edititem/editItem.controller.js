@@ -4,7 +4,7 @@
   var app;
 
   app = angular.module("tclassified");
-  app.controller('editTextbookCtrl', ['$scope', '$modalInstance', 'newListingSvc', '$stateParams', '$log', 'data', function editTextbookCtrl($scope, $modalInstance, newListingSvc, $stateParams, $log, data){
+  app.controller('editItemCtrl', ['$scope', '$modalInstance', 'newListingSvc', '$stateParams', '$log', 'data', function editItemCtrl($scope, $modalInstance, newListingSvc, $stateParams, $log, data){
 
     $scope.storedTextbook = data;
     $scope.newListing = angular.copy($scope.storedTextbook);

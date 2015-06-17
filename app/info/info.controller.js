@@ -9,16 +9,19 @@
     $scope.item = data;
     if ($scope.item.hasOwnProperty("textbookName")) { 
         console.log("textbook passed in");
+        $scope.typeOfObject = "textbook";
         $scope.textbookHideObject = false;
         $scope.accessoryHideObject = true;
         $scope.serviceHideObject = true;
     } else if ($scope.item.hasOwnProperty("accessoryName")) {
         console.log("accessory passed in");
+        $scope.typeOfObject = "accessory";
         $scope.textbookHideObject = true;
         $scope.accessoryHideObject = false;
         $scope.serviceHideObject = true;
     } else if ($scope.item.hasOwnProperty("serviceName")) {
         console.log("service passed in");
+        $scope.typeOfObject = "service";
         $scope.textbookHideObject = true;
         $scope.accessoryHideObject = true;
         $scope.serviceHideObject = false;
@@ -32,11 +35,14 @@
         console.log($scope.passwordInput)
         if ($scope.passwordInput === $scope.item.password) {
             var modalInstance = $modal.open({
-            templateUrl: 'app/edititem/editTextbook.html',
-            controller: 'editTextbookCtrl',
+            templateUrl: 'app/newlisting/newListing.html',
+            controller: 'newListingCtrl',
             resolve: {
-                data: function() {
+                listing: function() {
                     return currentItem;
+                },
+                type: function() {
+                    return $scope.typeOfObject;
                 }
             },
             size: 'lg'
