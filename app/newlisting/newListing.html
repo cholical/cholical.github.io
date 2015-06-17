@@ -13,12 +13,12 @@
 
 			<div class="col-sm-4">
 				<input ng-hide="textbookHideObject" type="text" class="form-control" id="inputTitle" placeholder="Rising Up: A book on Erectile Dysfunction" ng-model="newListing.textbookName">
-				<input ng-hide="accessoryHideObject" type="text" class="form-control" id="inputTitle" placeholder="Rising Up: Not a book on Erectile Dysfunction" ng-model="newListing.accessoryName">
-				<input ng-hide="serviceHideObject" type="text" class="form-control" id="inputTitle" placeholder="Rising Up: Mac will never read this" ng-model="newListing.serviceName">
+				<input ng-hide="accessoryHideObject" type="text" class="form-control" id="inputTitle" placeholder="Used Condom" ng-model="newListing.accessoryName">
+				<input ng-hide="serviceHideObject" type="text" class="form-control" id="inputTitle" placeholder="Rising Up: Mac will never read this. i am ronald ding and i am an asshole" ng-model="newListing.serviceName">
 			</div>
 
-			<label ng-hide="textbookHideObject" for="inputEdition" class="col-sm-1 control-label">Edition</label>
-			<div ng-hide="textbookHideObject" class="col-sm-4">
+			<label ng-hide="textbookHideObject" for="inputEdition" class="col-sm-2 control-label">Edition</label>
+			<div ng-hide="textbookHideObject" class="col-sm-3">
 				<select type="text" class="form-control" id="inputEdition" placeholder="First" ng-model="newListing.edition">
 					<option>First</option>
 					<option>Second</option>
@@ -50,8 +50,8 @@
 				<input type="text" class="form-control" id="inputAuthor" placeholder="Ronald Ding" ng-model="newListing.author">
 			</div>
 
-			<label for="inputPrice" class="col-sm-1 control-label">Price</label>
-			<div class="col-sm-4">
+			<label for="inputPrice" class="col-sm-2 control-label">Price</label>
+			<div class="col-sm-3">
 				<div class="input-group">
 				  <span class="input-group-addon">$</span>
 				  <input type="number" class="form-control" aria-label="Price" id="inputPrice" placeholder="$666" ng-model="newListing.price">

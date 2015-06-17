@@ -320,8 +320,9 @@ form.form-horizontal em {
       font-size:20px;
     }
 
-    .profile p {
-      
+    .profile h5 {
+      border-top:2px solid #FF732F;
+      padding-top:15px;
     }
 
     
