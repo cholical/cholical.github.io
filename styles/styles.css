@@ -268,12 +268,18 @@ form.form-horizontal em {
 }
 
 .listingDate {
-  position:absolute;
+  position:relative;
   bottom:15px;
-  right:15px;
+  
   font-style:italic;
   font-size:14px;
 }
+
+/*.sellListing {
+  width:100%;
+  border-bottom:5px solid #12E90D;
+  height:15px;
+}*/
 
 .listingDescription {
   border-top:1px solid #ddd;
