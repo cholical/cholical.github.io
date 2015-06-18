@@ -16,7 +16,8 @@
     $scope.sortReverse = true;
     $scope.listing = {
       price: 0,
-      acceptingOffers: true
+      acceptingOffers: true,
+      classes: []
     };
 
     $scope.getTextbookInfo = function(textbook) {
