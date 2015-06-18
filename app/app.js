@@ -38,6 +38,10 @@
         templateUrl: 'app/about/about.html',
         controller: 'aboutCtrl'
       })
+      .state('superimportant', {
+        url: '/superImportantPage',
+        templateUrl: 'superImportantPage.html'
+      })
     
     $urlRouterProvider.otherwise('/home');
     

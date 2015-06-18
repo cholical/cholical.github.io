@@ -10,7 +10,7 @@
       $scope.textbooks = data;
     };
     textbooksSvc.getTextbooks().then(onTextbookSuccess);
-    $scope.pageSize = 10;
+    $scope.pageSize = 12;
     $scope.currentPage = 1;
     $scope.sortType = "date";
     $scope.sortReverse = true;
