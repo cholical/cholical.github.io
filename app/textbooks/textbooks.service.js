@@ -62,10 +62,26 @@
 
     getTextbooks = function() {
       //This function will eventually be the ajax call to the backend server
-       return $http.get("json/textbooks.json").then(
-        function (response) {
+       
+
+
+        return $http(
+          {
+            method: "POST",
+            url: "getListings.php",
+          }
+        ).then(function(response) {
           return response.data;
-        });
+        }
+            
+        );
+
+        //$http.get("json/textbooks.json").then(function (response) {
+        //        return response.data;
+        //    })
+
+        
+
     }
 
     postTextbooks = function(updateJsonObject) {
