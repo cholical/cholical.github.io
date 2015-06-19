@@ -53,6 +53,16 @@
         }
     }
 
+    $scope.passwordField = true;
+    $scope.editButton = false;
+    $scope.passwordSubmitButton = true;
+
+    $scope.editPostButton = function(){
+        $scope.passwordField = false;
+        $scope.editButton = true;
+        $scope.passwordSubmitButton = false;
+    };
+
   }]);
 }());
 
