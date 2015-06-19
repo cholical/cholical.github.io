@@ -41,18 +41,26 @@
 body {
  font-size: 12px; 
  padding:0px;
+ background:url('../img/unclogosmall.png');
+ background-attachment:fixed;
+ background-position:center center;
+ background-repeat:no-repeat;
 }
 
 .mainContent {
-
+  background:rgba(248,248,248,0.9);
+  padding:20px 10px;
 }
 
+.homeHeader div {
+  background:#f8f8f8;
+}
 .pageFooter {
   position:relative;
   bottom:0px;
   width:100%;
   margin: 0px auto;
-  margin-top:30px;
+  margin-top:0px;
 }
 
 #stripe {
@@ -244,7 +252,7 @@ form.form-horizontal em {
 
 .listingCard .mainPanel:hover,
 .listingCard .mainPanel:focus {
-    background-color:rgba(255, 171, 138,0.3)
+    background-color:#FAE1D7;
 }
 
 .priceTag {
