@@ -7,9 +7,6 @@ var app = angular.module('tclassified');
 app.directive("styleScripts", function() {
   var linkFunction = function(scope, element, attributes) {
     $('.titleField').textfit('bestfit');
-    if($.browser.mozilla){
-      $(".passwordField").addclass("firefoxFixPasswordField");
-    }
     var headerHeight = $('.profileInfo h4').outerHeight(true);
     var oldTop = $('.profile').height() - headerHeight;
     $('.profileInfo').css('top',oldTop);
