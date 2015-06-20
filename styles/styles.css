@@ -116,6 +116,44 @@ body {
     position:relative;
     
   }
+
+  .socialMedia {
+    margin-top:10px;
+  }
+  .socialMedia i{
+    font-size:50px;
+    color:#888;
+    transition: color 320ms;
+    cursor:pointer;
+    margin:0px 3px;
+    width: 41.5px;
+
+    border-radius: 8px;
+    
+    line-height: 41px;
+  }
+
+  .socialMedia .fa-facebook-square:hover,
+  .socialMedia .fa-facebook-square:focus {
+    color: #3b5998;
+    background: #f8f8f8;
+    transition: background 320ms;
+  }
+
+  .socialMedia .fa-twitter-square:hover,
+  .socialMedia .fa-twitter-square:focus {
+    color:#55acee;
+    background: #f8f8f8;
+    transition: background 320ms;
+  }
+
+  .socialMedia .fa-github-square:hover,
+  .socialMedia .fa-github-square:focus {
+    color:#7457C5;
+    background: #f8f8f8;
+    transition: background 320ms;
+  }
+
 #updated {
   font-style:italic;
 }
@@ -126,6 +164,9 @@ body {
 
 .homeBlurb {
   padding:10px;
+  background:#D1EBFD;
+  text-align:;
+  height:295px;
 }
 
 .classRow input.form-control{
@@ -210,7 +251,7 @@ form.form-horizontal em {
   background:#FF732F;
 }
 .content {
-  background:#e8e8e8;
+  background:#e8e8e8;;
     border-radius:6px;
   color:#333;
   padding:15px;
@@ -391,6 +432,25 @@ button.editInfo:hover {
 
 .infoFooter .text-right {
   
+}
+
+.profileRow {
+  background: rgba(0,0,0,0.1);
+  color: #333;
+  box-shadow: 0 0 4px 4px #bbb inset;
+  /* width: 90%; */
+  border: 10px solid #E4F4FF;
+  margin-top:-10px;
+}
+
+.profileRow h3 {
+
+  background:#E4F4FF;
+  margin:0;
+  padding:10px 20px;
+  display:inline;
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
 }
 .profile {
   width:300px;
