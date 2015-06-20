@@ -251,7 +251,7 @@ form.form-horizontal em {
   background:#FF732F;
 }
 .content {
-  background:#e8e8e8;
+  background:#e8e8e8;;
     border-radius:6px;
   color:#333;
   padding:15px;
@@ -432,6 +432,25 @@ button.editInfo:hover {
 
 .infoFooter .text-right {
   
+}
+
+.profileRow {
+  background: rgba(0,0,0,0.1);
+  color: #333;
+  box-shadow: 0 0 4px 4px #bbb inset;
+  /* width: 90%; */
+  border: 10px solid #E4F4FF;
+  margin-top:-10px;
+}
+
+.profileRow h3 {
+
+  background:#E4F4FF;
+  margin:0;
+  padding:10px 20px;
+  display:inline;
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
 }
 .profile {
   width:300px;
