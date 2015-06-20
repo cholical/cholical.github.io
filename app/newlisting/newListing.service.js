@@ -30,6 +30,7 @@
               "contactInfo" : newListingVar.contactInfo,
               "password" : newListingVar.password,
               "date" : newListingVar.date,
+              "textbook_id": newListingVar.textbook_id,
               
               "author" : newListingVar.author,
               "edition" : newListingVar.edition,
@@ -61,7 +62,9 @@
               "description" : newListingVar.description,
               "contactInfo" : newListingVar.contactInfo,
               "password" : newListingVar.password,
-              "date" : newListingVar.date
+              "date" : newListingVar.date,
+              "accessories_id" : newListingVar.accessories_id
+
 
 
             }
