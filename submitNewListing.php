@@ -7,7 +7,6 @@
 
     $postdata = file_get_contents("php://input");
     $request = json_decode($postdata);
-
     @$listingType = $request->listingType;
 
     //common variables
