@@ -62,6 +62,7 @@
       })
       modalInstance.result.then(function() {
         $scope.textbooks.push(newListingSvc.getNewListing());
+        location.reload();
       }, 
       function() {
         console.log("new list not created");

@@ -48,6 +48,7 @@
       })
       modalInstance.result.then(function() {
         $scope.accessories.push(newListingSvc.getNewListing());
+        location.reload();
         
       }, 
       function() {

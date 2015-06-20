@@ -38,18 +38,20 @@
     if (listing.hasOwnProperty("sellerName")) {
         $scope.hideNewMessage = true;
         $scope.hideEditMessage = false;
-        $scope.numClasses = listing.classes.length;
-            if ($scope.numClasses > 1) {
-                $scope.class2 = false;
-            }
-            if ($scope.numClasses > 2) {
-                $scope.class3 = false;
-            }
-            if ($scope.numClasses > 3) {
-                $scope.class4 = false;
-            }
-            if ($scope.numClasses > 4) {
-                $scope.class5 = false;
+        if (listing.hasOwnProperty("classes")) {
+            $scope.numClasses = listing.classes.length;
+                if ($scope.numClasses > 1) {
+                    $scope.class2 = false;
+                }
+                if ($scope.numClasses > 2) {
+                    $scope.class3 = false;
+                }
+                if ($scope.numClasses > 3) {
+                    $scope.class4 = false;
+                }
+                if ($scope.numClasses > 4) {
+                    $scope.class5 = false;
+                }
             }
     } else {
         $scope.hideNewMessage = false;
