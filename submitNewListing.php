@@ -32,14 +32,14 @@
         @$class5 = $request->class5;
 
     
-        $query = "INSERT INTO $listingType VALUES ($textbookName, $author, $edition, $class1, $class2, $class3, $class4, $class5, $price, $accpetingOffers, $sellerName, $description, $contactInfo, $password, $date, NULL);"; 
+        $query = "INSERT INTO $listingType VALUES ('$textbookName', '$author', '$edition', '$class1', '$class2', '$class3', '$class4', '$class5', '$price', '$accpetingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', NULL);"; 
         echo $query;
     } elseif ($listingType =="accessories") {
 
             //accessory exclusive fields
             @$accessoryName = $request->accessoryName;
 
-            $query = "INSERT INTO $listingType VALUES ($accessoryName, $price, $accpetingOffers, $sellerName, $description, $contactInfo, $password, $date, NULL);"; 
+            $query = "INSERT INTO $listingType VALUES ('$accessoryName', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', NULL);"; 
             echo $query;
         } 
     else {
@@ -47,11 +47,8 @@
     };
 
     //do query
-    $result = mysqli_query($query);
+    $result = mysqli_query($db_server, $query);
 
-    echo "bitch";
-    echo $listingType;
-    echo "bitch2";
 
 
 ?>  

@@ -32,7 +32,7 @@
         size: 'lg'
       })
     };
-      $scope.createNewListing = function() {
+    $scope.createNewListing = function() {
       var modalInstance = $modal.open({
         templateUrl: 'app/newlisting/newListing.html',
         controller: 'newListingCtrl',
@@ -48,7 +48,7 @@
       })
       modalInstance.result.then(function() {
         $scope.accessories.push(newListingSvc.getNewListing());
-        //Function to store new $scope.textbooks into the backend
+        
       }, 
       function() {
         console.log("new list not created");

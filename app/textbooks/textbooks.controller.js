@@ -62,7 +62,6 @@
       })
       modalInstance.result.then(function() {
         $scope.textbooks.push(newListingSvc.getNewListing());
-        textbooksSvc.postTextbooks($scope.textbooks).then(onPostSuccess);
       }, 
       function() {
         console.log("new list not created");

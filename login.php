@@ -1,10 +1,10 @@
 <?php // login.php 
 
 //db4Free Login
-// $db_hostname = 'db4free.net'; //url of mysql database location
-// $db_database = 'tclassified'; 
-// $db_username = 'cholical'; 
-// $db_password = 'h52FGdek!'; 
+$db_hostname = 'db4free.net'; //url of mysql database location
+$db_database = 'tclassified'; 
+$db_username = 'cholical'; 
+$db_password = 'h52FGdek!'; 
 
 
 //000Hosting Login
@@ -17,10 +17,10 @@
 
 
 //Localhost Login
-$db_hostname = 'localhost:3306'; //url of mysql database location
-$db_database = 'tclassified'; 
-$db_username = 'user'; 
-$db_password = 'cholical'; 
+// $db_hostname = 'localhost:3306'; //url of mysql database location
+// $db_database = 'tclassified'; 
+// $db_username = 'user'; 
+// $db_password = 'cholical'; 
 
 
 ?>

@@ -16,6 +16,7 @@
     setNewListing = function(newListing) {
         newListingVar = newListing;
         if (newListingVar.hasOwnProperty("textbookName")) {
+        console.log("sumitted new Listing for textbook");
         return $http({
             method: "post",
             url: "submitNewListing.php", 
@@ -47,6 +48,7 @@
 
         //new if
         if (newListingVar.hasOwnProperty("accessoryName")) {
+          console.log("sumitted new Listing for accessories");
         return $http({
             method: "post",
             url: "submitNewListing.php", 

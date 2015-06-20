@@ -13,6 +13,7 @@
     $scope.class4 = true;
     $scope.class5 = true;
     $scope.newListing = angular.copy(listing);
+    $scope.phpDebug;
 
 
     if ($scope.typeOfObject === "textbook") {
@@ -82,7 +83,9 @@
             $scope.newListing.class4 = $scope.newListing.classes[3];
             $scope.newListing.class5 = $scope.newListing.classes[4];
         }
-        newListingSvc.setNewListing($scope.newListing);
+        newListingSvc.setNewListing($scope.newListing).then(function(data) {
+            //$scope.phpDebug = data;
+        });
         console.log($scope.newListing);
         $modalInstance.close();
     };
