@@ -63,14 +63,29 @@
     getTextbooks = function() {
       //This function will eventually be the ajax call to the backend server
        
+      /*
 
+        return $http.post("getListings.php", 
+            {
+              "listingType" : "textbooks"
+            }
 
-        return $http(
-          {
-            method: "POST",
-            url: "getListings.php",
-          }
-        ).then(function(response) {
+          ).then(function(response) {
+          return response.data;
+        }
+            
+        );
+
+      */
+
+        return $http({
+            method: "post",
+            url: "getListings.php", 
+            data: {
+              "listingType" : "textbooks"
+            }
+
+          }).then(function(response) {
           return response.data;
         }
             

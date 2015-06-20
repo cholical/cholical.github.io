@@ -8,8 +8,17 @@
 
     var onTextbookSuccess = function(data) {
       $scope.textbooks = data;
+       angular.forEach($scope.textbooks, function (textbook) {
+      textbook.classes = [textbook.class1, textbook.class2, textbook.class3, textbook.class4, textbook.class5];
+    })
+
+    console.log("Classes for first textbook");
+    console.log($scope.textbooks[0].classes);
     };
     textbooksSvc.getTextbooks().then(onTextbookSuccess);
+
+
+
     $scope.pageSize = 12;
     $scope.currentPage = 1;
     $scope.sortType = "date";

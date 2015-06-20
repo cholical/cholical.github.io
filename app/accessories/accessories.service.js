@@ -45,7 +45,16 @@
 
     getAccessories = function() {
       //This function will eventually be the ajax call to the backend server
-      return makeAccessories();
+       return $http({
+            method: "post",
+            url: "getListings.php", 
+            data: {
+              "listingType" : "accessories"
+            }
+
+          }).then(function(response) {
+          return response.data;
+        })
     }
 
     postAccessories = function() {

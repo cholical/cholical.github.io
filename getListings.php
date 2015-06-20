@@ -5,9 +5,12 @@
     if (!$db_server) die("Unable to connect to MySQL: " . mysqli_error());
     mysqli_select_db($db_server, $db_database) or die("Unable to select database: " . mysqli_error($db_server));
 
-    $listingType = "textbooks";
+    $postdata = file_get_contents("php://input");
+    $request = json_decode($postdata);
+    @$listingType = $request->listingType;
+
     //fetch table rows from mysql db
-    $query = "SELECT * from textbooks";
+    $query = "SELECT * from $listingType";
     $result = mysqli_query($db_server, $query) or die("Error in Selecting " . mysqli_error($db_server));
 
     //create an array
@@ -16,6 +19,8 @@
     {
         $rows[] = $row;
     }
+
+    array_shift($rows);
     
     //remove the comment below to just echo the json arrow
     echo json_encode($rows);

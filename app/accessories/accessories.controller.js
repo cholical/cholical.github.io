@@ -6,7 +6,11 @@
   app = angular.module("tclassified");
   app.controller('accessoriesCtrl', ['$scope', 'accessoriesSvc', 'newListingSvc', '$modal', '$stateParams', '$log', function accessoriesCtrl($scope, accessoriesSvc, newListingSvc, $modal, $stateParams, $log){
 
-  	$scope.accessories = accessoriesSvc.getAccessories();
+
+    var onAccessoriesSuccess = function(data) {
+      $scope.accessories = data;
+    };
+  	accessoriesSvc.getAccessories().then(onAccessoriesSuccess);
   	$scope.pageSize = 12;
     $scope.currentPage = 1;
     $scope.sortType = "date";
