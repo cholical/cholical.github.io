@@ -61,22 +61,7 @@
     };
 
     getTextbooks = function() {
-      //This function will eventually be the ajax call to the backend server
-       
-      /*
 
-        return $http.post("getListings.php", 
-            {
-              "listingType" : "textbooks"
-            }
-
-          ).then(function(response) {
-          return response.data;
-        }
-            
-        );
-
-      */
 
         return $http({
             method: "post",
@@ -90,13 +75,6 @@
         }
             
         );
-
-        //$http.get("json/textbooks.json").then(function (response) {
-        //        return response.data;
-        //    })
-
-        
-
     }
 
     postTextbooks = function(updateJsonObject) {

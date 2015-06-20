@@ -75,7 +75,15 @@
     };
     $scope.submitListing = function() {
         $scope.newListing.date = angular.copy(new Date());
+        if ($scope.newListing.hasOwnProperty("textbookName")) {
+            $scope.newListing.class1 = $scope.newListing.classes[0];
+            $scope.newListing.class2 = $scope.newListing.classes[1];
+            $scope.newListing.class3 = $scope.newListing.classes[2];
+            $scope.newListing.class4 = $scope.newListing.classes[3];
+            $scope.newListing.class5 = $scope.newListing.classes[4];
+        }
         newListingSvc.setNewListing($scope.newListing);
+        console.log($scope.newListing);
         $modalInstance.close();
     };
 

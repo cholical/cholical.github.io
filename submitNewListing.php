@@ -33,23 +33,25 @@
 
     
         $query = "INSERT INTO $listingType VALUES ($textbookName, $author, $edition, $class1, $class2, $class3, $class4, $class5, $price, $accpetingOffers, $sellerName, $description, $contactInfo, $password, $date, NULL);"; 
-
-    } else {
-         if ($listingType =="accessories") {
+        echo $query;
+    } elseif ($listingType =="accessories") {
 
             //accessory exclusive fields
             @$accessoryName = $request->accessoryName;
 
             $query = "INSERT INTO $listingType VALUES ($accessoryName, $price, $accpetingOffers, $sellerName, $description, $contactInfo, $password, $date, NULL);"; 
-
-        } else {
-            echo "This is a service listing"
-        }
-
+            echo $query;
+        } 
+    else {
+            echo "This is a service listing";
     };
 
     //do query
     $result = mysqli_query($query);
+
+    echo "bitch";
+    echo $listingType;
+    echo "bitch2";
 
 
 ?>  
