@@ -30,15 +30,15 @@
         @$class4 = $request->class4;
         @$class5 = $request->class5;
 
-        @$textbook_id = $request->textbook_id;
+        @$textbook_id = (int)$request->textbook_id;
 
-        $query = "SELECT price FROM $listingType WHERE textbook_id=(int)$textbook_id;";
+        $query = "SELECT price FROM $listingType WHERE textbook_id=$textbook_id;";
         $result = mysqli_query($db_server, $query) or die("Error in Selecting " . mysqli_error($db_server));
 
-        if (mysql_num_rows($result) > 0) { 
+        if (mysqli_num_rows($result) > 0) { 
         //if a listing with the passed in id exists, update instead of insert
            
-            $query = "UPDATE $listingType SET textbookName='$textbookName', author='$author', edition='$edition', class1='$class1', class2='$class2', class3='$class3', class4='$class4', class5='$class5', price='$price', acceptionOffers='$acceptingOffers', sellerName='$sellerName', description='$description', contactInfo='$contactInfo', password='$password', date='$date' WHERE textbook_id=(int)$textbook_id;";
+            $query = "UPDATE $listingType SET textbookName='$textbookName', author='$author', edition='$edition', class1='$class1', class2='$class2', class3='$class3', class4='$class4', class5='$class5', price='$price', acceptingOffers='$acceptingOffers', sellerName='$sellerName', description='$description', contactInfo='$contactInfo', password='$password', date='$date' WHERE textbook_id=$textbook_id;";
      
         } else {
         //this is a new listing, so use insert into
@@ -53,16 +53,17 @@
             //accessory exclusive fields
             @$accessoryName = $request->accessoryName;
 
-            @$accessory_id = $request->accessory_id;
+            @$accessory_id = (int)$request->accessory_id;
 
-            $query = "SELECT price FROM $listingType WHERE accessory_id=(int)$accessory_id;";
+            $query = "SELECT price FROM $listingType WHERE accessory_id=$accessory_id;";
             $result = mysqli_query($db_server, $query) or die("Error in Selecting " . mysqli_error($db_server));
 
-            if (mysql_num_rows($result) > 0) { 
+            if (mysqli_num_rows($result) > 0) { 
             //if a listing with the passed in id exists, update instead of insert
                
-                $query = "UPDATE $listingType SET accessoryName='$accessoryName', price='$price', acceptionOffers='$acceptingOffers', sellerName='$sellerName', description='$description', contactInfo='$contactInfo', password='$password', date='$date' WHERE accessory_id=(int)$accessory_id;";
-            
+                $query = "UPDATE $listingType SET accessoryName='$accessoryName', price='$price', acceptingOffers='$acceptingOffers', sellerName='$sellerName', description='$description', contactInfo='$contactInfo', password='$password', date='$date' WHERE accessory_id=$accessory_id;";
+                
+                echo $query;
             } else {
             //this is a new listing, so use insert into
 

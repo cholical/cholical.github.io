@@ -13,6 +13,9 @@
     $scope.class4 = true;
     $scope.class5 = true;
     $scope.newListing = angular.copy(listing);
+    if ($scope.newListing.hasOwnProperty("price")) {
+        $scope.newListing.price = parseInt($scope.newListing.price);
+    }
     $scope.phpDebug;
 
 
