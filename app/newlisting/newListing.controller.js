@@ -110,9 +110,9 @@
 
     $scope.deleteListing = function(){
         //call the php script
-        // newListingSvc.deleteListing($scope.newListing).then(function(data) {
-        //     //$scope.phpDebug = data;
-        // });
+        newListingSvc.deleteListing($scope.newListing).then(function(data) {
+            //$scope.phpDebug = data;
+        });
         console.log('listing deleted');
         $modalInstance.close();
     };
