@@ -1,7 +1,7 @@
 (function () {
 
   "use strict";
-  var app, newListingVar, getNewListing, setNewListing;
+  var app, newListingVar, getNewListing, setNewListing, deleteListing;
   
   app = angular.module('tclassified');
 
@@ -75,10 +75,46 @@
         }
     };
 
+    deleteListing = function(newListing) {
+        newListingVar = newListing;
+        if (newListingVar.hasOwnProperty("textbookName")) {
+        console.log("deleted Listing for textbook");
+        return $http({
+            method: "post",
+            url: "deleteListing.php", 
+            data: {
+              "listingType" : "textbooks",
+              "textbook_id": newListingVar.textbook_id
+            }
+
+          }).then(function(response) {
+          return response.data;
+        });
+        
+        }
+
+        //new if
+        if (newListingVar.hasOwnProperty("accessoryName")) {
+          console.log("deleted Listing for accessories");
+        return $http({
+            method: "post",
+            url: "deleteListing.php", 
+            data: {
+              "listingType" : "accessories",
+              "accessory_id" : newListingVar.accessory_id
+            }
+
+          }).then(function(response) {
+          return response.data;
+        });
+        }
+    };
+
     return {
       newListingVar: newListingVar,
       getNewListing: getNewListing,
-      setNewListing: setNewListing
+      setNewListing: setNewListing,
+      deleteListing: deleteListing
      
     };
   }]);

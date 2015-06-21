@@ -198,6 +198,10 @@ form.form-horizontal em {
   background:#33CC33;
 }
 
+.confirmBtn {
+  background:#88CD88;
+}
+
 .navbar-listings {
   box-shadow:none;
   font-size:14px;

@@ -153,19 +153,41 @@
 	</form>
 </div>
 <div class="modal-footer">
-	<div class="col-xs-12">
-		<div class="col-xs-6">
-			<div class="col-xs-1">
-				<button type="button" class="btn btn-default btn-lg cancelBtn" ng-click="close()">
-					  <span class="glyphicon glyphicon-remove" aria-hidden="true">
-					  </span> Cancel
+	<div class="row">
+		<div class="col-md-3 text-left">
+			<button type="button" class="btn btn-default btn-lg cancelBtn" ng-click="close()">
+				  <span class="glyphicon glyphicon-remove" aria-hidden="true">
+				  </span> Cancel
+			</button>
+		</div>
+		<div class="col-md-6 text-center">
+			<div ng-hide="hideEditMessage">
+				<button ng-hide="hideDeleteButton" type="button" class="btn btn-default btn-lg deleteBtn" ng-click="pressDelete()">
+					  <span class="fa fa-trash-o" aria-hidden="true"></span> 
+					  Delete Listing
 				</button>
+				<div ng-hide="hideConfirmDelete">
+					<div class="row">Are you sure you want to permanently delete this listing?</div>
+					<div class="row">
+						<div class="col-xs-6 text-right">
+							<button type="button" class="btn btn-default btn-sm editInfo" ng-click="pussyOutAndDontDelete()">
+								  No
+							</button>
+						</div>
+						<div class="col-xs-6 text-left">
+							<button type="button" class="btn btn-default btn-sm editInfo" ng-click="deleteListing()">
+								  Yes
+							</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="col-xs-6">
+		<div class="col-md-3">
 			<button type="button" class="btn btn-default btn-lg submitBtn" ng-click="submitListing()">
-				  <span class="glyphicon glyphicon-ok" aria-hidden="true">
-				  </span> Submit Listing
+				  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
+				  <span ng-hide="hideNewMessage">Submit Listing</span>
+				  <span ng-hide="hideEditMessage">Save Changes</span>
 			</button>
 		</div>
 	</div>
