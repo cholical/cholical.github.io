@@ -63,7 +63,7 @@
               "contactInfo" : newListingVar.contactInfo,
               "password" : newListingVar.password,
               "date" : newListingVar.date,
-              "accessories_id" : newListingVar.accessories_id
+              "accessory_id" : newListingVar.accessory_id
 
 
 
