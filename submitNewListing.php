@@ -8,7 +8,7 @@
     $postdata = file_get_contents("php://input");
     $request = json_decode($postdata);
     @$listingType = $request->listingType;
-
+    
     //common variables
     @$price = $request->price;
     @$acceptingOffers = $request->acceptingOffers;
@@ -30,24 +30,54 @@
         @$class4 = $request->class4;
         @$class5 = $request->class5;
 
-    
-        $query = "INSERT INTO $listingType VALUES ('$textbookName', '$author', '$edition', '$class1', '$class2', '$class3', '$class4', '$class5', '$price', '$accpetingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', NULL);"; 
-        echo $query;
+        @$textbook_id = $request->textbook_id;
+
+        $query = "SELECT price FROM $listingType WHERE textbook_id=(int)$textbook_id;";
+        $result = mysqli_query($db_server, $query) or die("Error in Selecting " . mysqli_error($db_server));
+
+        if (mysql_num_rows($result) > 0) { 
+        //if a listing with the passed in id exists, update instead of insert
+           
+            $query = "UPDATE $listingType SET textbookName='$textbookName', author='$author', edition='$edition', class1='$class1', class2='$class2', class3='$class3', class4='$class4', class5='$class5', price='$price', acceptionOffers='$acceptingOffers', sellerName='$sellerName', description='$description', contactInfo='$contactInfo', password='$password', date='$date' WHERE textbook_id=(int)$textbook_id;";
+     
+        } else {
+        //this is a new listing, so use insert into
+
+            $query = "INSERT INTO $listingType VALUES ('$textbookName', '$author', '$edition', '$class1', '$class2', '$class3', '$class4', '$class5', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', NULL);"; 
+
+        };
+
+        
     } elseif ($listingType =="accessories") {
 
             //accessory exclusive fields
             @$accessoryName = $request->accessoryName;
 
-            $query = "INSERT INTO $listingType VALUES ('$accessoryName', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', NULL);"; 
-            echo $query;
+            @$accessory_id = $request->accessory_id;
+
+            $query = "SELECT price FROM $listingType WHERE accessory_id=(int)$accessory_id;";
+            $result = mysqli_query($db_server, $query) or die("Error in Selecting " . mysqli_error($db_server));
+
+            if (mysql_num_rows($result) > 0) { 
+            //if a listing with the passed in id exists, update instead of insert
+               
+                $query = "UPDATE $listingType SET accessoryName='$accessoryName', price='$price', acceptionOffers='$acceptingOffers', sellerName='$sellerName', description='$description', contactInfo='$contactInfo', password='$password', date='$date' WHERE accessory_id=(int)$accessory_id;";
+            
+            } else {
+            //this is a new listing, so use insert into
+
+                $query = "INSERT INTO $listingType VALUES ('$accessoryName', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', NULL);"; 
+
+            };
+
         } 
     else {
-            echo "This is a service listing";
+        //this is a service listing most likely unless ronald was stupid and passed in something other than services
     };
 
     //do query
     $result = mysqli_query($db_server, $query);
 
-
+    //eventually we might echo the listing id. get the listing id by selecting from the table where date = $date and so on
 
 ?>  
