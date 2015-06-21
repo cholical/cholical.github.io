@@ -95,8 +95,27 @@
         $modalInstance.close();
     };
 
+    $scope.hideDeleteButton = false;
+    $scope.hideConfirmDelete = true;
 
+    $scope.pressDelete = function(){
+        $scope.hideConfirmDelete = false;
+        $scope.hideDeleteButton = true;
+    };
 
+    $scope.pussyOutAndDontDelete = function(){
+        $scope.hideConfirmDelete = true;
+        $scope.hideDeleteButton = false;
+    };
+
+    $scope.deleteListing = function(){
+        //call the php script
+        // newListingSvc.deleteListing($scope.newListing).then(function(data) {
+        //     //$scope.phpDebug = data;
+        // });
+        console.log('listing deleted');
+        $modalInstance.close();
+    };
     
   }]);
 }());
