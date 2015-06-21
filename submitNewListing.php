@@ -47,6 +47,7 @@
 
         };
 
+        $query2 = "SELECT textbook_id FROM $listingType WHERE date='$date' and sellerName='$sellerName';"
         
     } elseif ($listingType =="accessories") {
 
@@ -63,13 +64,15 @@
                
                 $query = "UPDATE $listingType SET accessoryName='$accessoryName', price='$price', acceptingOffers='$acceptingOffers', sellerName='$sellerName', description='$description', contactInfo='$contactInfo', password='$password', date='$date' WHERE accessory_id=$accessory_id;";
                 
-                echo $query;
+            
             } else {
             //this is a new listing, so use insert into
 
                 $query = "INSERT INTO $listingType VALUES ('$accessoryName', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', NULL);"; 
 
             };
+
+            $query2 = "SELECT accessory_id FROM $listingType WHERE date='$date' and sellerName='$sellerName';"
 
         } 
     else {
@@ -80,5 +83,8 @@
     $result = mysqli_query($db_server, $query);
 
     //eventually we might echo the listing id. get the listing id by selecting from the table where date = $date and so on
+    $result2 = mysqli_query($db_server, $query2);
+    $row = mysql_fetch_row($result2);
+    echo $row[0];
 
 ?>  
