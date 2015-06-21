@@ -1,13 +1,22 @@
 Shit Ta Do
 
-1. Fix editing listings so that all classes are displayed;
-	a. Pass in listing variable; detect type of listing using hasOwnProperty for sellerName property
-	b. If sellerName property is defined, then unhide all classes and hide all buttons
-	c. If sellerName property is undefined, then proceed normally
+1. Delete Listing - Mac
+2. Update listings on client side - Ronald
+	a. Get Id from Submit new Listings. php - Mac and Ronald
+3. Angluar Validation - Ronald
+4. Change card stripe depeding on want or sell listing type - Mac
+5. Style About us - Mac
+6. Come up with Content for Home Page - Ronald
+7. Compatibility with long titles
+8. Find better hosting
+9. Cum up with a name
 
-2. Research validation and error checking for forms; implement error checking on create new listing and edit listing
-3. Write blurbs for textbook and accessory listings
-4. Write blurbs for about us
-6. Change card stripe depeding on want or sell listing type
-7. Create backend yo!
-8.ellipsis and wrap shit
+
+
+
+Secondary Tasks
+1. Add professor
+2. Imgur album support/picture support
+3. Break website/ugly mode
+4. DDOS Student Shelf India
+
