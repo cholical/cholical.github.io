@@ -61,8 +61,9 @@
         }
       })
       modalInstance.result.then(function() {
-        $scope.textbooks.push(newListingSvc.getNewListing());
-        location.reload();
+        $scope.textbooks.unshift(newListingSvc.getNewListing());
+        $scope.sortType = "textbookName";
+        $scope.sortType = "date";
       }, 
       function() {
         console.log("new list not created");

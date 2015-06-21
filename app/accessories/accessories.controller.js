@@ -47,8 +47,9 @@
         }
       })
       modalInstance.result.then(function() {
-        $scope.accessories.push(newListingSvc.getNewListing());
-        location.reload();
+        $scope.accessories.unshift(newListingSvc.getNewListing());
+      $scope.sortType = "accessoryName";
+      $scope.sortType = "date";
         
       }, 
       function() {
