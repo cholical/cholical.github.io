@@ -266,7 +266,7 @@ form.form-horizontal em {
   color:#ff7863 !important;
 }
 
-.listinCard {
+.listingCard {
 }
 .listingCard .mainPanel{
   background-color:#fff;
@@ -441,20 +441,22 @@ button.editInfo:hover {
 .profileRow {
   background: rgba(0,0,0,0.1);
   color: #333;
-  box-shadow: 0 0 4px 4px #bbb inset;
+  /* box-shadow: -5px 5px 4px 4px #bbb inset; */
   /* width: 90%; */
-  border: 10px solid #E4F4FF;
-  margin-top:-10px;
+  border: 10px solid transparent;
+  border-top: 10px solid #ffab8a;
+  border-bottom: 10px solid #ffab8a;
+  margin: -10px 0px;
 }
 
 .profileRow h3 {
+  margin: 10px 0px 0px 0px;
+  padding: 7px 20px;
+  display: inline-block;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #d64d3e;
 
-  background:#E4F4FF;
-  margin:0;
-  padding:10px 20px;
-  display:inline;
-  border-bottom-right-radius:10px;
-  border-bottom-left-radius:10px;
 }
 .profile {
   width:300px;
@@ -512,5 +514,16 @@ button.editInfo:hover {
 .profilePageArea {
   width:77%;
   overflow:hidden;
-  margin:0px auto;
+  margin:3px auto;
+}
+
+.aboutContent {
+  background:#fff;
+  color:#333;
+}
+
+.aboutContent h3,
+.aboutContent h4,
+.aboutContent h5 {
+  color:#3C7094;
 }

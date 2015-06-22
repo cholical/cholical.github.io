@@ -10,8 +10,11 @@ Shit Ta Do
 7. Compatibility with long titles
 8. Find better hosting
 9. Cum up with a name
-
-
+10. fix date sorting
+11. unique url for each modal instance of listing info (based on id)
+12. body loading
+13. incorrect password notice
+14. Allow description to retain formatting
 
 
 Secondary Tasks
@@ -19,4 +22,4 @@ Secondary Tasks
 2. Imgur album support/picture support
 3. Break website/ugly mode
 4. DDOS Student Shelf India
-
+5. services?
