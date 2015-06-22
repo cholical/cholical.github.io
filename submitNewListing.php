@@ -86,5 +86,4 @@
     $result2 = mysqli_query($db_server, $query2);
     $row = mysqli_fetch_row($result2);
     echo (int)$row[0];
-
 ?>  
