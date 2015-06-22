@@ -29,9 +29,9 @@ $db_password = 'cholical';
 // $db_password = 'cholical999'; 
 
 //godaddy login
-$db_hostname = 'goodiesbygrammy.net'; //url of mysql database location
-$db_database = 'tclassifiedbeta'; 
-$db_username = 'cholical'; 
-$db_password = 'Mac wants a mango'; 
+// $db_hostname = 'goodiesbygrammy.net'; //url of mysql database location
+// $db_database = 'tclassifiedbeta'; 
+// $db_username = 'cholical'; 
+// $db_password = 'Mac wants a mango'; 
 ?>
 

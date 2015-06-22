@@ -8,12 +8,26 @@
 
     var onTextbookSuccess = function(data) {
       $scope.textbooks = data;
-       angular.forEach($scope.textbooks, function (textbook) {
-      textbook.classes = [textbook.class1, textbook.class2, textbook.class3, textbook.class4, textbook.class5];
+      angular.forEach($scope.textbooks, function (textbook) {
+      textbook.classes = [];
+      if (textbook.class1 != "") {
+          textbook.classes[0] = textbook.class1;
+      };
+      if (textbook.class1 != "") {
+          textbook.classes[1] = textbook.class2;
+      };
+      if (textbook.class1 != "") {
+          textbook.classes[2] = textbook.class3;
+      };
+      if (textbook.class1 != "") {
+          textbook.classes[3] = textbook.class4;
+      };
+      if (textbook.class1 != "") {
+          textbook.classes[4] = textbook.class5;
+      }
+      
+      textbook.price = parseInt(textbook.price);
     })
-
-    console.log("Classes for first textbook");
-    console.log($scope.textbooks[0].classes);
     };
     textbooksSvc.getTextbooks().then(onTextbookSuccess);
 
@@ -45,7 +59,7 @@
 
 
         $scope.tempListing = newListingSvc.getNewListing();
-        if (newListingSvc.getDeleteId != 0) {
+        if (newListingSvc.getDeleteId() != 0) {
 
           angular.forEach($scope.textbooks, function(textbooks) {
                 if (textbook.textbook_id == $scope.tempListing.textbook_id) {

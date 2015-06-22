@@ -33,7 +33,6 @@
 	  };
 	
     $scope.checkPasswordInput = function(currentItem) {
-        console.log($scope.passwordInput)
         if ($scope.passwordInput === $scope.item.password) {
             var modalInstance = $modal.open({
             templateUrl: 'app/newlisting/newListing.html',

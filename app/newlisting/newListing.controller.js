@@ -45,7 +45,13 @@
         $scope.hideNewMessage = true;
         $scope.hideEditMessage = false;
         if (listing.hasOwnProperty("classes")) {
-            $scope.numClasses = listing.classes.length;
+            $scope.numClasses = 0;
+            var i;
+            for (i = 0; i < 5; i++) {
+                if (listing.classes[i] != "") {
+                    $scope.numClasses = $scope.numClasses + 1;
+                }
+            }
                 if ($scope.numClasses > 1) {
                     $scope.class2 = false;
                 }
@@ -83,8 +89,11 @@
         $modalInstance.dismiss('close');
     };
     $scope.submitListing = function() {
-        $scope.newListing.date = angular.copy(new Date());
+        $scope.newListing.date = String(angular.copy(new Date()));
         if ($scope.newListing.hasOwnProperty("textbookName")) {
+            while ($scope.newListing.classes.length != 5) {
+                $scope.newListing.classes.push("");
+            }
             $scope.newListing.class1 = $scope.newListing.classes[0];
             $scope.newListing.class2 = $scope.newListing.classes[1];
             $scope.newListing.class3 = $scope.newListing.classes[2];

@@ -9,6 +9,11 @@
 
     var onAccessoriesSuccess = function(data) {
       $scope.accessories = data;
+      angular.forEach($scope.accessories, function(accessory) {
+        accessory.price = parseInt(accessory.price);
+      });
+
+      console.log(typeof $scope.accessories[0].date);
     };
   	accessoriesSvc.getAccessories().then(onAccessoriesSuccess);
   	$scope.pageSize = 12;
@@ -34,8 +39,11 @@
         size: 'lg'
       })
       modalInstance.result.then(function() {}, function() {
+
+        
         $scope.tempListing = newListingSvc.getNewListing();
-        if (newListingSvc.getDeleteId != 0) {
+        if (newListingSvc.getDeleteId() != 0) {
+
             angular.forEach($scope.accessories, function(accessory) {
                 if (accessory.accessory_id == $scope.tempListing.accessory_id) {
                     //function to remove accessory from $scope.accessories;
@@ -84,6 +92,7 @@
       })
       modalInstance.result.then(function() {
             $scope.accessories.unshift(newListingSvc.getNewListing());
+
             $scope.sortType = "date";
             $scope.itemId = newListingSvc.getItemId();
             console.log($scope.itemId);
@@ -95,7 +104,9 @@
                     accessory.accessory_id = angular.copy($scope.itemId);
                 }
       })
-        
+      
+
+
       }, 
       function() {
         console.log("new list not created");
