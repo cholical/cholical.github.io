@@ -4,9 +4,10 @@
   var app;
 
   app = angular.module("tclassified");
-  app.controller('infoCtrl', ['$scope', '$modalInstance', '$modal', '$stateParams', '$log', 'data', function infoCtrl($scope, $modalInstance, $modal, $stateParams, $log, data){
+  app.controller('infoCtrl', ['$scope', '$modalInstance', '$modal', '$stateParams', 'newListingSvc', '$log', 'data', function infoCtrl($scope, $modalInstance, $modal, $stateParams, newListingSvc, $log, data){
 
     $scope.item = data;
+    $scope.passwordInput;
     if ($scope.item.hasOwnProperty("textbookName")) { 
         console.log("textbook passed in");
         $scope.typeOfObject = "textbook";
@@ -30,7 +31,7 @@
     $scope.close = function () {
 		    $modalInstance.dismiss('close');
 	  };
-	  $scope.passwordInput;
+	
     $scope.checkPasswordInput = function(currentItem) {
         console.log($scope.passwordInput)
         if ($scope.passwordInput === $scope.item.password) {
@@ -47,6 +48,20 @@
             },
             size: 'lg'
             })
+
+            //Code for updating editing and deletion on the front end
+            modalInstance.result.then(function() {
+                if (newListingSvc.getDeleteId() != 0) {
+                    $scope.item = newListingSvc.getNewListing();
+                    $scope.close();
+                } else {
+                    $scope.item = newListingSvc.getNewListing();
+                }
+
+                
+            });
+
+
         }
         else {
           console.log("password incorrect");

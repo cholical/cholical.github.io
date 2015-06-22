@@ -1,7 +1,7 @@
 (function () {
 
   "use strict";
-  var app, newListingVar, itemIdVar, getNewListing, setNewListing, deleteListing, setItemId, getItemId;
+  var app, newListingVar, itemIdVar, deleteIdVar, getNewListing, setNewListing, deleteListing, setItemId, getItemId, setDeleteId, getDeleteId;
   
   app = angular.module('tclassified');
 
@@ -9,6 +9,7 @@
 
     var newListingVar;
     var itemIdVar;
+    var deleteIdVar = 0;
 
     getNewListing = function() {
         return newListingVar;
@@ -113,23 +114,31 @@
 
     setItemId = function(itemId) {
         itemIdVar = itemId;
-        console.log(itemIdVar);
     }
 
     getItemId = function() {
-        console.log("place where item id var should be returned");
-        console.log(itemIdVar);
         return itemIdVar;
+    }
+
+    setDeleteId = function(deleteId) {
+        deleteIdVar = deleteId;
+    }
+
+    getDeleteId = function() {
+        return deleteIdVar;
     }
 
     return {
       newListingVar: newListingVar,
       itemIdVar: itemIdVar,
+      deleteIdVar: deleteIdVar,
       getNewListing: getNewListing,
       setNewListing: setNewListing,
       deleteListing: deleteListing,
       setItemId: setItemId,
-      getItemId: getItemId
+      getItemId: getItemId,
+      setDeleteId: setDeleteId,
+      getDeleteId: getDeleteId
      
     };
   }]);
