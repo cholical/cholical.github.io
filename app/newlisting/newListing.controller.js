@@ -89,7 +89,7 @@
         $modalInstance.dismiss('close');
     };
     $scope.submitListing = function() {
-        $scope.newListing.date = String(angular.copy(new Date()));
+        $scope.newListing.date = angular.copy(new Date());
         if ($scope.newListing.hasOwnProperty("textbookName")) {
             while ($scope.newListing.classes.length != 5) {
                 $scope.newListing.classes.push("");

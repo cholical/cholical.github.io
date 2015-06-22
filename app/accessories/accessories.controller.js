@@ -11,9 +11,9 @@
       $scope.accessories = data;
       angular.forEach($scope.accessories, function(accessory) {
         accessory.price = parseInt(accessory.price);
+        accessory.date = new Date(accessory.date);
       });
 
-      console.log(typeof $scope.accessories[0].date);
     };
   	accessoriesSvc.getAccessories().then(onAccessoriesSuccess);
   	$scope.pageSize = 12;

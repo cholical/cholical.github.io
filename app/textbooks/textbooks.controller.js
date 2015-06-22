@@ -27,6 +27,7 @@
       }
       
       textbook.price = parseInt(textbook.price);
+      textbook.date = new Date(textbook.date);
     })
     };
     textbooksSvc.getTextbooks().then(onTextbookSuccess);
