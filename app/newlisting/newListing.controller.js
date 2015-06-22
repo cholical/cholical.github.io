@@ -88,26 +88,35 @@
     $scope.close = function() {
         $modalInstance.dismiss('close');
     };
+
+    $scope.alreadyClicked = false;
     $scope.submitListing = function() {
-        $scope.newListing.date = angular.copy(new Date());
-        if ($scope.newListing.hasOwnProperty("textbookName")) {
-            while ($scope.newListing.classes.length != 5) {
-                $scope.newListing.classes.push("");
+
+        if ($scope.alreadyClicked == false){
+
+            $scope.alreadyClicked = true;
+
+            $scope.newListing.date = angular.copy(new Date());
+            if ($scope.newListing.hasOwnProperty("textbookName")) {
+                while ($scope.newListing.classes.length != 5) {
+                    $scope.newListing.classes.push("");
+                }
+                $scope.newListing.class1 = $scope.newListing.classes[0];
+                $scope.newListing.class2 = $scope.newListing.classes[1];
+                $scope.newListing.class3 = $scope.newListing.classes[2];
+                $scope.newListing.class4 = $scope.newListing.classes[3];
+                $scope.newListing.class5 = $scope.newListing.classes[4];
             }
-            $scope.newListing.class1 = $scope.newListing.classes[0];
-            $scope.newListing.class2 = $scope.newListing.classes[1];
-            $scope.newListing.class3 = $scope.newListing.classes[2];
-            $scope.newListing.class4 = $scope.newListing.classes[3];
-            $scope.newListing.class5 = $scope.newListing.classes[4];
+            newListingSvc.setNewListing($scope.newListing).then(function(data) {
+                $scope.itemId = data;
+                $scope.itemId = $scope.itemId.replace(/\s+/g, '');
+                newListingSvc.setItemId($scope.itemId);
+                console.log($scope.newListing);
+                $modalInstance.close();
+            });
+        } else {
+            console.log('you already pressed submit');
         }
-        newListingSvc.setNewListing($scope.newListing).then(function(data) {
-            $scope.itemId = data;
-            $scope.itemId = $scope.itemId.replace(/\s+/g, '');
-            newListingSvc.setItemId($scope.itemId);
-            console.log($scope.newListing);
-            $modalInstance.close();
-        });
-        
     };
 
     $scope.hideDeleteButton = false;
