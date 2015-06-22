@@ -64,7 +64,18 @@
         $scope.textbooks.unshift(newListingSvc.getNewListing());
         $scope.sortType = "textbookName";
         $scope.sortType = "date";
-      }, 
+                    $scope.sortType = "date";
+            $scope.itemId = newListingSvc.getItemId();
+            console.log($scope.itemId);
+            angular.forEach($scope.textbooks, function(textbook) {
+                console.log("foreach run");
+                if (textbook.hasOwnProperty("textbook_id")) {
+
+                } else {
+                    textbook.textbook_id = angular.copy($scope.itemId);
+                }
+              }
+      )}, 
       function() {
         console.log("new list not created");
       });

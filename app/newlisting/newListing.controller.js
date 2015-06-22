@@ -17,6 +17,7 @@
         $scope.newListing.price = parseInt($scope.newListing.price);
     }
     $scope.phpDebug;
+    $scope.itemId;
 
 
     if ($scope.typeOfObject === "textbook") {
@@ -89,10 +90,13 @@
             $scope.newListing.class5 = $scope.newListing.classes[4];
         }
         newListingSvc.setNewListing($scope.newListing).then(function(data) {
-            //$scope.phpDebug = data;
+            $scope.itemId = data;
+            $scope.itemId = $scope.itemId.replace(/\s+/g, '');
+            newListingSvc.setItemId($scope.itemId);
+            console.log($scope.newListing);
+            $modalInstance.close();
         });
-        console.log($scope.newListing);
-        $modalInstance.close();
+        
     };
 
     $scope.hideDeleteButton = false;

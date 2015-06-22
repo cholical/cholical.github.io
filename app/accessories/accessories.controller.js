@@ -19,6 +19,7 @@
       price: 0,
       acceptingOffers: true
     }
+    $scope.itemId;
 
     $scope.getAccessoryInfo = function(accessory) {
       var modalInstance = $modal.open({
@@ -47,9 +48,18 @@
         }
       })
       modalInstance.result.then(function() {
-        $scope.accessories.unshift(newListingSvc.getNewListing());
-      $scope.sortType = "accessoryName";
-      $scope.sortType = "date";
+            $scope.accessories.unshift(newListingSvc.getNewListing());
+            $scope.sortType = "date";
+            $scope.itemId = newListingSvc.getItemId();
+            console.log($scope.itemId);
+            angular.forEach($scope.accessories, function(accessory) {
+                console.log("foreach run");
+                if (accessory.hasOwnProperty("accessory_id")) {
+
+                } else {
+                    accessory.accessory_id = angular.copy($scope.itemId);
+                }
+      })
         
       }, 
       function() {
