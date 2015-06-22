@@ -85,6 +85,6 @@
     //eventually we might echo the listing id. get the listing id by selecting from the table where date = $date and so on
     $result2 = mysqli_query($db_server, $query2);
     $row = mysqli_fetch_row($result2);
-    echo $row[0];
+    echo (int)$row[0];
 
 ?>  
