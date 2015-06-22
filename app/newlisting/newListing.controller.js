@@ -17,6 +17,8 @@
         $scope.newListing.price = parseInt($scope.newListing.price);
     }
     $scope.phpDebug;
+    $scope.itemId;
+    $scope.deleteId;
 
 
     if ($scope.typeOfObject === "textbook") {
@@ -39,6 +41,7 @@
     }
 
     if (listing.hasOwnProperty("sellerName")) {
+        //Will work properly only if sellerName is intialized; will be fixed when validation is created;
         $scope.hideNewMessage = true;
         $scope.hideEditMessage = false;
         if (listing.hasOwnProperty("classes")) {
@@ -89,10 +92,13 @@
             $scope.newListing.class5 = $scope.newListing.classes[4];
         }
         newListingSvc.setNewListing($scope.newListing).then(function(data) {
-            //$scope.phpDebug = data;
+            $scope.itemId = data;
+            $scope.itemId = $scope.itemId.replace(/\s+/g, '');
+            newListingSvc.setItemId($scope.itemId);
+            console.log($scope.newListing);
+            $modalInstance.close();
         });
-        console.log($scope.newListing);
-        $modalInstance.close();
+        
     };
 
     $scope.hideDeleteButton = false;
@@ -109,9 +115,18 @@
     };
 
     $scope.deleteListing = function(){
+        if ($scope.newListing.hasOwnProperty("accessory_id")) {
+                $scope.deleteId = $scope.newListing.accessory_id;
+            }
+        if ($scope.newListing.hasOwnProperty("textbook_id")) {
+                $scope.deleteId = $scope.newListing.textbook_id;
+            }
+            newListingSvc.setDeleteId($scope.deleteId);
         //call the php script
         newListingSvc.deleteListing($scope.newListing).then(function(data) {
             //$scope.phpDebug = data;
+            
+
         });
         console.log('listing deleted');
         $modalInstance.close();

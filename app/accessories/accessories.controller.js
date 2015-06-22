@@ -19,6 +19,8 @@
       price: 0,
       acceptingOffers: true
     }
+    $scope.itemId;
+    $scope.tempListing;
 
     $scope.getAccessoryInfo = function(accessory) {
       var modalInstance = $modal.open({
@@ -31,6 +33,40 @@
         },
         size: 'lg'
       })
+      modalInstance.result.then(function() {}, function() {
+        $scope.tempListing = newListingSvc.getNewListing();
+        if (newListingSvc.getDeleteId != 0) {
+            angular.forEach($scope.accessories, function(accessory) {
+                if (accessory.accessory_id == $scope.tempListing.accessory_id) {
+                    //function to remove accessory from $scope.accessories;
+                    var index = $scope.accessories.indexOf(accessory);
+                    if (index > -1) {
+                        $scope.accessories.splice(index, 1);
+                    }
+                }
+            });
+            newListingSvc.setDeleteId(0);
+        } else {
+          
+          angular.forEach($scope.accessories, function(accessory) {
+              if (accessory.accessory_id == $scope.tempListing.accessory_id) {
+                  //change each property of accessory into angular.copy() of that of scope.tempLisitng;
+                  accessory.accessoryName = $scope.tempListing.accessoryName;
+                  accessory.price = $scope.tempListing.price;
+                  accessory.acceptingOffers = $scope.tempListing.acceptingOffers;
+                  accessory.sellerName = $scope.tempListing.sellerName;
+                  accessory.description = $scope.tempListing.description;
+                  accessory.contactInfo = $scope.tempListing.contactInfo;
+                  accessory.password = $scope.tempListing.password;
+                  accessory.date = $scope.tempListing.date;
+              }
+          });
+        }
+
+        
+      }
+      );
+
     };
     $scope.createNewListing = function() {
       var modalInstance = $modal.open({
@@ -47,8 +83,18 @@
         }
       })
       modalInstance.result.then(function() {
-        $scope.accessories.push(newListingSvc.getNewListing());
-        location.reload();
+            $scope.accessories.unshift(newListingSvc.getNewListing());
+            $scope.sortType = "date";
+            $scope.itemId = newListingSvc.getItemId();
+            console.log($scope.itemId);
+            angular.forEach($scope.accessories, function(accessory) {
+                console.log("foreach run");
+                if (accessory.hasOwnProperty("accessory_id")) {
+
+                } else {
+                    accessory.accessory_id = angular.copy($scope.itemId);
+                }
+      })
         
       }, 
       function() {

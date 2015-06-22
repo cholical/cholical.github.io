@@ -1,13 +1,15 @@
 (function () {
 
   "use strict";
-  var app, newListingVar, getNewListing, setNewListing, deleteListing;
+  var app, newListingVar, itemIdVar, deleteIdVar, getNewListing, setNewListing, deleteListing, setItemId, getItemId, setDeleteId, getDeleteId;
   
   app = angular.module('tclassified');
 
   app.factory('newListingSvc', ['$http', '$log', function newListingSvc($http, $log) {
 
     var newListingVar;
+    var itemIdVar;
+    var deleteIdVar = 0;
 
     getNewListing = function() {
         return newListingVar;
@@ -110,11 +112,33 @@
         }
     };
 
+    setItemId = function(itemId) {
+        itemIdVar = itemId;
+    }
+
+    getItemId = function() {
+        return itemIdVar;
+    }
+
+    setDeleteId = function(deleteId) {
+        deleteIdVar = deleteId;
+    }
+
+    getDeleteId = function() {
+        return deleteIdVar;
+    }
+
     return {
       newListingVar: newListingVar,
+      itemIdVar: itemIdVar,
+      deleteIdVar: deleteIdVar,
       getNewListing: getNewListing,
       setNewListing: setNewListing,
-      deleteListing: deleteListing
+      deleteListing: deleteListing,
+      setItemId: setItemId,
+      getItemId: getItemId,
+      setDeleteId: setDeleteId,
+      getDeleteId: getDeleteId
      
     };
   }]);
