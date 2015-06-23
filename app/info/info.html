@@ -45,7 +45,8 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12 text-right">
-			<div class="form-group passwordField" ng-hide="passwordField">
+
+			<div class="form-group passwordField" ng-hide="passwordField" ng-class="{'has-error':wrongPassword}">
 				<input class="form-control" type="password" placeholder="Enter Password to Edit Post" ng-model="passwordInput">
 			</div>
 			<button ng-hide="passwordSubmitButton" type="button" class="btn btn-default btn-sm editInfo" ng-click="checkPasswordInput(item)">

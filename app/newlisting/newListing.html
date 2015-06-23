@@ -1,12 +1,13 @@
-<div class="modal-header text-center">
+<div class="modal-header text-center newListingHeader">
 	<h3 ng-hide="hideNewMessage">Congratulations! You finally decided to make a listing!</h3>
 	<h3 ng-hide="hideEditMessage">Edit your listing here yo!</h3>
 </div>
 
 
-<div class="modal-body">
 
-	<form class="form-horizontal">
+<form name="mainForm" ng-submit="submitListing(mainForm.$valid)" class="mainForm form-horizontal" novalidate>
+	<div class="modal-body">
+		<h6><span class="fa fa-asterisk" aria-hidden="true"> required field</span></h6>
 		<h4 ng-hide="textbookHideObject">Textbook Information</h4>
 		<h4 ng-hide="accessoryHideObject">Accessory Information</h4>
 		<h4 ng-hide="serviceHideObject">Service Information</h4>
@@ -16,15 +17,28 @@
 			<label ng-hide="accessoryHideObject" for="inputTitle" class="col-sm-2 control-label">Accessory Title</label>
 			<label ng-hide="serviceHideObject" for="inputTitle" class="col-sm-2 control-label">Service Title</label>
 
-			<div class="col-sm-4">
-				<input ng-hide="textbookHideObject" type="text" class="form-control" id="inputTitle" placeholder="Rising Up: A book on Erectile Dysfunction" ng-model="newListing.textbookName">
-				<input ng-hide="accessoryHideObject" type="text" class="form-control" id="inputTitle" placeholder="Used Condom" ng-model="newListing.accessoryName">
-				<input ng-hide="serviceHideObject" type="text" class="form-control" id="inputTitle" placeholder="Rising Up: Mac will never read this. i am ronald ding and i am an asshole" ng-model="newListing.serviceName">
+			<div 
+				class="col-sm-4 has-feedback" 
+				ng-class="{ 'has-error' : 
+				(mainForm.inputTexTitle.$invalid && mainForm.inputTexTitle.$touched) || 
+				(mainForm.inputAccTitle.$invalid && mainForm.inputAccTitle.$touched) || 
+				(mainForm.inputSerTitle.$invalid && mainForm.inputSerTitle.$touched) }"
+			>
+				<input ng-hide="textbookHideObject" type="text" class="form-control" name="inputTexTitle" placeholder="Rising Up: A book on Erectile Dysfunction" ng-model="newListing.textbookName"ng-required="!textbookHideObject">
+				<span  ng-hide="textbookHideObject" class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
+				<span ng-show="mainForm.inputTexTitle.$invalid && mainForm.inputTexTitle.$touched" class="help-block">A title is required.</span>
+				<input ng-hide="accessoryHideObject" type="text" class="form-control" name="inputAccTitle" placeholder="Used Condom" ng-model="newListing.accessoryName" ng-required="!accessoryHideObject">
+				<span ng-hide="accessoryHideObject" class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
+				<span ng-show="mainForm.inputAccTitle.$invalid && mainForm.inputAccTitle.$touched" class="help-block">A title is required.</span>
+				<input ng-hide="serviceHideObject" type="text" class="form-control" name="inputSerTitle" placeholder="Rising Up: Mac will never read this. i am ronald ding and i am an asshole" ng-model="newListing.serviceName" ng-required="!serviceHideObject">
+				<span ng-hide="serviceHideObject" class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
+				<span ng-show="mainForm.inputSerTitle.$invalid && mainForm.inputSerTitle.$touched" class="help-block">A title is required.</span>
 			</div>
 
 			<label ng-hide="textbookHideObject" for="inputEdition" class="col-sm-2 control-label">Edition</label>
-			<div ng-hide="textbookHideObject" class="col-sm-3">
-				<select type="text" class="form-control" id="inputEdition" placeholder="First" ng-model="newListing.edition">
+			<div ng-class="{'has-error' : mainForm.inputEdition.$invalid && mainForm.inputEdition.$touched}" ng-hide="textbookHideObject" class="col-sm-3">
+				<select type="text" class="form-control" name="inputEdition" ng-model="newListing.edition" ng-required="!textbookHideObject">
+					<option value="No">No Edition</option>
 					<option>First</option>
 					<option>Second</option>
 					<option>Third</option>
@@ -47,44 +61,48 @@
 					<option>Twentieth</option>
 
 				</select>
+				<span ng-show="mainForm.inputEdition.$invalid && mainForm.inputEdition.$touched" class="help-block">An Edition is required.</span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label ng-hide="textbookHideObject" for="inputAuthor" class="col-sm-2 control-label">Author</label>
-			<div ng-hide="textbookHideObject" class="col-sm-4">
-				<input type="text" class="form-control" id="inputAuthor" placeholder="Ronald Ding" ng-model="newListing.author">
+			<div ng-hide="textbookHideObject" class="col-sm-4 has-feedback" ng-class="{'has-error':mainForm.inputAuthor.$invalid && mainForm.inputAuthor.$touched}">
+				<input type="text" class="form-control" name="inputAuthor" placeholder="Ronald Ding" ng-model="newListing.author" ng-required="!textbookHideObject">
+				<span class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
+				<span ng-show="mainForm.inputAuthor.$invalid && mainForm.inputAuthor.$touched" class="help-block">Every book has an author.</span>
 			</div>
 
 			<label for="inputPrice" class="col-sm-2 control-label">Price</label>
-			<div class="col-sm-3">
+			<div class="col-sm-3" ng-class="{'has-warning':mainForm.inputPrice.$touched}">
 				<div class="input-group">
 				  <span class="input-group-addon">$</span>
-				  <input type="number" class="form-control" aria-label="Price" id="inputPrice" placeholder="$666" ng-model="newListing.price">
+				  <input type="number" class="form-control" aria-label="Price" name="inputPrice" placeholder="$00,000.00" ng-model="newListing.price">
 				</div>
+				<span ng-show="mainForm.inputPrice.$touched" class="help-block">Stop being lazy and input a price or else we are making it free</span>
 			</div>
 		</div>
 		
 
 		<div class="form-group">
-			<label for="inputDescription" class="col-sm-2 control-label">Description</label>
+			<label for="inputDescription" class="col-sm-2 control-label">Description<br><em>Not required but recommended.</em></label>
+			
 			<div class="col-sm-9">
-				<textarea type="text" rows="5" class="form-control" id="inputDescription" placeholder="You don't even know" ng-model="newListing.description"></textarea>
+				<textarea type="text" rows="5" class="form-control" name="inputDescription" placeholder="You don't even know" ng-model="newListing.description"></textarea>
 			</div>
 		</div>
-		<div ng-hide="textbookHideObject" class="form-group">
+		<div class="form-group" ng-hide="textbookHideObject" >
 			<label for="inputClass" class="col-sm-2 control-label">Class</label>
 			<div class="col-sm-9">
-				<form class="form-inline">
 					<div class="classRow row">
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="inputClass" placeholder="BIOL 322" ng-model="newListing.classes[0]">
+							<input type="text" class="form-control" name="inputClass" placeholder="BIOL 322" ng-model="newListing.classes[0]">
 							<div type="button" class="btn-xs btn-default" ng-hide="hidebutton1" value="+" title="Add Another Class" ng-click="addClass2(); hidebutton1=true">
 							+
 							</div>
 						</div>
 						<div class="col-sm-2">
 							<span ng-hide="class2">
-								<input type="text" class="form-control" id="inputClass" ng-model="newListing.classes[1]"> 
+								<input type="text" class="form-control" name="inputClass" ng-model="newListing.classes[1]"> 
 								<div type="button" class="btn-xs btn-default" ng-hide="hidebutton2" value="+" title="Add Another Class" ng-click="addClass3(); hidebutton2=true">
 									+
 								</div>
@@ -92,7 +110,7 @@
 						</div>
 						<div class="col-sm-2">
 							<span ng-hide="class3">
-								<input type="text" class="form-control" id="inputClass" ng-model="newListing.classes[2]"> 
+								<input type="text" class="form-control" name="inputClass" ng-model="newListing.classes[2]"> 
 								<button type="button" class="btn-xs btn-default" ng-hide="hidebutton3" value="+" title="Add Another Class" ng-click="addClass4(); hidebutton3=true">
 								+
 									</button>
@@ -100,7 +118,7 @@
 						</div>
 						<div class="col-sm-2">
 							<span ng-hide="class4">
-								<input type="text" class="form-control" id="inputClass" ng-model="newListing.classes[3]"> 
+								<input type="text" class="form-control" name="inputClass" ng-model="newListing.classes[3]"> 
 								<button type="button" class="btn-xs btn-default" ng-hide="hidebutton4" value="+" title="Add Another Class" ng-click="addClass5(); hidebutton4=true">
 									+
 								</button>
@@ -108,41 +126,49 @@
 						</div>
 						<div class="col-sm-2">
 							<span ng-hide="class5">
-								<input type="text" class="form-control" id="inputClass" ng-model="newListing.classes[4]">
+								<input type="text" class="form-control" name="inputClass" ng-model="newListing.classes[4]">
 							</span>
 						</div>
 
 					</div>
-				</form>
-
 			</div>
 		</div>
-	</form><br>
-
-	<form class="form-horizontal">
+		
+		<br>
+		
 		<h4>Your Information</h4>
 
 		<div class="form-group">
 			<label for="inputName" class="col-sm-4 control-label">Name</label>
-			<div class="col-sm-5">
-				<input type="text" class="form-control" id="inputName" placeholder="Ronald the Prophet" ng-model="newListing.sellerName">
+			<div class="col-sm-5 has-feedback" ng-class="{'has-error' : mainForm.inputName.$touched && mainForm.inputName.$invalid}">
+				<input type="text" class="form-control" name="inputName" placeholder="Ronald the Prophet" ng-model="newListing.sellerName" required>
+				<span class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
+				<span ng-show="mainForm.inputName.$invalid && mainForm.inputName.$touched" class="help-block">If we don't have this, edit functionality won't work because Ronald's code is sloppy.</span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputContactInfo" class="col-sm-4 control-label">Contact Information <br><em>unc.edu e-mail preferred</em></label>
-			<div class="col-sm-5">
-				<input type="text" class="form-control" id="inputContactInfo" placeholder="fuckyou@duke.edu" ng-model="newListing.contactInfo">
+			<div class="col-sm-5 has-feedback" ng-class="{'has-error':mainForm.inputContactInfo.$touched && mainForm.inputContactInfo.$invalid}">
+				<input type="text" class="form-control" name="inputContactInfo" placeholder="fuckyou@duke.edu" ng-model="newListing.contactInfo" required>
+				<span class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
+				<span ng-show="mainForm.inputContactInfo.$touched && mainForm.inputContactInfo.$invalid" class="help-block">Do you want people to buy from you or not?</span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputPassword" class="col-sm-4 control-label">Password<br><em>used to edit this post later</em></label>
-			<div class="col-sm-5">
-				<input type="password" class="form-control" id="inputPassword" placeholder="123456" ng-model="newListing.password">
+			<div class="col-sm-5 has-feedback" ng-class="{'has-error':mainForm.inputPassword.$touched && mainForm.inputPassword.$invalid}" ng-class="{'has-warning':newListing.password=='password'}">
+				<input type="password" class="form-control" name="inputPassword" placeholder="123456" ng-model="newListing.password" required>
+				<span class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
+				<span ng-show="mainForm.inputPassword.$touched && mainForm.inputPassword.$invalid" class="help-block">Required field. Don't make it 'password'.</span>
+				<span ng-show="newListing.password=='password'" class="help-block">You little fucker.</span>
+				<span ng-show="mainForm.inputPassword.$valid" ng-hide="(newListing.password=='password') || (mainForm.inputPassword.$touched && mainForm.inputPassword.$invalid) || (mainForm.inputPassword.$pristine)" class="help-block">We don't actually give a shit about your password strength.</span>
 			</div>
 		</div>
-	</form><br>
-	<form class="form-horizontal">
+	
+		<br>
+	
 		<h4>Other Settings</h4>
+		
 		<div class="form-group">
 			<label for="inputBuyorSell" class="col-sm-4 control-label">Submission Type</label>
 			<div class="col-sm-5">
@@ -152,45 +178,46 @@
 				</select>
 			</div>
 		</div>
-	</form>
-</div>
-<div class="modal-footer">
-	<div class="row">
-		<div class="col-md-3 text-left">
-			<button type="button" class="btn btn-default btn-lg cancelBtn" ng-click="close()">
-				  <span class="glyphicon glyphicon-remove" aria-hidden="true">
-				  </span> Cancel
-			</button>
-		</div>
-		<div class="col-md-6 text-center">
-			<div ng-hide="hideEditMessage">
-				<button ng-hide="hideDeleteButton" type="button" class="btn btn-default btn-lg deleteBtn" ng-click="pressDelete()">
-					  <span class="fa fa-trash-o" aria-hidden="true"></span> 
-					  Delete Listing
+	
+	</div>
+	<div class="modal-footer">
+		<div class="row">
+			<div class="col-md-3 text-left">
+				<button type="button" class="btn btn-default btn-lg cancelBtn" ng-click="close()">
+					  <span class="glyphicon glyphicon-remove" aria-hidden="true">
+					  </span> Cancel
 				</button>
-				<div ng-hide="hideConfirmDelete">
-					<div class="row">Are you sure you want to permanently delete this listing?</div>
-					<div class="row">
-						<div class="col-xs-6 text-right">
-							<button type="button" class="btn btn-default btn-sm editInfo" ng-click="pussyOutAndDontDelete()">
-								  No
-							</button>
-						</div>
-						<div class="col-xs-6 text-left">
-							<button type="button" class="btn btn-default btn-sm editInfo" ng-click="deleteListing()">
-								  Yes
-							</button>
+			</div>
+			<div class="col-md-6 text-center">
+				<div ng-hide="hideEditMessage">
+					<button ng-hide="hideDeleteButton" type="button" class="btn btn-default btn-lg deleteBtn" ng-click="pressDelete()">
+						  <span class="fa fa-trash-o" aria-hidden="true"></span> 
+						  Delete Listing
+					</button>
+					<div ng-hide="hideConfirmDelete">
+						<div class="row">Are you sure you want to permanently delete this listing?</div>
+						<div class="row">
+							<div class="col-xs-6 text-right">
+								<button type="button" class="btn btn-default btn-sm editInfo" ng-click="pussyOutAndDontDelete()">
+									  No
+								</button>
+							</div>
+							<div class="col-xs-6 text-left">
+								<button type="button" class="btn btn-default btn-sm editInfo" ng-click="deleteListing()">
+									  Yes
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-md-3">
-			<button type="button" class="btn btn-default btn-lg submitBtn" ng-click="submitListing()">
-				  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
-				  <span ng-hide="hideNewMessage">Submit Listing</span>
-				  <span ng-hide="hideEditMessage">Save Changes</span>
-			</button>
+			<div class="col-md-3">
+				<button type="submit" class="btn btn-default btn-lg submitBtn" ng-disabled="mainForm.$invalid">
+					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
+					  <span ng-hide="hideNewMessage">Submit Listing</span>
+					  <span ng-hide="hideEditMessage">Save Changes</span>
+				</button>
+			</div>
 		</div>
 	</div>
-</div>
+</form>

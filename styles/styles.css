@@ -164,9 +164,13 @@ body {
 
 .homeBlurb {
   padding:10px;
-  background:#D1EBFD;
+  background:#fff;
   text-align:;
   height:295px;
+}
+
+.homeBlurb h3 {
+  color:#3C7094;
 }
 
 .classRow input.form-control{
@@ -249,18 +253,64 @@ form.form-horizontal em {
   margin:0px 5px;
 }
 
-.newListing {
+button.newListing {
   position:relative;
   top:10px;
   background:#FF732F;
 }
+
+.newListingHeader {
+  color:#fff;
+  background:#FE925D;
+  border-top-right-radius:6px;
+  border-top-left-radius:6px;
+}
+
+.mainForm {
+  background:#f8f8f8;
+}
+
+
+.mainForm .help-block {
+  margin-bottom:0px;
+}
+
+.mainForm .reqIcon {
+  top:11px;
+  color:#777;
+}
+
+.mainForm h6 {
+  color:#888;
+  font-style:italic;
+  margin:0px;
+  text-align:center;
+}
+
+.mainForm .modal-body,
+.mainForm .modal-footer {
+  cursor:default;
+}
+
+.mainForm .modal-footer {
+  background:#fff;
+}
 .content {
   background:#e8e8e8;;
-    border-radius:6px;
+  border-radius:6px;
   color:#333;
   padding:15px;
   font-size:17px;
   margin:10px 0px;
+  box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+}
+
+.content h3,
+.content h4,
+.content h2,
+.content h5,
+.content h6 {
+  color:#3C7094;
 }
 .navbar-nav .activeSort {
   color:#ff7863 !important;
@@ -522,8 +572,3 @@ button.editInfo:hover {
   color:#333;
 }
 
-.aboutContent h3,
-.aboutContent h4,
-.aboutContent h5 {
-  color:#3C7094;
-}

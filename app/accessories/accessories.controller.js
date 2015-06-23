@@ -21,7 +21,7 @@
     $scope.sortType = "date";
     $scope.sortReverse = true;
     $scope.listing = {
-      price: 0,
+      //price: 0,
       acceptingOffers: true
     }
     $scope.itemId;

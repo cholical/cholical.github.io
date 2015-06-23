@@ -17,6 +17,9 @@
 
     setNewListing = function(newListing) {
         newListingVar = newListing;
+        if (! newListing.price){
+          newListing.price = 0;
+        }
         if (newListingVar.hasOwnProperty("textbookName")) {
         console.log("sumitted new Listing for textbook");
         return $http({
