@@ -31,7 +31,8 @@
     $scope.close = function () {
 		    $modalInstance.dismiss('close');
 	  };
-	$scope.wrongPassword = false;
+	
+    $scope.wrongPassword = false;
     $scope.checkPasswordInput = function(currentItem) {
         if ($scope.passwordInput === $scope.item.password) {
             var modalInstance = $modal.open({
@@ -64,7 +65,8 @@
         }
         else {
           console.log("password incorrect");
-          jQuery('passwordField').addClass('has-error');
+          //yeah that's right fuck angular im using jquery to invalid password
+          jQuery('.passwordField').addClass('has-error'); 
           $scope.wrongPassword = true;
         }
     }

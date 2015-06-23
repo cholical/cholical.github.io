@@ -350,9 +350,15 @@ button.newListing {
     background-color:#FAE1D7;
 }
 
+.listingCard .mainPanel:hover .priceTag,
+.listingCard .mainPanel:focus .priceTag {
+    background-color:transparent;
+    border-color:#666;
+}
+
 .priceTag {
   background:#ffab8a;
-  border-radius:0%;
+  border-radius:3px;
   padding:10px;
   font-size:16px;
   height:40px;
@@ -361,6 +367,10 @@ button.newListing {
   margin:10px -5px 0px 0px;
   color:#333;
   overflow:hidden;
+  border:1px solid;
+  border-color: transparent;
+
+  transition:background-color 400ms,border-color 400ms;
 }
 
 .listingCard h3 {
@@ -465,6 +475,13 @@ button.newListing {
   margin-right:5px;
 }
 
+.passwordField span {
+  display: inline;
+  margin-top: 0px;
+  margin-bottom: 1px; 
+  color: #737373;
+  text-align: left;
+}
 .passwordField input {
   height:28px;
 }
