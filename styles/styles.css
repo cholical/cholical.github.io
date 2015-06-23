@@ -130,9 +130,7 @@ HEADER AND FOOTER STYLES
     cursor:pointer;
     margin:0px 3px;
     width: 41.5px;
-
     border-radius: 8px;
-    
     line-height: 41px;
   }
 
@@ -150,9 +148,9 @@ HEADER AND FOOTER STYLES
     transition: background 320ms;
   }
 
-  .socialMedia .fa-github-square:hover,
-  .socialMedia .fa-github-square:focus {
-    color:#7457C5;
+  .socialMedia .fa-google-plus-square:hover,
+  .socialMedia .fa-google-plus-square:focus {
+    color:#dd4b39;
     background: #f8f8f8;
     transition: background 320ms;
   }
@@ -345,26 +343,29 @@ LISTING CARD STYLES
   padding:0px 5px;
   box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
   height:200px;
-  transition:background-color 400ms;
+  transition:background-color 400ms,color 400ms;
   border-radius:5px;
   overflow:hidden;
 }
 
+
 .listingCard .mainPanel:hover,
 .listingCard .mainPanel:focus {
-    background-color:#FAE1D7;
+    background-color:#E4F5FF;
+    color:#333;
 }
 
 .listingCard .mainPanel:hover .priceTag,
 .listingCard .mainPanel:focus .priceTag {
-    background-color:#FAEAE4;
-    border-color:#666;
+    background-color:#F2FAFF;
+    border-color:#333;
 }
 
 .listingCard .mainPanel:hover .listingDate,
 .listingCard .mainPanel:focus .listingDate {
   background-color:transparent;
 } 
+
 
 .priceTag {
   background:#ffab8a;
@@ -389,7 +390,9 @@ LISTING CARD STYLES
     z-index:1;
     white-space:;
     text-overflow:ellipsis;
-    transition: max-height 400ms ease-in-out;
+    transition: max-height 400ms ease-in-out,color 400ms;
+    
+
 }
 
 .listingCard h3:hover {
@@ -416,7 +419,7 @@ LISTING CARD STYLES
   font-size:14px;
   background: #E1EBFC; 
   height: 20px;
-  transition:background-color 400ms;
+  transition:background-color 400ms,  color 400ms;
 }
 
 .listingDescription {
@@ -434,6 +437,7 @@ LISTING CARD STYLES
   text-overflow: ellipsis;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+  transition:border-color 400ms;
 }
 
 

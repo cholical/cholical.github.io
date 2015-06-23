@@ -73,13 +73,12 @@
 			</div>
 
 			<label for="inputPrice" class="col-sm-2 control-label">Price</label>
-			<div class="col-sm-3" ng-class="{'has-warning':mainForm.inputPrice.$touched, 'has-error':mainForm.inputPrice.$touched && mainForm.inputPrice.$invalid}">
+			<div class="col-sm-3" ng-class="{'has-error':mainForm.inputPrice.$touched && mainForm.inputPrice.$invalid}">
 				<div class="input-group">
 				  <span class="input-group-addon">$</span>
 				  <input type="number" min="0" class="form-control" aria-label="Price" name="inputPrice" placeholder="$00,000.00" ng-model="newListing.price">
 				</div>
-				<span ng-show="mainForm.inputPrice.$touched && mainForm.inputPrice.$valid" ng-hide="mainForm.inputPrice.$pristine || mainForm.inputPrice.$invalid || (mainForm.inputPrice.$dirty && mainForm.inputPrice.$valid)" class="help-block">Stop being lazy and input a price or else we are making it free</span>
-				<span ng-show="mainForm.inputPrice.$invalid && mainForm.inputPrice.$dirty" class="help-block">Input a valid price.</span>
+				<span ng-show="mainForm.inputPrice.$invalid && mainForm.inputPrice.$dirty" class="help-block">You can't buy something with those dollars.</span>
 			</div>
 		</div>
 		
@@ -150,7 +149,7 @@
 		<div class="form-group">
 			<label for="inputContactInfo" class="col-sm-4 control-label">Contact Information <br><em>unc.edu e-mail preferred</em></label>
 			<div class="col-sm-5 has-feedback" ng-class="{'has-error':mainForm.inputContactInfo.$touched && mainForm.inputContactInfo.$invalid}">
-				<input type="text" class="form-control" name="inputContactInfo" placeholder="fuckyou@duke.edu" ng-model="newListing.contactInfo" required>
+				<input type="text" class="form-control" name="inputContactInfo" placeholder="nope@duke.edu" ng-model="newListing.contactInfo" required>
 				<span class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
 				<span ng-show="mainForm.inputContactInfo.$touched && mainForm.inputContactInfo.$invalid" class="help-block">Do you want people to buy from you or not?</span>
 			</div>
@@ -160,7 +159,7 @@
 			<div class="col-sm-5 has-feedback" ng-class="{'has-error':mainForm.inputPassword.$touched && mainForm.inputPassword.$invalid}" ng-class="{'has-warning':newListing.password=='password'}">
 				<input type="password" class="form-control" name="inputPassword" placeholder="123456" ng-model="newListing.password" required>
 				<span class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
-				<span ng-show="mainForm.inputPassword.$touched && mainForm.inputPassword.$invalid" class="help-block">Required field. Don't make it 'password'.</span>
+				<span ng-show="mainForm.inputPassword.$touched && mainForm.inputPassword.$invalid" class="help-block">Required field. Just don't make it 'password'.</span>
 				<span ng-show="newListing.password=='password'" class="help-block">You little fucker.</span>
 				<span ng-show="mainForm.inputPassword.$valid" ng-hide="(newListing.password=='password') || (mainForm.inputPassword.$touched && mainForm.inputPassword.$invalid) || (mainForm.inputPassword.$pristine)" class="help-block">We don't actually give a shit about your password strength.</span>
 			</div>
