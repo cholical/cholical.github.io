@@ -76,7 +76,7 @@
 			<div class="col-sm-3" ng-class="{'has-error':mainForm.inputPrice.$touched && mainForm.inputPrice.$invalid}">
 				<div class="input-group">
 				  <span class="input-group-addon">$</span>
-				  <input type="number" min="0" class="form-control" aria-label="Price" name="inputPrice" placeholder="$00,000.00" ng-model="newListing.price">
+				  <input type="number" min="0" class="form-control" aria-label="Price" name="inputPrice" placeholder="666" ng-model="newListing.price">
 				</div>
 				<span ng-show="mainForm.inputPrice.$invalid && mainForm.inputPrice.$dirty" class="help-block">You can't buy something with those dollars.</span>
 			</div>
@@ -84,10 +84,10 @@
 		
 
 		<div class="form-group">
-			<label for="inputDescription" class="col-sm-2 control-label">Description<br><em>Not required but recommended.</em></label>
+			<label for="inputDescription" class="col-sm-2 control-label">Description<br><em>Not required but highly recommended.</em></label>
 			
 			<div class="col-sm-9">
-				<textarea type="text" rows="5" class="form-control" name="inputDescription" placeholder="You don't even know" ng-model="newListing.description"></textarea>
+				<textarea type="text" rows="5" class="form-control" name="inputDescription" placeholder="You don't even know." ng-model="newListing.description"></textarea>
 			</div>
 		</div>
 		<div class="form-group" ng-hide="textbookHideObject" >
@@ -143,7 +143,7 @@
 			<div class="col-sm-5 has-feedback" ng-class="{'has-error' : mainForm.inputName.$touched && mainForm.inputName.$invalid}">
 				<input type="text" class="form-control" name="inputName" placeholder="Ronald the Prophet" ng-model="newListing.sellerName" required>
 				<span class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
-				<span ng-show="mainForm.inputName.$invalid && mainForm.inputName.$touched" class="help-block">If we don't have this, edit functionality won't work because Ronald's code is sloppy.</span>
+				<span ng-show="mainForm.inputName.$invalid && mainForm.inputName.$touched" class="help-block">If we don't have this, edit functionality won't work because Ronald's code is sloppy. It's not sloppy; it's just too beautiful to be comprehended by the unenlightened.</span>
 			</div>
 		</div>
 		<div class="form-group">
@@ -157,7 +157,7 @@
 		<div class="form-group">
 			<label for="inputPassword" class="col-sm-4 control-label">Password<br><em>used to edit this post later</em></label>
 			<div class="col-sm-5 has-feedback" ng-class="{'has-error':mainForm.inputPassword.$touched && mainForm.inputPassword.$invalid}" ng-class="{'has-warning':newListing.password=='password'}">
-				<input type="password" class="form-control" name="inputPassword" placeholder="123456" ng-model="newListing.password" required>
+				<input type="password" class="form-control" name="inputPassword" placeholder="password" ng-model="newListing.password" required>
 				<span class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
 				<span ng-show="mainForm.inputPassword.$touched && mainForm.inputPassword.$invalid" class="help-block">Required field. Just don't make it 'password'.</span>
 				<span ng-show="newListing.password=='password'" class="help-block">You little fucker.</span>
