@@ -66,19 +66,20 @@
 		</div>
 		<div class="form-group">
 			<label ng-hide="textbookHideObject" for="inputAuthor" class="col-sm-2 control-label">Author</label>
-			<div ng-hide="textbookHideObject" class="col-sm-4 has-feedback" ng-class="{'has-error':mainForm.inputAuthor.$invalid && mainForm.inputAuthor.$touched}">
+			<div ng-hide="textbookHideObject" class="col-sm-4 has-feedback" ng-class="{'has-error':mainForm.inputAuthor.$invalid && mainForm.inputAuthor.$dirty}">
 				<input type="text" class="form-control" name="inputAuthor" placeholder="Ronald Ding" ng-model="newListing.author" ng-required="!textbookHideObject">
 				<span class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
 				<span ng-show="mainForm.inputAuthor.$invalid && mainForm.inputAuthor.$touched" class="help-block">Every book has an author.</span>
 			</div>
 
 			<label for="inputPrice" class="col-sm-2 control-label">Price</label>
-			<div class="col-sm-3" ng-class="{'has-warning':mainForm.inputPrice.$touched}">
+			<div class="col-sm-3" ng-class="{'has-warning':mainForm.inputPrice.$touched, 'has-error':mainForm.inputPrice.$touched && mainForm.inputPrice.$invalid}">
 				<div class="input-group">
 				  <span class="input-group-addon">$</span>
-				  <input type="number" class="form-control" aria-label="Price" name="inputPrice" placeholder="$00,000.00" ng-model="newListing.price">
+				  <input type="number" min="0" class="form-control" aria-label="Price" name="inputPrice" placeholder="$00,000.00" ng-model="newListing.price">
 				</div>
-				<span ng-show="mainForm.inputPrice.$touched" class="help-block">Stop being lazy and input a price or else we are making it free</span>
+				<span ng-show="mainForm.inputPrice.$touched && mainForm.inputPrice.$valid" ng-hide="mainForm.inputPrice.$pristine || mainForm.inputPrice.$invalid || (mainForm.inputPrice.$dirty && mainForm.inputPrice.$valid)" class="help-block">Stop being lazy and input a price or else we are making it free</span>
+				<span ng-show="mainForm.inputPrice.$invalid && mainForm.inputPrice.$dirty" class="help-block">Input a valid price.</span>
 			</div>
 		</div>
 		
