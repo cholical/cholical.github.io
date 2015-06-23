@@ -1,41 +1,10 @@
+/*///////////////////////////////////
+GENERAL STYLES
+//////////////////////////////////*/
 
-/*test by mac
-*/
-.top-nav-search-text {
-  height: 34px;
-  padding: 0px 0px 2px 10px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-style: solid;
-  box-shadow: none;
-  border-color: #ccc;
-  border-width: 1px;  
-}
-
-.top-nav-search-icon {
-  margin-left: -5px;
-  border-radius: 0px 4px 4px 0px;
-}
-
-.sidebar {
-  margin-top: 0px;
-  width: 350px;
-}
 
 #page-wrapper {
   margin-left: 350px;
-}
-
-/*.nav > li > a {
-  position: relative;
-  display: block;
-  padding: 10px 30px;
-}*/
-
-[ng-click],
-[data-ng-click],
-[x-ng-click] {
-    cursor: pointer;
 }
 
 body {
@@ -52,9 +21,43 @@ body {
   padding:20px 10px;
 }
 
+.content {
+  background:#fff;;
+  border-radius:6px;
+  color:#333;
+  padding:15px;
+  font-size:17px;
+  margin:10px 0px;
+  box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+}
+
+.content h3,
+.content h4,
+.content h2,
+.content h5,
+.content h6 {
+  color:#3C7094;
+}
+
+.content span {
+  font-style: bold;
+  padding:1px 3px;
+}
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+
+/*///////////////////////////////////
+HEADER AND FOOTER STYLES
+//////////////////////////////////*/
+
 .homeHeader div {
   background:#f8f8f8;
 }
+
 .pageFooter {
   position:relative;
   bottom:0px;
@@ -158,6 +161,10 @@ body {
   font-style:italic;
 }
 
+/*///////////////////////////////////
+HOME PAGE STYLES
+//////////////////////////////////*/
+
 .homeBody {
   font-size:18px;
 }
@@ -173,85 +180,9 @@ body {
   color:#3C7094;
 }
 
-.classRow input.form-control{
-  display:inline;
-}
-
-.classRow .btn-xs{
-  position:absolute;
-  top:1px;
-  right:-40px;
-  height:30px;
-  width:30px;
-  border:1px solid #777;
-  text-align:center;
-  line-height:25px;
-  font-size:25px;
-  font-weight:bold;
-}
-
-form.form-horizontal em {
-  color:#aaa;
-}
-
-.cancelBtn {
-  background:#FF5050;
-}
-
-.submitBtn {
-  background:#33CC33;
-}
-
-.confirmBtn {
-  background:#88CD88;
-}
-
-.navbar-listings {
-  box-shadow:none;
-  font-size:14px;
-  background:#c9e3f5;
-}
-
-.navbar-listings .navbar-brand {
-  color:#444;
-  margin-left:inherit !important;
-  cursor:default;
-}
-.navbar-listings .navbar-nav > li > a {
-  font-size:14px;
-  background:#c9e3f5;
-  color:#555;
-}
-
-.navbar-listings .navbar-nav > li > a:hover,
-.navbar-listings .navbar-nav > li > a:focus {
-  color:#ff7863;
-  background:#c9e3f5;
-  transition: color 400ms;
-}
-
-.navbar-listings form {
-  color:#333;
-}
-
-.navbar-listings label {
-  font-weight:normal;
-  color:#444;
-}
-.paginateControls div{
-  display:inline;
-  width:auto;
-  margin:5px auto;
-}
-
-.inNavbar  {
-  width:auto;
-  display:inline;
-}
-
-.pagination {
-  margin:0px 5px;
-}
+/*///////////////////////////////////
+NEWLISTING PAGE FORM STYLES
+//////////////////////////////////*/
 
 button.newListing {
   position:relative;
@@ -295,29 +226,119 @@ button.newListing {
 .mainForm .modal-footer {
   background:#fff;
 }
-.content {
-  background:#e8e8e8;;
-  border-radius:6px;
-  color:#333;
-  padding:15px;
-  font-size:17px;
-  margin:10px 0px;
-  box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+
+.classRow input.form-control{
+  display:inline;
 }
 
-.content h3,
-.content h4,
-.content h2,
-.content h5,
-.content h6 {
-  color:#3C7094;
+.classRow .btn-xs{
+  position:absolute;
+  top:1px;
+  right:-40px;
+  height:30px;
+  width:30px;
+  border:1px solid #777;
+  text-align:center;
+  line-height:25px;
+  font-size:25px;
+  font-weight:bold;
 }
+
+form.form-horizontal em {
+  color:#aaa;
+}
+
+.cancelBtn {
+  background:#FF5050;
+}
+
+.submitBtn {
+  background:#33CC33;
+}
+
+.confirmBtn {
+  background:#88CD88;
+}
+
+/*///////////////////////////////////
+TEXTBOOK AND ACCCESSORY PAGE STYLES
+//////////////////////////////////*/
+
+.navbar-listings {
+  box-shadow:none;
+  font-size:14px;
+  background:#c9e3f5;
+}
+
+.navbar-listings .navbar-brand {
+  color:#444;
+  margin-left:inherit !important;
+  cursor:default;
+}
+.navbar-listings .navbar-nav > li > a {
+  font-size:14px;
+  background:#c9e3f5;
+  color:#555;
+}
+
+.navbar-listings .navbar-nav > li > a:hover,
+.navbar-listings .navbar-nav > li > a:focus {
+  color:#ff7863;
+  background:#c9e3f5;
+  transition: color 400ms;
+}
+
 .navbar-nav .activeSort {
   color:#ff7863 !important;
 }
 
+.navbar-listings form {
+  color:#333;
+}
+
+.navbar-listings label {
+  font-weight:normal;
+  color:#444;
+}
+
+.paginateControls div{
+  display:inline;
+  width:auto;
+  margin:5px auto;
+}
+
+.inNavbar  {
+  width:auto;
+  display:inline;
+}
+
+.pagination {
+  margin:0px 5px;
+}
+
+.top-nav-search-text {
+  height: 34px;
+  padding: 0px 0px 2px 10px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-style: solid;
+  box-shadow: none;
+  border-color: #ccc;
+  border-width: 1px;  
+}
+
+.top-nav-search-icon {
+  margin-left: -5px;
+  border-radius: 0px 4px 4px 0px;
+}
+
+/*///////////////////////////////////
+LISTING CARD STYLES 
+//////////////////////////////////*/
+
 .listingCard {
 }
+
 .listingCard .mainPanel{
   background-color:#fff;
   margin:10px 0px;
@@ -329,22 +350,6 @@ button.newListing {
   overflow:hidden;
 }
 
-/*.clickLayer {
-  z-index:2;
-  position:absolute;
-  height:200px;
-  background:#56a0d3;
-  opacity:0;
-  margin:10px 0px;
-  width:100%;
-  transition:opacity 400ms;
-}
-
-.clickLayer:hover,
-.clickLayer:focus {
-    opacity:0.2;
-}*/
-
 .listingCard .mainPanel:hover,
 .listingCard .mainPanel:focus {
     background-color:#FAE1D7;
@@ -352,9 +357,14 @@ button.newListing {
 
 .listingCard .mainPanel:hover .priceTag,
 .listingCard .mainPanel:focus .priceTag {
-    background-color:transparent;
+    background-color:#FAEAE4;
     border-color:#666;
 }
+
+.listingCard .mainPanel:hover .listingDate,
+.listingCard .mainPanel:focus .listingDate {
+  background-color:transparent;
+} 
 
 .priceTag {
   background:#ffab8a;
@@ -369,7 +379,6 @@ button.newListing {
   overflow:hidden;
   border:1px solid;
   border-color: transparent;
-
   transition:background-color 400ms,border-color 400ms;
 }
 
@@ -385,13 +394,11 @@ button.newListing {
 
 .listingCard h3:hover {
   white-space:normal;
-
   overflow:visible;
   background-color:transparent;
   position:relative;
   max-height:500px;
   z-index:2;
-
 }
 
 .listingCard h4{
@@ -404,20 +411,20 @@ button.newListing {
 
 .listingDate {
   position:relative;
-  bottom:15px;
-  
+  bottom:11px;
   font-style:italic;
   font-size:14px;
+  background: #E1EBFC; 
+  height: 20px;
+  transition:background-color 400ms;
 }
 
-/*.sellListing {
-  width:100%;
-  border-bottom:5px solid #12E90D;
-  height:15px;
-}*/
-
 .listingDescription {
-  border-top:1px solid #ddd;
+  padding:0px 6px;  
+}
+
+.listingDescription p {
+  border-top:1px solid #bbb;
   padding:5px;
   width:100%;
   height:80px;
@@ -428,6 +435,15 @@ button.newListing {
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
+
+
+.wantListing {
+  background: #FFDCDC;
+}
+
+/*///////////////////////////////////
+INFO PANEL PAGE STYLES 
+//////////////////////////////////*/
 
 .infoHeader {
   background:#56a0d3;
@@ -466,6 +482,7 @@ button.newListing {
 .closeInfo:hover {
   background:transparent;
 }
+
 .passwordField {
   width: 200px;
   display: inline-block;
@@ -481,6 +498,7 @@ button.newListing {
   margin-bottom: 1px; 
   color: #737373;
   text-align: left;
+
 }
 .passwordField input {
   height:28px;
@@ -495,7 +513,6 @@ button.editInfo {
   color:#333;
 }
 
-
 button.editInfo:hover {
   background:transparent;
   color:#333;
@@ -503,6 +520,21 @@ button.editInfo:hover {
 
 .infoFooter .text-right {
   
+}
+
+/*///////////////////////////////////
+ABOUT PAGE STYLES 
+//////////////////////////////////*/
+
+.aboutContent {
+  background:#fff;
+  color:#333;
+  text-align:justify;
+}
+
+.aboutLetter {
+  width: 70%;
+  margin: 0px auto;
 }
 
 .profileRow {
@@ -523,8 +555,8 @@ button.editInfo:hover {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   color: #d64d3e;
-
 }
+
 .profile {
   width:300px;
   height:400px;
@@ -582,10 +614,5 @@ button.editInfo:hover {
   width:77%;
   overflow:hidden;
   margin:3px auto;
-}
-
-.aboutContent {
-  background:#fff;
-  color:#333;
 }
 

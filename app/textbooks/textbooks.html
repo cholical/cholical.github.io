@@ -19,7 +19,13 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="content">
-                Below are the current listings for textbooks. Click on a card to display more detailed information. A card with a <font color="red">red</font> stripe indicates that the textbook is being sold. A card with a <font color="green">green</font> stripe indicates that the textbook is sought after by another student. If you cannot find the textbook you need, try creating a listing by clicking on the Create New Listing button. Seriously do it! I spent four hours getting that button to work. That's time I could have spent on much more pleasurable things like shoe shining and listening to white noise.
+                <p>Below are the current listings for textbooks. Click on a card to display more detailed information. The title of the listing can be expanding by hovering over it. </p>
+
+                <p class="text-center">A card with a <span style="background-color:#E1EBFC">blue stripe</span> indicates that the textbook is being sold. <br>A card with a <span style="background-color:#FFDCDC">red stripe</span>  indicates that another student is looking to buy that textbook.</p>
+
+                <p>If you cannot find the textbook you need, try creating a listing by clicking on the Create New Listing button. Seriously do it! I spent four hours getting that button to work. That's time I could have spent on much more pleasurable things like shoe shining and listening to white noise. You can edit a listing that you have created within the info panel of that listing.</p>
+
+                <p></p>
             </div>
 		</div>
 	</div>
@@ -140,15 +146,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
-                        <p class="listingDescription">
+                    <div class="col-xs-12 listingDescription">
+                        <p>
                             {{textbook.description}}
                         </p>
                     </div>
                 </div>
-                <div class="row listingDate">
+                <div class="row listingDate" ng-class="{'wantListing': textbook.acceptingOffers != 1}">
                     <div class="col-xs-3 text-left">
-                            <p class="sellListing"></p>
+                            <p class="wantListing"></p>
                     </div>
                     <div class="col-xs-9  text-right ">
                             <p>{{textbook.date | date:'mediumDate'}}</p>

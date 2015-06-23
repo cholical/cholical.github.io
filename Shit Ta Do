@@ -1,21 +1,18 @@
 Shit Ta Do
 
-
-3. Angluar Validation - Ronald
-4. !!Change card stripe depeding on want or sell listing type - Mac
-5. Style About us - Mac
-6. Come up with Content for Home Page - Ronald
-7. Compatibility with long titles
-9. Cum up with a name
-11. unique url for each modal instance of listing info (based on id)
-12. body loading
-13. incorrect password notice
-14. Allow description to retain formatting
-15. Progress bar during ajax calls
+The real shit ta do
+    6. Come up with Content for Home Page - Ronald
+    9. Cum up with a name
+    11. unique url for each modal instance of listing info (based on id)
+    12. body loading
+    14. Allow description to retain formatting
+        a. currently a bug with long description wrapping on info panel
+    15. Progress bar during ajax calls
+    16. Pass the password word to the server 
 
 Secondary Tasks
-1. Add professor
-2. Imgur album support/picture support
-3. Break website/ugly mode
-4. DDOS Student Shelf India
-5. services?
+    1. Add professor
+    2. Imgur album support/picture support
+    3. Break website/ugly mode
+    4. DDOS Student Shelf India
+    5. services?
