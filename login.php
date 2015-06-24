@@ -1,10 +1,6 @@
 <?php // login.php 
 
-//db4Free Login
-// $db_hostname = 'db4free.net'; //url of mysql database location
-// $db_database = 'tclassified'; 
-// $db_username = 'cholical'; 
-// $db_password = 'h52FGdek!'; 
+
 
 
 //000Hosting Login
