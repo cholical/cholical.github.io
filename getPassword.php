@@ -12,11 +12,11 @@
   @$password = $request->password; //password from angular ajax call
 
   if ($listingType == "textbooks") {
-    @$listingID = $request->textbook_id;
+    @$listingID = (int)$request->textbook_id;
     $query = "SELECT password FROM $listingType WHERE textbook_id=$listingID;"
   }
   if ($listingType == "accessories"){
-    @$listingID = $request->accessory_id;
+    @$listingID = (int)$request->accessory_id;
     $query = "SELECT password FROM $listingType WHERE accessory_id=$listingID;"
   }
 
