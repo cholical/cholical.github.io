@@ -18,9 +18,10 @@
     $rows[] = array();
     while($row =mysqli_fetch_assoc($result))
     {
+        $row['password'] = "";
         $rows[] = $row;
     }
-    $row['password'] = "stop trying to find people's passwords";
+    
     array_shift($rows);
     
     //remove the comment below to just echo the json arrow

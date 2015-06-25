@@ -13,11 +13,11 @@
 
   if ($listingType == "textbooks") {
     @$listingID = (int)$request->textbook_id;
-    $query = "SELECT password FROM $listingType WHERE textbook_id=$listingID;"
+    $query = "SELECT password FROM $listingType WHERE textbook_id=$listingID;";
   }
   if ($listingType == "accessories"){
     @$listingID = (int)$request->accessory_id;
-    $query = "SELECT password FROM $listingType WHERE accessory_id=$listingID;"
+    $query = "SELECT password FROM $listingType WHERE accessory_id=$listingID;";
   }
 
   $result = mysqli_query($db_server, $query);

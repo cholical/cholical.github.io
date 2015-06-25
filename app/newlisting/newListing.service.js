@@ -1,7 +1,7 @@
 (function () {
 
   "use strict";
-  var app, newListingVar, itemIdVar, deleteIdVar, getNewListing, setNewListing, deleteListing, setItemId, getItemId, setDeleteId, getDeleteId;
+  var app, newListingVar, itemIdVar, deleteIdVar, getNewListing, setNewListing, deleteListing, setItemId, getItemId, setDeleteId, getDeleteId, checkPassword;
   
   app = angular.module('tclassified');
 
@@ -131,6 +131,38 @@
         return deleteIdVar;
     }
 
+    checkPassword = function(passwordInput, currentItem) {
+      if (currentItem.hasOwnProperty("textbookName")) {
+        return $http({
+            method: "post",
+            url: "getPassword.php", 
+            data: {
+              "listingType" : "accessories",
+              "password" : passwordInput,
+              "textbook_id" : currentItem.textbook_id
+            }
+
+          }).then(function(response) {
+          return response.data;
+        });
+      }
+      else if (currentItem.hasOwnProperty("accessoryName")) {
+        return $http({
+            method: "post",
+            url: "getPassword.php", 
+            data: {
+              "listingType" : "accessories",
+              "password" : passwordInput,
+              "accessory_id" : currentItem.accessory_id
+            }
+
+          }).then(function(response) {
+          return response.data;
+        });
+      }
+      
+    }
+
     return {
       newListingVar: newListingVar,
       itemIdVar: itemIdVar,
@@ -141,7 +173,8 @@
       setItemId: setItemId,
       getItemId: getItemId,
       setDeleteId: setDeleteId,
-      getDeleteId: getDeleteId
+      getDeleteId: getDeleteId,
+      checkPassword: checkPassword
      
     };
   }]);

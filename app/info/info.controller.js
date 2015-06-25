@@ -8,6 +8,11 @@
 
     $scope.item = data;
     $scope.passwordInput;
+    $scope.wrongPassword = false;
+    $scope.passwordField = true;
+    $scope.editButton = false;
+    $scope.passwordSubmitButton = true;
+
     if ($scope.item.hasOwnProperty("textbookName")) { 
         console.log("textbook passed in");
         $scope.typeOfObject = "textbook";
@@ -31,10 +36,16 @@
     $scope.close = function () {
 		    $modalInstance.dismiss('close');
 	  };
-	
-    $scope.wrongPassword = false;
     $scope.checkPasswordInput = function(currentItem) {
-        if ($scope.passwordInput === $scope.item.password) {
+
+
+        newListingSvc.checkPassword($scope.passwordInput, currentItem).then(function (data) {
+            data.replace(/\s+/g, '');
+            data = parseInt(data);
+            console.log(data);
+
+            if ( data === 1) {
+            console.log("password correct")
             var modalInstance = $modal.open({
             templateUrl: 'app/newlisting/newListing.html',
             controller: 'newListingCtrl',
@@ -69,11 +80,12 @@
           jQuery('.passwordField').addClass('has-error'); 
           $scope.wrongPassword = true;
         }
+        })
+
+        
     }
 
-    $scope.passwordField = true;
-    $scope.editButton = false;
-    $scope.passwordSubmitButton = true;
+    
 
     $scope.editPostButton = function(){
         $scope.passwordField = false;
