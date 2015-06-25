@@ -10,6 +10,7 @@
     @$listingType = $request->listingType;
 
     //fetch table rows from mysql db
+
     $query = "SELECT * from $listingType";
     $result = mysqli_query($db_server, $query) or die("Error in Selecting " . mysqli_error($db_server));
 
@@ -19,7 +20,7 @@
     {
         $rows[] = $row;
     }
-
+    $row['password'] = "stop trying to find people's passwords";
     array_shift($rows);
     
     //remove the comment below to just echo the json arrow
