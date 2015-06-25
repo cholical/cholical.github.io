@@ -21,7 +21,7 @@
     if ($listingType == "textbooks") {
 
         //textbook exclusive fields
-        @$textbookName = mysqli_real_escape_string($request->textbookName);
+        @$textbookName = mysqli_real_escape_string($db_server, $request->textbookName);
         @$author = mysqli_real_escape_string($db_server, $request->author);
         @$edition = mysqli_real_escape_string($db_server, $request->edition);
         @$class1 = mysqli_real_escape_string($db_server, $request->class1);

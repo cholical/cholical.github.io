@@ -137,7 +137,7 @@
             method: "post",
             url: "getPassword.php", 
             data: {
-              "listingType" : "accessories",
+              "listingType" : "textbooks",
               "password" : passwordInput,
               "textbook_id" : currentItem.textbook_id
             }
