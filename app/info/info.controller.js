@@ -48,17 +48,18 @@
             currentItem.password = $scope.passwordInput;
             console.log("password correct")
             var modalInstance = $modal.open({
-            templateUrl: 'app/newlisting/newListing.html',
-            controller: 'newListingCtrl',
-            resolve: {
-                listing: function() {
-                    return currentItem;
+                templateUrl: 'app/newlisting/newListing.html',
+                controller: 'newListingCtrl',
+                backdrop:'static',
+                resolve: {
+                    listing: function() {
+                        return currentItem;
+                    },
+                    type: function() {
+                        return $scope.typeOfObject;
+                    }
                 },
-                type: function() {
-                    return $scope.typeOfObject;
-                }
-            },
-            size: 'lg'
+                size: 'lg'
             })
 
             //Code for updating editing and deletion on the front end
