@@ -112,11 +112,11 @@
         </div>   
         </center>
     </div>
-    <div class="row" >
+    <div class="row cardRow" >
         <div class="listingCard col-lg-4" dir-paginate-start="accessory in accessories | orderBy:sortType:sortReverse | filter:searchBar | itemsPerPage:pageSize" current-page="currentPage">
             <!-- <div class="clickLayer" ng-click="getTextbookInfo(textbook)">
             </div> -->
-            <div class="mainPanel" ng-click="getAccessoryInfo(accessory)">
+            <div class="mainPanel animated fadeInUp" ng-click="getAccessoryInfo(accessory)">
                 <div class="row">
                     <div class="col-xs-9">
                         <h3>{{accessory.accessoryName}}</h3>

@@ -7,6 +7,11 @@ GENERAL STYLES
   margin-left: 350px;
 }
 
+#wrapper {
+  max-height:99999px;
+  transition:max-height 500ms;
+}
+
 body {
  font-size: 12px; 
  padding:0px;

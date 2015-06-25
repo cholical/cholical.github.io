@@ -81,6 +81,7 @@
         templateUrl: 'app/newlisting/newListing.html',
         controller: 'newListingCtrl',
         size: 'lg',
+        backdrop:'static',
         resolve:  {
           listing: function() {
             return $scope.listing;
