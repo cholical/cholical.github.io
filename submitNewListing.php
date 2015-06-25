@@ -12,23 +12,23 @@
     //common variables
     @$price = $request->price;
     @$acceptingOffers = $request->acceptingOffers;
-    @$sellerName = $request->sellerName;
-    @$description = $request->description;
-    @$contactInfo = $request->contactInfo;
-    @$password = $request->password;
+    @$sellerName = mysqli_real_escape_string($db_server, $request->sellerName);
+    @$description = mysqli_real_escape_string($db_server, $request->description);
+    @$contactInfo = mysqli_real_escape_string($db_server, $request->contactInfo);
+    @$password = mysqli_real_escape_string($db_server, $request->password);
     @$date = $request->date;
 
     if ($listingType == "textbooks") {
 
         //textbook exclusive fields
-        @$textbookName = $request->textbookName;
-        @$author = $request->author;
-        @$edition = $request->edition;
-        @$class1 = $request->class1;
-        @$class2 = $request->class2;
-        @$class3 = $request->class3;
-        @$class4 = $request->class4;
-        @$class5 = $request->class5;
+        @$textbookName = mysqli_real_escape_string($request->textbookName);
+        @$author = mysqli_real_escape_string($db_server, $request->author);
+        @$edition = mysqli_real_escape_string($db_server, $request->edition);
+        @$class1 = mysqli_real_escape_string($db_server, $request->class1);
+        @$class2 = mysqli_real_escape_string($db_server, $request->class2);
+        @$class3 = mysqli_real_escape_string($db_server, $request->class3);
+        @$class4 = mysqli_real_escape_string($db_server, $request->class4);
+        @$class5 = mysqli_real_escape_string($db_server, $request->class5);
 
         @$textbook_id = (int)$request->textbook_id;
 
@@ -52,7 +52,7 @@
     } elseif ($listingType =="accessories") {
 
             //accessory exclusive fields
-            @$accessoryName = $request->accessoryName;
+            @$accessoryName = mysqli_real_escape_string($db_server, $request->accessoryName);
 
             @$accessory_id = (int)$request->accessory_id;
 

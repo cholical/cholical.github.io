@@ -45,6 +45,7 @@
             console.log(data);
 
             if ( data === 1) {
+            currentItem.password = $scope.passwordInput;
             console.log("password correct")
             var modalInstance = $modal.open({
             templateUrl: 'app/newlisting/newListing.html',

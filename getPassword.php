@@ -9,7 +9,7 @@
   $request = json_decode($postdata);
 
   @$listingType = $request->listingType;
-  @$password = $request->password; //password from angular ajax call
+  @$password = mysqli_real_escape_string($db_server, $request->password); //password from angular ajax call
 
   if ($listingType == "textbooks") {
     @$listingID = (int)$request->textbook_id;
