@@ -13,7 +13,7 @@ GENERAL STYLES
 }
 
 body {
- font-size: 12px; 
+ font-size: 12px;
  padding:0px;
  background:url('');
  background-attachment:fixed;
@@ -30,7 +30,7 @@ a:hover,a:focus {
 }
 
 .content {
-  background:#fff;;
+  background:#fff;
   border-radius:6px;
   color:#333;
   padding:15px;
@@ -143,7 +143,7 @@ HEADER AND FOOTER STYLES
 
   .infoAtBottom {
     position:relative;
-    
+
   }
 
   .socialMedia {
@@ -211,20 +211,20 @@ HOME PAGE STYLES
 
 .specialNav .mainlinks > li > a:hover,
 .specialNav .mainlinks > li > a:focus {
-  color:#333 ;
+  color:rgba(60,97,120) ;
   background:#faf2e8  ;
 }
 
 .specialNav .active:hover,
 .specialNav .active:focus {
-    color:#333 ;
-  background:#faf2e8  ;
+    color:#7CBBCA;
+  background:transparent  ;
 }
 
 .splash {
   background:rgba(60,97,120,0.75);
   opacity:;
-  height:800px;
+  height:560px;
   position:relative;
   border-bottom:2px solid #0e1721;
 }
@@ -232,7 +232,7 @@ HOME PAGE STYLES
 .splash div {
   color:#f8f8f8;
   width:900px;
-  margin:270px auto;
+  margin:140px auto;
   font-size: 16px;
 }
 
@@ -244,7 +244,7 @@ HOME PAGE STYLES
  background:url('../img/unc-well.jpeg');
  background-attachment:fixed;
  background-position:center center;
- background-repeat:no-repeat; 
+ background-repeat:no-repeat;
 }
 .typeSelect {
   background:#faf2e8;
@@ -258,7 +258,7 @@ HOME PAGE STYLES
 
 .typeSelect .row  {
   margin:0px auto;
-  max-width: 1100px;
+  max-width: 1000px;
   height:350px;
 }
 
@@ -283,10 +283,10 @@ HOME PAGE STYLES
 }
 .typeSelect .jumbotron {
   border:6px solid rgba(95, 118, 132, 1);
- 
+
   color:#0e1721 ;
   background: #e4e8f0;
-  height:346.656px;
+  height:313.328px;
   text-align: center;
   padding:15px;
   transition:color 360ms, background 360ms, border-color 360ms;
@@ -468,6 +468,49 @@ TEXTBOOK AND ACCCESSORY PAGE STYLES
   margin:0px 5px;
 }
 
+.paginateControls {
+    background-color: #f8f8f8;
+    z-index: 3;
+    margin-top: 60px;
+}
+
+.pagination > .active > a {
+    background-color: #9ac2d9;
+    border-color: #9ac2d9;
+    color:#0e1721;
+    font-weight:bold;
+}
+
+.pagination > .active > a:hover,
+.pagination > .active > a:focus {
+    background-color: #9ac2d9;
+    border-color: #9ac2d9;
+    color:#0e1721;
+    font-weight:bold;
+}
+
+.pagination > li > a {
+    color:#0e1721;
+    font-weight: ;
+    transition:background-color 300ms;
+}
+
+.pagination > li > a:hover,
+.pagination > li > a:focus {
+    background-color:#e2f5ff;
+}
+
+.pagination > li:last-child > a,
+.pagination > li:first-child > a {
+    border-radius:0px;
+    margin:0px 7px;
+    font-weight: bolder;
+    font-size: 11px;
+    position: relative;
+    top: -0.5px;
+    height: 31px;
+}
+
 .top-nav-search-text {
   height: 34px;
   padding: 0px 0px 2px 10px;
@@ -476,7 +519,7 @@ TEXTBOOK AND ACCCESSORY PAGE STYLES
   border-style: solid;
   box-shadow: none;
   border-color: #ccc;
-  border-width: 1px;  
+  border-width: 1px;
 }
 
 .top-nav-search-icon {
@@ -485,7 +528,7 @@ TEXTBOOK AND ACCCESSORY PAGE STYLES
 }
 
 /*///////////////////////////////////
-LISTING CARD STYLES 
+LISTING CARD STYLES
 //////////////////////////////////*/
 
 .listingCard {
@@ -519,7 +562,7 @@ LISTING CARD STYLES
 .listingCard .mainPanel:hover .listingDate,
 .listingCard .mainPanel:focus .listingDate {
   background-color:transparent;
-} 
+}
 
 
 .priceTag {
@@ -546,7 +589,7 @@ LISTING CARD STYLES
     white-space:;
     text-overflow:ellipsis;
     transition: max-height 400ms ease-in-out,color 400ms;
-    
+
 
 }
 
@@ -572,13 +615,13 @@ LISTING CARD STYLES
   bottom:11px;
   font-style:italic;
   font-size:14px;
-  background: #E1EBFC; 
+  background: #E1EBFC;
   height: 20px;
   transition:background-color 400ms,  color 400ms;
 }
 
 .listingDescription {
-  padding:0px 6px;  
+  padding:0px 6px;
 }
 
 .listingDescription p {
@@ -601,7 +644,7 @@ LISTING CARD STYLES
 }
 
 /*///////////////////////////////////
-INFO PANEL PAGE STYLES 
+INFO PANEL PAGE STYLES
 //////////////////////////////////*/
 
 .infoHeader {
@@ -654,7 +697,7 @@ INFO PANEL PAGE STYLES
 .passwordField span {
   display: inline;
   margin-top: 0px;
-  margin-bottom: 1px; 
+  margin-bottom: 1px;
   color: #737373;
   text-align: left;
 
@@ -678,11 +721,11 @@ button.editInfo:hover {
 }
 
 .infoFooter .text-right {
-  
+
 }
 
 /*///////////////////////////////////
-ABOUT PAGE STYLES 
+ABOUT PAGE STYLES
 //////////////////////////////////*/
 
 .aboutContent {
@@ -758,7 +801,7 @@ ABOUT PAGE STYLES
       padding-top:15px;
     }
 
-    
+
 
 .profilePanel {
   display:inline-block;
@@ -774,4 +817,3 @@ ABOUT PAGE STYLES
   overflow:hidden;
   margin:3px auto;
 }
-

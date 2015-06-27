@@ -3,19 +3,19 @@
 
     <div class="row">
         <div class="col-md-6"><h2>Textbook Listings</h2></div>
-        
+
         <div class="col-md-6 text-right">
             <button type="button" class="btn btn-default btn-lg newListing" ng-click="createNewListing()">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true">
                   </span> Create New Listing
             </button>
         </div>
-        
+
     </div>
 
 
 
-	
+
 	<div class="row">
 		<div class="col-md-12">
 			<div class="content">
@@ -32,9 +32,9 @@
 
 
 	<br>
-	
-	
-	
+
+
+
     <div class="row">
         <nav class="navbar navbar-default navbar-listings">
           <div class="container-fluid">
@@ -51,8 +51,8 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              
-              
+
+
 
               <!--Main Filtering links-->
               <ul class="nav navbar-nav">
@@ -89,7 +89,7 @@
                     </a>
                 </li>
               </ul>
-              
+
 
               <!--Search bar-->
 
@@ -111,20 +111,14 @@
                           </button>
                       </span>
                   </div>
-                </form>  
+                </form>
               </ul>
 
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
     </div>
-    <div class="row paginateControls">
-        <center>
-        <div>            
-            <dir-pagination-controls class=""></dir-pagination-controls>
-        </div>   
-        </center>
-    </div>
+
     <div class="row cardRow" >
         <div class="listingCard col-lg-4" dir-paginate-start="textbook in textbooks | orderBy:sortType:sortReverse | filter:searchBar | itemsPerPage:pageSize" current-page="currentPage">
             <!-- <div class="clickLayer" ng-click="getTextbookInfo(textbook)">
@@ -132,9 +126,9 @@
             <div class="mainPanel animated fadeInUp" ng-click="getTextbookInfo(textbook)">
                 <div class="row">
                     <div class="col-xs-9 titleScroll">
-                        
+
                         <h3 class="titleField">{{textbook.textbookName}}</h3>
-                       
+
                     </div>
                     <div class="col-xs-3">
                         <div class="priceTag">{{textbook.price | currency}}</div>
@@ -160,12 +154,17 @@
                             <p>{{textbook.date | date:'mediumDate'}}</p>
                     </div>
                 </div>
-                
+
             </div>
-            
+
         </div>
         <div dir-paginate-end></div>
     </div>
-    
+    <div class="row paginateControls">
+        <center>
+        <div>
+            <dir-pagination-controls class=""></dir-pagination-controls>
+        </div>
+        </center>
+    </div>
 </div>
-
