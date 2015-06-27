@@ -3,6 +3,7 @@
   margin-right: auto;
   margin-left: auto;
   max-width: 1300px; /* or 950px */
+  min-width:760px;
 }
 
 .container-fluid {
@@ -15,42 +16,50 @@
 }
 
 .navbar-default {
-    background: #56A0D3;
+    background: #3c6178;
     color:#f8f8f8;
     box-shadow:0 3px 10px rgba(0,0,0,.3);
     border-left:none;
     border-right:none;
     border:none;
     border-radius:0px;
+    transition:background 400ms;
 }
 
 .navbar-default .navbar-nav > li > a {
     color:#f8f8f8;
-    font-size:20px;
+    font-size:15px;
 }
 
-.navbar-default .navbar-nav .active > a,
-.navbar-default .navbar-nav .active > a:hover,
-.navbar-default .navbar-nav .active > a:focus {
-    background-color:#4790C2;
-    color:#f8f8f8;
+.navbar-default .navbar-nav .active > a {
+    background-color:transparent    ;
+/*    border-bottom:2px solid #9ac2d9;
+*/    color:#f8f8f8;
 }
 
 .navbar-default .navbar-nav > li > a{
-    background-color: #56A0D3;
+    background-color: #3c6178;
     color:#f8f8f8;
     transition: color 350ms, background-color, 350ms;
     padding-left:20px;
     padding-right:20px;
-
+/*    border:1px solid transparent;
+*/    border-radius: 1px;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
     background-color:#f8f8f8;
-    color: #56A0D3;
-  
+    color: #3c6178;
+/*    border:1px solid #f8f8f8;
+*/    border-radius:1px;  
 }
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+}
+
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
     padding:0 10px;
@@ -59,31 +68,12 @@
 .jumbotron {
     background-color:#e8e8e8;
     margin-bottom:20px;
-    box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
 
 
 }
-    .texPanel {
-        background:url('../../../../img/textbooks.jpg');
-        color:#f8f8f8;
-        text-shadow:2px 2px 3px black;
-    }
-
-    .serPanel {
-        background: url('../../../../img/service.jpg');
-        background-position:center;
-        color:#f8f8f8;
-        text-shadow:0px 0px 3px black;
-    }
     
-    .accPanel {
-        background: url('../../../../img/devices.jpg');
-        color:#f8f8f8;
-        text-shadow:0px 0px 3px black;
-    }
-
 .btn-default {
-    background-color:#56A0D3;
+    background-color:#3c6178;
     color:#f8f8f8;
     color:;
     transition: color 350ms, background-color, 350ms;

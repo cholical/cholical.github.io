@@ -1,6 +1,33 @@
 /*//////////////////////////////////////////////////////////////
 CARD ANIMATION IN CSS SINCE ANGULAR AND JQUERY HATE EACH OTHER
 //////////////////////////////////////////////////////////////*/
+.splash p {
+ -webkit-animation-delay:200ms ;
+  -moz-animation-delay:200ms;
+  animation-delay:200ms;
+}
+.typeSelect .animated {
+   animation-duration:1000ms;
+  -webkit-animation-duration:1000ms;
+  -moz-animation-duration:1000ms;
+}
+.typeSelect div > div:nth-of-type(1){
+ -webkit-animation-delay:0ms ;
+  -moz-animation-delay:0ms;
+  animation-delay:0ms;
+}
+.typeSelect div > div:nth-of-type(2){
+ -webkit-animation-delay:100ms ;
+  -moz-animation-delay:100ms;
+  animation-delay:100ms;
+}
+.typeSelect div > div:nth-of-type(3){
+ -webkit-animation-delay:200ms ;
+  -moz-animation-delay:200ms;
+  animation-delay:200ms;
+}
+
+
 .listingCard .animated {
   animation-duration:800ms;
   -webkit-animation-duration:800ms;

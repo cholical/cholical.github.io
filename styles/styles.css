@@ -15,12 +15,15 @@ GENERAL STYLES
 body {
  font-size: 12px; 
  padding:0px;
- background:url('../img/unclogosmall.png');
+ background:url('');
  background-attachment:fixed;
  background-position:center center;
  background-repeat:no-repeat;
+ font-family: 'Droid Sans', sans-serif;
 }
-
+a:hover,a:focus {
+  text-decoration:  none;
+}
 .mainContent {
   background:rgba(248,248,248,0.9);
   padding:20px 10px;
@@ -34,6 +37,8 @@ body {
   font-size:17px;
   margin:10px 0px;
   box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+/*    border:1px solid rgba(60,97,120,1);*/
+
 }
 
 .content h3,
@@ -63,6 +68,20 @@ HEADER AND FOOTER STYLES
   background:#f8f8f8;
 }
 
+
+.mainlinks {
+  float:right;
+  margin:7.5px 0px;
+  font-size:17px;
+}
+
+.navbar-header  h1{
+    margin:14px 10px;
+}
+
+.navbar-header small {
+    color:  #112437;
+}
 .pageFooter {
   position:relative;
   bottom:0px;
@@ -74,11 +93,12 @@ HEADER AND FOOTER STYLES
 #stripe {
   height:20px;
   margin:0px;
-  background:#56A0D3;
+  background:#3c6178;
+  border-top: 4px solid #5a81b0;
 }
 
 #midStripe {
-  background:#56a0d3;
+  background:#3c6178;
   height:36px;
   z-index:2;
   width:15%;
@@ -91,12 +111,13 @@ HEADER AND FOOTER STYLES
   font-size:16px;
   color:#f8f8f8;
   font-weight:bold;
+  border-top: 4px solid #5a81b0;
 }
     #midStripe:before {
       content: '';
       position: absolute;
       bottom: 0; right: 0;
-      border-bottom: 16px solid #444;
+      border-bottom: 16px solid #0e1721;
       border-left: 20px solid transparent;
       width: 0;
       z-index:1;
@@ -106,14 +127,14 @@ HEADER AND FOOTER STYLES
       content: '';
       position: absolute;
       bottom: 0; left: 0;
-      border-bottom: 16px solid #444;
+      border-bottom: 16px solid #0e1721;
       border-right: 20px solid transparent;
       width: 0;
       z-index:1;
     }
 
 #footerContent {
-  background:#444;
+  background:#0e1721;
   height:;
   padding:30px 30px 5px 30px;
   color:#aaa;
@@ -168,8 +189,82 @@ HEADER AND FOOTER STYLES
 HOME PAGE STYLES
 //////////////////////////////////*/
 
+.specialNav nav{
+  background:transparent;
+  box-shadow:none;
+  color:#f8f8f8;
+  z-index: 2;
+  position: absolute;
+  top:0px;
+  width:100%;
+}
+
+.homeMainContent {
+  padding:0px;
+  background:transparent;
+}
+
+.specialNav .mainlinks > li > a {
+  color:#faf2e8;
+  background:transparent;
+}
+
+.specialNav .mainlinks > li > a:hover,
+.specialNav .mainlinks > li > a:focus {
+  color:#333 ;
+  background:#faf2e8  ;
+}
+
+.specialNav .active:hover,
+.specialNav .active:focus {
+    color:#333 ;
+  background:#faf2e8  ;
+}
+
+.splash {
+  background:rgba(60,97,120,0.75);
+  opacity:;
+  height:800px;
+  position:relative;
+  border-bottom:2px solid #0e1721;
+}
+
+.splash div {
+  color:#f8f8f8;
+  width:900px;
+  margin:270px auto;
+  font-size: 16px;
+}
+
+.splash div h3 {
+  font-size:40px;
+  text-align: left;
+}
+.splashBackground {
+ background:url('../img/unc-well.jpeg');
+ background-attachment:fixed;
+ background-position:center center;
+ background-repeat:no-repeat; 
+}
+.typeSelect {
+  background:#faf2e8;
+  height:350px;
+}
+
+.typeSelect .col-md-4 {
+  position:relative;
+  top:-150px;
+}
+
+.typeSelect .row  {
+  margin:0px auto;
+  max-width: 1100px;
+  height:350px;
+}
+
 .homeBody {
   font-size:18px;
+  margin-bottom:50px;
 }
 
 .homeBlurb {
@@ -182,6 +277,58 @@ HOME PAGE STYLES
 .homeBlurb h3 {
   color:#3C7094;
 }
+.typeSelect .col-md-4 p {
+  text-align: center;
+  font-size:17px;
+}
+.typeSelect .jumbotron {
+  border:6px solid rgba(95, 118, 132, 1);
+ 
+  color:#0e1721 ;
+  background: #e4e8f0;
+  height:346.656px;
+  text-align: center;
+  padding:15px;
+  transition:color 360ms, background 360ms, border-color 360ms;
+}
+
+.typeSelect .jumbotron:hover {
+  color:#333;
+  background: #f8f8f8;
+  cursor:pointer ;
+
+}
+
+.typeSelect .jumbotron i {
+  font-size:160px;
+}
+
+.typeSelect .jumbotron h2 {
+  margin:0px;
+}
+.texPanel {
+
+}
+
+.serPanel {
+
+}
+
+.accPanel {
+
+}
+
+.missionRow {
+  background:#faf2e8;
+  text-align: center;
+  color:#333;
+}
+
+.missionRow .homeBody {
+  display:inline-block;
+  padding-bottom:50px;
+  border-bottom:1px solid #777;
+}
 
 /*///////////////////////////////////
 NEWLISTING PAGE FORM STYLES
@@ -190,7 +337,7 @@ NEWLISTING PAGE FORM STYLES
 button.newListing {
   position:relative;
   top:10px;
-  background:#FF732F;
+  background:#36518f;
 }
 
 .newListingHeader {
@@ -270,7 +417,7 @@ TEXTBOOK AND ACCCESSORY PAGE STYLES
 .navbar-listings {
   box-shadow:none;
   font-size:14px;
-  background:#c9e3f5;
+  background:#9ac2d9;
 }
 
 .navbar-listings .navbar-brand {
@@ -280,19 +427,21 @@ TEXTBOOK AND ACCCESSORY PAGE STYLES
 }
 .navbar-listings .navbar-nav > li > a {
   font-size:14px;
-  background:#c9e3f5;
-  color:#555;
+  background:#9ac2d9;
+  color:#666;
 }
 
 .navbar-listings .navbar-nav > li > a:hover,
 .navbar-listings .navbar-nav > li > a:focus {
-  color:#ff7863;
-  background:#c9e3f5;
+  color:#0e1721;
+  background:#9ac2d9;
   transition: color 400ms;
 }
 
 .navbar-nav .activeSort {
-  color:#ff7863 !important;
+  color:#0e1721 !important;
+  font-weight:  bold;
+
 }
 
 .navbar-listings form {
@@ -351,12 +500,13 @@ LISTING CARD STYLES
   transition:background-color 400ms,color 400ms;
   border-radius:5px;
   overflow:hidden;
+
 }
 
 
 .listingCard .mainPanel:hover,
 .listingCard .mainPanel:focus {
-    background-color:#E4F5FF;
+    background-color:#d3e6e8;
     color:#333;
 }
 
@@ -373,7 +523,7 @@ LISTING CARD STYLES
 
 
 .priceTag {
-  background:#ffab8a;
+  background:#d3e6e8;
   border-radius:3px;
   padding:10px;
   font-size:16px;
@@ -455,7 +605,7 @@ INFO PANEL PAGE STYLES
 //////////////////////////////////*/
 
 .infoHeader {
-  background:#56a0d3;
+  background:#3c6178;
   color:#f8f8f8;
   border-top-right-radius:6px;
   border-top-left-radius:6px;
@@ -547,13 +697,13 @@ ABOUT PAGE STYLES
 }
 
 .profileRow {
-  background: rgba(0,0,0,0.1);
+  background: rgba(95, 118, 132, 0.2);
   color: #333;
   /* box-shadow: -5px 5px 4px 4px #bbb inset; */
   /* width: 90%; */
   border: 10px solid transparent;
-  border-top: 10px solid #ffab8a;
-  border-bottom: 10px solid #ffab8a;
+  border-top: 10px solid #3c6178;
+  border-bottom: 10px solid #3c6178;
   margin: -10px 0px;
 }
 
@@ -563,7 +713,7 @@ ABOUT PAGE STYLES
   display: inline-block;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  color: #d64d3e;
+  color: #3c6178;
 }
 
 .profile {

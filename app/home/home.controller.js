@@ -8,6 +8,8 @@
 
     $scope.changeBarActive = function() {
         document.getElementById("homeBar").className = "active";
+        document.getElementById("homeCustomStyle").className = "specialNav";
+        document.getElementById("siteTitle").className = "animated fadeInDown";
     }
     
   }]);
