@@ -1,12 +1,15 @@
 (function () {
- 
+
 'use strict';
 var app = angular.module('tclassified');
 
 
 app.directive("dirStylescripts", function() {
   var linkFunction = function(scope, element, attributes) {
-    $('.titleField').textfit('bestfit');
+    // $(".splashBackground").backstretch("img/unc-well.jpeg", {
+    //     fade:400,
+    //     centeredY:false
+    // });
     var headerHeight = $('.profileInfo h4').outerHeight(true);
     var oldTop = $('.profile').height() - headerHeight;
     $('.profileInfo').css('top',oldTop);
@@ -20,16 +23,16 @@ app.directive("dirStylescripts", function() {
         $(this).find('img').stop(true).animate({
             width:($(this).width()* 1.0)
         },400);
-        
+
     }).mouseleave(function(){
-        
+
         $(this).find('.profileInfo').animate({
-            top:oldTop            
+            top:oldTop
         },400);
         $(this).find('img').animate({
             width:($(this).width()* 1.1)
         },400);
-        
+
     });
   };
 

@@ -10,6 +10,7 @@ GENERAL STYLES
 #wrapper {
   max-height:99999px;
   transition:max-height 500ms;
+  min-height: 1460px;
 }
 
 body {
@@ -222,7 +223,7 @@ HOME PAGE STYLES
 }
 
 .splash {
-  background:rgba(60,97,120,0.75);
+  background:rgba(60,97,120,0.8);
   opacity:;
   height:560px;
   position:relative;
@@ -241,10 +242,18 @@ HOME PAGE STYLES
   text-align: left;
 }
 .splashBackground {
- background:url('../img/unc-well.jpeg');
- background-attachment:fixed;
- background-position:center center;
- background-repeat:no-repeat;
+  background:url('../img/unc-well.jpeg');
+  background-attachment:fixed;
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+
+}
+/*only for webkit  browsers*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .splashBackground{
+        background-attachment: inherit;
+        background-position:50% 63%;
+    }
 }
 .typeSelect {
   background:#faf2e8;
@@ -582,15 +591,13 @@ LISTING CARD STYLES
 }
 
 .listingCard h3 {
-    color:#3C7094;
-    max-height:26px;
-    overflow:hidden;
-    z-index:1;
-    white-space:;
-    text-overflow:ellipsis;
-    transition: max-height 400ms ease-in-out,color 400ms;
-
-
+  color:#3C7094;
+  max-height:26px;
+  overflow:hidden;
+  z-index:1;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  transition: max-height 400ms ease-in-out,color 400ms;
 }
 
 .listingCard h3:hover {
