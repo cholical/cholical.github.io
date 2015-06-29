@@ -4,7 +4,7 @@
   var app, onTextbookSuccess;
 
   app = angular.module("tclassified");
-  app.controller('textbooksCtrl', ['$scope', 'textbooksSvc', 'newListingSvc', '$modal', '$stateParams', '$log', function textbooksCtrl($scope, textbooksSvc, newListingSvc, $modal, $stateParams, $log){
+  app.controller('textbooksCtrl', ['$scope', 'textbooksSvc', 'newListingSvc', '$modal', '$state', '$stateParams', '$log', function textbooksCtrl($scope, textbooksSvc, newListingSvc, $modal, $state, $stateParams, $log){
 
     var onTextbookSuccess = function(data) {
       $scope.textbooks = data;
@@ -44,62 +44,89 @@
       classes: [],
       edition: "No"
     };
-    $scope.tempListing;
+    $scope.$watch( function () { return newListingSvc.getNewListing()}, function(newValue, oldValue) {
+      console.log("Watch statement from textbook.info entered");
+
+       angular.forEach($scope.textbooks, function(textbook) {
+         if (newValue.textbook_id == textbook.textbook_id) {
+            textbook.textbookName = newValue.textbookName;
+            textbook.price = newValue.price;
+            textbook.acceptingOffers = newValue.acceptingOffers;
+            textbook.sellerName = newValue.sellerName;
+            textbook.description = newValue.description;
+            textbook.contactInfo = newValue.contactInfo;
+            textbook.password = newValue.password;
+            textbook.date = newValue.date;
+            textbook.classes = newValue.classes;
+            textbook.edition = newValue.edition;
+            textbook.author = newValue.author;
+            textbook.class1 = newValue.classes[0];
+            textbook.class2 = newValue.classes[1];
+            textbook.class3 = newValue.classes[2];
+            textbook.class4 = newValue.classes[3];
+            textbook.class5 = newValue.classes[4];
+         }
+       })
+
+    });
 
     $scope.getTextbookInfo = function(textbook) {
-    	var modalInstance = $modal.open({
-    		templateUrl: 'app/info/info.html',
-    		controller: 'infoCtrl',
-    		resolve: {
-    			data: function() {
-    				return textbook;
-    			}
-    		},
-    	  size: 'lg'
-    	})
-      modalInstance.result.then(function() {}, function() {
+      newListingSvc.setInfo($scope.textbooks);
+
+      $state.go('textbooks.info', {textbook_id: textbook.textbook_id});
+    // 	var modalInstance = $modal.open({
+    // 		templateUrl: 'app/info/info.html',
+    // 		controller: 'infoCtrl',
+    // 		resolve: {
+    // 			data: function() {
+    // 				return textbook;
+    // 			}
+    // 		},
+    // 	  size: 'lg'
+    // 	})
+    //   modalInstance.result.then(function() {}, function() {
 
 
-        $scope.tempListing = newListingSvc.getNewListing();
-        if (newListingSvc.getDeleteId() != 0) {
+    //     newValue = newListingSvc.getNewListing();
+    //     if (newListingSvc.getDeleteId() != 0) {
 
-          angular.forEach($scope.textbooks, function(textbooks) {
-                if (textbook.textbook_id == $scope.tempListing.textbook_id) {
-                    //function to remove accessory from $scope.accessories;
-                    var index = $scope.textbooks.indexOf(textbook);
-                    if (index > -1) {
-                        $scope.textbooks.splice(index, 1);
-                    }
-                }
-            });
-            newListingSvc.setDeleteId(0);
+    //       angular.forEach($scope.textbooks, function(textbooks) {
+    //             if (textbook.textbook_id == newValue.textbook_id) {
+    //                 //function to remove accessory from $scope.accessories;
+    //                 var index = $scope.textbooks.indexOf(textbook);
+    //                 if (index > -1) {
+    //                     $scope.textbooks.splice(index, 1);
+    //                 }
+    //             }
+    //         });
+    //         newListingSvc.setDeleteId(0);
 
-        } else {
-            angular.forEach($scope.textbooks, function(textbook) {
-              if (textbook.textbook_id == $scope.tempListing.textbook_id) {
-                  //change each property of accessory into angular.copy() of that of scope.tempLisitng;
-                  textbook.textbookName = $scope.tempListing.textbookName;
-                  textbook.price = $scope.tempListing.price;
-                  textbook.acceptingOffers = $scope.tempListing.acceptingOffers;
-                  textbook.sellerName = $scope.tempListing.sellerName;
-                  textbook.description = $scope.tempListing.description;
-                  textbook.contactInfo = $scope.tempListing.contactInfo;
-                  textbook.password = $scope.tempListing.password;
-                  textbook.date = $scope.tempListing.date;
-                  textbook.classes = $scope.tempListing.classes;
-                  textbook.edition = $scope.tempListing.edition;
-                  textbook.author = $scope.tempListing.author;
-                  textbook.class1 = $scope.tempListing.classes[0];
-                  textbook.class2 = $scope.tempListing.classes[1];
-                  textbook.class3 = $scope.tempListing.classes[2];
-                  textbook.class4 = $scope.tempListing.classes[3];
-                  textbook.class5 = $scope.tempListing.classes[4];
-              }
-          });
-          }
+    //     } else {
+    //         angular.forEach($scope.textbooks, function(textbook) {
+    //           if (textbook.textbook_id == newValue.textbook_id) {
+    //               //change each property of accessory into angular.copy() of that of scope.tempLisitng;
+    //               textbook.textbookName = newValue.textbookName;
+    //               textbook.price = newValue.price;
+    //               textbook.acceptingOffers = newValue.acceptingOffers;
+    //               textbook.sellerName = newValue.sellerName;
+    //               textbook.description = newValue.description;
+    //               textbook.contactInfo = newValue.contactInfo;
+    //               textbook.password = newValue.password;
+    //               textbook.date = newValue.date;
+    //               textbook.classes = newValue.classes;
+    //               textbook.edition = newValue.edition;
+    //               textbook.author = newValue.author;
+    //               textbook.class1 = newValue.classes[0];
+    //               textbook.class2 = newValue.classes[1];
+    //               textbook.class3 = newValue.classes[2];
+    //               textbook.class4 = newValue.classes[3];
+    //               textbook.class5 = newValue.classes[4];
+    //           }
+    //       });
+    //       }
 
-      });
-    };
+    //   });
+     };
 
     var onPostSuccess = function(data) {
       console.log("Post Success!");

@@ -4,9 +4,9 @@
   var app;
 
   app = angular.module("tclassified");
-  app.controller('accessoriesCtrl', ['$scope', 'accessoriesSvc', 'newListingSvc', '$modal', '$stateParams', '$log', function accessoriesCtrl($scope, accessoriesSvc, newListingSvc, $modal, $stateParams, $log){
+  app.controller('accessoriesCtrl', ['$scope', 'accessoriesSvc', 'newListingSvc', '$modal', '$stateParams', '$state', '$log', function accessoriesCtrl($scope, accessoriesSvc, newListingSvc, $modal, $stateParams, $state, $log){
 
-
+        $scope.$state = $state;
     var onAccessoriesSuccess = function(data) {
       $scope.accessories = data;
       angular.forEach($scope.accessories, function(accessory) {
@@ -25,57 +25,30 @@
       acceptingOffers: true
     }
     $scope.itemId;
-    $scope.tempListing;
+
+    $scope.$watch( function () { return newListingSvc.getNewListing()}, function(newValue, oldValue) {
+      console.log("Watch statement from accessories.info entered");
+
+       angular.forEach($scope.accessories, function(accessory) {
+         if (newValue.accessory_id == accessory.accessory_id) {
+            accessory.accessoryName = newValue.accessoryName;
+            accessory.price = newValue.price;
+            accessory.acceptingOffers = newValue.acceptingOffers;
+            accessory.sellerName = newValue.sellerName;
+            accessory.description = newValue.description;
+            accessory.contactInfo = newValue.contactInfo;
+            accessory.password = newValue.password;
+            accessory.date = newValue.date;
+         }
+       })
+
+    });
 
     $scope.getAccessoryInfo = function(accessory) {
-      var modalInstance = $modal.open({
-        templateUrl: 'app/info/info.html',
-        controller: 'infoCtrl',
-        resolve: {
-          data: function() {
-            return accessory;
-          }
-        },
-        size: 'lg'
-      })
-      modalInstance.result.then(function() {}, function() {
-
-        
-        $scope.tempListing = newListingSvc.getNewListing();
-        if (newListingSvc.getDeleteId() != 0) {
-
-            angular.forEach($scope.accessories, function(accessory) {
-                if (accessory.accessory_id == $scope.tempListing.accessory_id) {
-                    //function to remove accessory from $scope.accessories;
-                    var index = $scope.accessories.indexOf(accessory);
-                    if (index > -1) {
-                        $scope.accessories.splice(index, 1);
-                    }
-                }
-            });
-            newListingSvc.setDeleteId(0);
-        } else {
-          
-          angular.forEach($scope.accessories, function(accessory) {
-              if (accessory.accessory_id == $scope.tempListing.accessory_id) {
-                  //change each property of accessory into angular.copy() of that of scope.tempLisitng;
-                  accessory.accessoryName = $scope.tempListing.accessoryName;
-                  accessory.price = $scope.tempListing.price;
-                  accessory.acceptingOffers = $scope.tempListing.acceptingOffers;
-                  accessory.sellerName = $scope.tempListing.sellerName;
-                  accessory.description = $scope.tempListing.description;
-                  accessory.contactInfo = $scope.tempListing.contactInfo;
-                  accessory.password = $scope.tempListing.password;
-                  accessory.date = $scope.tempListing.date;
-              }
-          });
-        }
-
-        
-      }
-      );
-
+      newListingSvc.setInfo($scope.accessories);
+      $state.go('accessories.info', {accessory_id: accessory.accessory_id});
     };
+
     $scope.createNewListing = function() {
       var modalInstance = $modal.open({
         templateUrl: 'app/newlisting/newListing.html',

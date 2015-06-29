@@ -1,7 +1,7 @@
 (function () {
  
   'use strict';
-  var app = angular.module('tclassified', ['ui.router', 'ui.bootstrap', 'angularUtils.directives.dirPagination', 'angularUtils.directives.uiBreadcrumbs']);
+  var app = angular.module('tclassified', ['ui.router', 'ui.bootstrap', 'angularUtils.directives.dirPagination', 'ui.bootstrap.modal']);
   
   //=======The code within these comments doesn't actually exist===
 
@@ -11,9 +11,44 @@
 
   //==================================================================
 
-  app.config(['$stateProvider', '$urlRouterProvider', configRoutes]);
+  app.provider('modalState', function($stateProvider) {
+    var provider = this;
+    this.$get = function() {
+        return provider;
+    }
+    this.state = function(stateName, options) {
+        var modalInstance;
+        $stateProvider.state(stateName, {
+            url: options.url,
+            onEnter: function($modal, $state) {
+                modalInstance = $modal.open(options);
+                modalInstance.result.then(
+                  function () {
+
+                  }, 
+                  function() {
+                    $state.go('^');
+
+                  })
+                ['finally'](function() {
+                    modalInstance = null;
+                    // if ($state.$current.name === stateName) {
+                    //     $state.go('^');
+                    // }
+                });
+            },
+            onExit: function() {
+                if (modalInstance) {
+                    modalInstance.close();
+                }
+            }
+        });
+    };
+  })
+
+  app.config(['$stateProvider', 'modalStateProvider', '$urlRouterProvider', configRoutes]);
   
-  function configRoutes ($stateProvider, $urlRouterProvider) {
+  function configRoutes ($stateProvider, modalStateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
         url: '/home',
@@ -44,14 +79,28 @@
         url: '/superImportantPage',
         templateUrl: 'superImportantPage.html'
       })
+
+      modalStateProvider.state('accessories.info', {
+        url: '/listing/:accessory_id',
+        templateUrl: 'app/info/info.html',
+        controller: 'infoCtrl',
+        size: 'lg'
+      });
+
+      modalStateProvider.state('textbooks.info', {
+        url: '/listing/:textbook_id',
+        templateUrl: 'app/info/info.html',
+        controller: 'infoCtrl',
+        size: 'lg'
+      });
     
     $urlRouterProvider.otherwise('/home');
     
   };
 
+
+
   app.run(['$state', function ($state) {
   }]);  
-
-  
 
 }());

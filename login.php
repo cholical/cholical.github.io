@@ -25,9 +25,15 @@
 // $db_password = 'cholical999'; 
 
 //godaddy login
-$db_hostname = 'goodiesbygrammy.net'; //url of mysql database location
-$db_database = 'tclassifiedbeta'; 
-$db_username = 'cholical'; 
-$db_password = 'Mac wants a mango'; 
+// $db_hostname = 'goodiesbygrammy.net'; //url of mysql database location
+// $db_database = 'tclassifiedbeta'; 
+// $db_username = 'cholical'; 
+// $db_password = 'Mac wants a mango'; 
+
+//CampusCache Login
+$db_hostname = 'campuscache.org'; //url of mysql database location
+$db_database = 'unc_db'; 
+$db_username = 'RonaldMac'; 
+$db_password = 'Prophet6'; 
 ?>
 

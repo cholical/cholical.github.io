@@ -1,7 +1,7 @@
 (function () {
 
   "use strict";
-  var app, newListingVar, itemIdVar, deleteIdVar, getNewListing, setNewListing, deleteListing, setItemId, getItemId, setDeleteId, getDeleteId, checkPassword;
+  var app, newListingVar, itemIdVar, deleteIdVar, getNewListing, setNewListing, deleteListing, setItemId, getItemId, setDeleteId, getDeleteId, checkPassword, setInfo, getInfo;
   
   app = angular.module('tclassified');
 
@@ -10,6 +10,7 @@
     var newListingVar;
     var itemIdVar;
     var deleteIdVar = 0;
+    var infoVar;
 
     getNewListing = function() {
         return newListingVar;
@@ -163,6 +164,14 @@
       
     }
 
+    setInfo = function(info) {
+      infoVar = info;
+    }
+
+    getInfo = function() {
+      return infoVar;
+    }
+
     return {
       newListingVar: newListingVar,
       itemIdVar: itemIdVar,
@@ -174,7 +183,9 @@
       getItemId: getItemId,
       setDeleteId: setDeleteId,
       getDeleteId: getDeleteId,
-      checkPassword: checkPassword
+      checkPassword: checkPassword,
+      setInfo,
+      getInfo
      
     };
   }]);
