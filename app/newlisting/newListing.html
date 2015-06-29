@@ -11,17 +11,17 @@
 		<h4 ng-hide="textbookHideObject">Textbook Information</h4>
 		<h4 ng-hide="accessoryHideObject">Accessory Information</h4>
 		<h4 ng-hide="serviceHideObject">Service Information</h4>
-		
+
 		<div class="form-group">
 			<label ng-hide="textbookHideObject" for="inputTitle" class="col-sm-2 control-label">Textbook Title</label>
 			<label ng-hide="accessoryHideObject" for="inputTitle" class="col-sm-2 control-label">Accessory Title</label>
 			<label ng-hide="serviceHideObject" for="inputTitle" class="col-sm-2 control-label">Service Title</label>
 
-			<div 
-				class="col-sm-4 has-feedback" 
-				ng-class="{ 'has-error' : 
-				(mainForm.inputTexTitle.$invalid && mainForm.inputTexTitle.$touched) || 
-				(mainForm.inputAccTitle.$invalid && mainForm.inputAccTitle.$touched) || 
+			<div
+				class="col-sm-4 has-feedback"
+				ng-class="{ 'has-error' :
+				(mainForm.inputTexTitle.$invalid && mainForm.inputTexTitle.$touched) ||
+				(mainForm.inputAccTitle.$invalid && mainForm.inputAccTitle.$touched) ||
 				(mainForm.inputSerTitle.$invalid && mainForm.inputSerTitle.$touched) }"
 			>
 				<input ng-hide="textbookHideObject" type="text" class="form-control" name="inputTexTitle" placeholder="Rising Up: A book on Erectile Dysfunction" ng-model="newListing.textbookName"ng-required="!textbookHideObject">
@@ -81,11 +81,11 @@
 				<span ng-show="mainForm.inputPrice.$invalid && mainForm.inputPrice.$dirty" class="help-block">You can't buy something with those dollars.</span>
 			</div>
 		</div>
-		
+
 
 		<div class="form-group">
 			<label for="inputDescription" class="col-sm-2 control-label">Description<br><em>Not required but highly recommended.</em></label>
-			
+
 			<div class="col-sm-9">
 				<textarea type="text" rows="5" class="form-control" name="inputDescription" placeholder="You don't even know." ng-model="newListing.description"></textarea>
 			</div>
@@ -102,7 +102,7 @@
 						</div>
 						<div class="col-sm-2">
 							<span ng-hide="class2">
-								<input type="text" class="form-control" name="inputClass" ng-model="newListing.classes[1]"> 
+								<input type="text" class="form-control" name="inputClass" ng-model="newListing.classes[1]">
 								<div type="button" class="btn-xs btn-default" ng-hide="hidebutton2" value="+" title="Add Another Class" ng-click="addClass3(); hidebutton2=true">
 									+
 								</div>
@@ -110,7 +110,7 @@
 						</div>
 						<div class="col-sm-2">
 							<span ng-hide="class3">
-								<input type="text" class="form-control" name="inputClass" ng-model="newListing.classes[2]"> 
+								<input type="text" class="form-control" name="inputClass" ng-model="newListing.classes[2]">
 								<button type="button" class="btn-xs btn-default" ng-hide="hidebutton3" value="+" title="Add Another Class" ng-click="addClass4(); hidebutton3=true">
 								+
 									</button>
@@ -118,7 +118,7 @@
 						</div>
 						<div class="col-sm-2">
 							<span ng-hide="class4">
-								<input type="text" class="form-control" name="inputClass" ng-model="newListing.classes[3]"> 
+								<input type="text" class="form-control" name="inputClass" ng-model="newListing.classes[3]">
 								<button type="button" class="btn-xs btn-default" ng-hide="hidebutton4" value="+" title="Add Another Class" ng-click="addClass5(); hidebutton4=true">
 									+
 								</button>
@@ -133,9 +133,9 @@
 					</div>
 			</div>
 		</div>
-		
+
 		<br>
-		
+
 		<h4>Your Information</h4>
 
 		<div class="form-group">
@@ -164,11 +164,11 @@
 				<span ng-show="mainForm.inputPassword.$valid" ng-hide="(newListing.password=='password') || (mainForm.inputPassword.$touched && mainForm.inputPassword.$invalid) || (mainForm.inputPassword.$pristine)" class="help-block">We don't actually give a shit about your password strength.</span>
 			</div>
 		</div>
-	
+
 		<br>
-	
+
 		<h4>Other Settings</h4>
-		
+
 		<div class="form-group">
 			<label for="inputBuyorSell" class="col-sm-4 control-label">Submission Type</label>
 			<div class="col-sm-5">
@@ -178,7 +178,14 @@
 				</select>
 			</div>
 		</div>
-	
+		<div class="form-group">
+			<label for="uploadImage" class="col-sm-4 control-label">Upload Images</label>
+			<div class="col-sm-5">
+				<input type="file" id="exampleInputFile" multiple accept="image/*">
+				<p class="help-block">Optionally upload images to showcase the beautiful item that you are selling..</p>
+			</div>
+		</div>
+
 	</div>
 	<div class="modal-footer">
 		<div class="row">
@@ -191,7 +198,7 @@
 			<div class="col-md-6 text-center">
 				<div ng-hide="hideEditMessage">
 					<button ng-hide="hideDeleteButton" type="button" class="btn btn-default btn-lg deleteBtn" ng-click="pressDelete()">
-						  <span class="fa fa-trash-o" aria-hidden="true"></span> 
+						  <span class="fa fa-trash-o" aria-hidden="true"></span>
 						  Delete Listing
 					</button>
 					<div ng-hide="hideConfirmDelete">
@@ -213,7 +220,7 @@
 			</div>
 			<div class="col-md-3">
 				<button type="submit" class="btn btn-default btn-lg submitBtn" ng-disabled="mainForm.$invalid">
-					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
+					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 					  <span ng-hide="hideNewMessage">Submit Listing</span>
 					  <span ng-hide="hideEditMessage">Save Changes</span>
 				</button>
