@@ -80,6 +80,7 @@ HEADER AND FOOTER STYLES
     margin:14px 10px;
     height:39px;
     width:auto;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .navbar-header h1 img {
@@ -87,6 +88,10 @@ HEADER AND FOOTER STYLES
     width:auto;
     margin: 0px;
     margin-top:-15px;
+}
+
+.navbar-header h1 img.icon {
+    margin:-5px 8px 0px 8px;
 }
 
 .navbar-header small {
@@ -242,14 +247,23 @@ HOME PAGE STYLES
 .splash div {
   color:#f8f8f8;
   width:900px;
-  margin:140px auto;
+  margin:110px auto;
   font-size: 16px;
+  text-align: center;
 }
 
+.splash div img {
+    height:80px;
+}
 .splash div h3 {
   font-size:40px;
   text-align: left;
 }
+
+.splash div p {
+    text-align: left;
+}
+
 .splashBackground {
   background:url('../img/unc-well.jpeg');
   background-attachment:fixed;
@@ -728,12 +742,12 @@ INFO PANEL PAGE STYLES
   top:9px;
 }
 
-button.editInfo {
+button.normalBtn {
   background:#eee;
   color:#333;
 }
 
-button.editInfo:hover {
+button.normalBtn:hover {
   background:transparent;
   color:#333;
 }

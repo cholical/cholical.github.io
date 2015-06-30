@@ -15,6 +15,7 @@
     $scope.passwordField = true;
     $scope.editButton = false;
     $scope.passwordSubmitButton = true;
+    $('.normalBtn').tooltip();
 
     $scope.$watch( function () { return $stateParams.accessory_id}, function(newValue, oldValue) {
         if (newValue != oldValue) {
@@ -27,10 +28,10 @@
                     $scope.item = accessory;
                     console.log($scope.item);
                 }
-            })  
-            
+            })
+
         }
-        
+
     });
 
     $scope.$watch( function () { return $stateParams.textbook_id}, function(newValue, oldValue) {
@@ -44,10 +45,10 @@
                     $scope.item = textbook;
                     console.log($scope.item);
                 }
-            })  
-            
+            })
+
         }
-        
+
     });
 
 
@@ -69,7 +70,7 @@
 
       });
 
-      if ($scope.item.hasOwnProperty("textbookName")) { 
+      if ($scope.item.hasOwnProperty("textbookName")) {
         console.log("textbook passed in");
         $scope.typeOfObject = "textbook";
         $scope.textbookHideObject = false;
@@ -90,7 +91,7 @@
       }
 
     };
-    
+
     if ($scope.itemList === undefined) {
         console.log("item is undefined");
         console.log($state.current);
@@ -100,7 +101,7 @@
         if ($state.current.name == "textbooks.info") {
             textbooksSvc.getTextbooks().then(onItemsSuccess)
         }
-        
+
     } else {
         console.log("data has been loaded");
         angular.forEach($scope.itemList, function(tempItem) {
@@ -117,7 +118,7 @@
         }
 
       });
-        if ($scope.item.hasOwnProperty("textbookName")) { 
+        if ($scope.item.hasOwnProperty("textbookName")) {
         console.log("textbook passed in");
         $scope.typeOfObject = "textbook";
         $scope.textbookHideObject = false;
@@ -146,6 +147,13 @@
             newListingSvc.setNewListing($scope.item);
 		    $modalInstance.dismiss('close');
 	  };
+
+    $scope.yoCheckDisOut = function(){
+        $scope.UrlToCopy = window.location.href;
+        console.log($scope.UrlToCopy);
+        window.prompt("Copy to clipboard: Ctrl+C (Cmd+C on Mac) and press Enter", $scope.UrlToCopy);
+    };
+
     $scope.checkPasswordInput = function(currentItem) {
 
 
@@ -181,7 +189,7 @@
                     $scope.item = newListingSvc.getNewListing();
                 }
 
-                
+
             });
 
 
@@ -189,15 +197,15 @@
         else {
           console.log("password incorrect");
           //yeah that's right fuck angular im using jquery to invalid password
-          jQuery('.passwordField').addClass('has-error'); 
+          jQuery('.passwordField').addClass('has-error');
           $scope.wrongPassword = true;
         }
         })
 
-        
+
     }
 
-    
+
 
     $scope.editPostButton = function(){
         $scope.passwordField = false;
@@ -207,5 +215,3 @@
 
   }]);
 }());
-
-
