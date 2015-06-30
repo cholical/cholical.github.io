@@ -4,7 +4,7 @@
   var app;
 
   app = angular.module("tclassified");
-  app.controller('infoCtrl', ['$scope', '$modalInstance', '$modal', '$stateParams', '$state', 'accessoriesSvc', 'textbooksSvc', 'newListingSvc', '$location', '$log', function infoCtrl($scope, $modalInstance, $modal, $stateParams, $state, accessoriesSvc, textbooksSvc, newListingSvc, $location, $log){
+  app.controller('infoCtrl', ['$scope', '$modalInstance', '$modal', '$stateParams', '$state', 'accessoriesSvc', 'textbooksSvc', 'newListingSvc', 'infoSvc', '$location', '$log', function infoCtrl($scope, $modalInstance, $modal, $stateParams, $state, accessoriesSvc, textbooksSvc, newListingSvc, infoSvc, $location, $log){
 
 
     //var accessoryNumber = parseInt(document.location.hash.slice(22));
@@ -15,6 +15,7 @@
     $scope.passwordField = true;
     $scope.editButton = false;
     $scope.passwordSubmitButton = true;
+    $scope.reportReason;
 
     $scope.$watch( function () { return $stateParams.accessory_id}, function(newValue, oldValue) {
         if (newValue != oldValue) {
@@ -140,8 +141,6 @@
     }
 
 
-
-
     $scope.close = function () {
             newListingSvc.setNewListing($scope.item);
 		    $modalInstance.dismiss('close');
@@ -204,6 +203,13 @@
         $scope.editButton = true;
         $scope.passwordSubmitButton = false;
     };
+
+    $scope.reportPost = function() {
+        infoSvc.report($scope.item, $scope.reportReason).then(function(response) {
+            console.log("Your report has been submitted");
+            //Code that will display "Your report has been submitted" on the info card; will probably require some type of ng-hide function
+        });
+    }
 
   }]);
 }());
