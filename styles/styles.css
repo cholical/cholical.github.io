@@ -717,7 +717,13 @@ INFO PANEL PAGE STYLES
   background:transparent;
 }
 
-.passwordField {
+#hiddenControls .panel {
+    margin:0px;
+    border:none;
+    box-shadow:none;
+}
+
+.infoInputField {
   width: 200px;
   display: inline-block;
   position: relative;
@@ -726,7 +732,7 @@ INFO PANEL PAGE STYLES
   margin-right:5px;
 }
 
-.passwordField span {
+.infoInputField span {
   display: inline;
   margin-top: 0px;
   margin-bottom: 1px;
@@ -734,7 +740,7 @@ INFO PANEL PAGE STYLES
   text-align: left;
 
 }
-.passwordField input {
+.infoInputField input {
   height:28px;
 }
 

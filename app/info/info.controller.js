@@ -4,7 +4,7 @@
   var app;
 
   app = angular.module("tclassified");
-  app.controller('infoCtrl', ['$scope', '$modalInstance', '$modal', '$stateParams', '$state', 'accessoriesSvc', 'textbooksSvc', 'newListingSvc', '$location', '$log', function infoCtrl($scope, $modalInstance, $modal, $stateParams, $state, accessoriesSvc, textbooksSvc, newListingSvc, $location, $log){
+  app.controller('infoCtrl', ['$scope', '$modalInstance', '$modal', '$stateParams', '$state', 'accessoriesSvc', 'textbooksSvc', 'newListingSvc', 'infoSvc', '$location', '$log', function infoCtrl($scope, $modalInstance, $modal, $stateParams, $state, accessoriesSvc, textbooksSvc, newListingSvc, infoSvc, $location, $log){
 
     //:( Mac!!!
 
@@ -13,10 +13,14 @@
     $scope.itemList =  newListingSvc.getInfo();
     $scope.passwordInput;
     $scope.wrongPassword = false;
+    $scope.blankPassword = false;
     $scope.passwordField = true;
     $scope.editButton = false;
     $scope.passwordSubmitButton = true;
     $('.normalBtn').tooltip();
+    $scope.reportReason;
+    $scope.urlValue;
+
 
     $scope.$watch( function () { return $stateParams.accessory_id}, function(newValue, oldValue) {
         if (newValue != oldValue) {
@@ -152,58 +156,55 @@
     $scope.yoCheckDisOut = function(){
         $scope.UrlToCopy = window.location.href;
         console.log($scope.UrlToCopy);
-        window.prompt("Copy to clipboard: Ctrl+C (Cmd+C on Mac) and press Enter", $scope.UrlToCopy);
+        $scope.urlValue = $scope.UrlToCopy;
+        jQuery('.urlField').select();
     };
 
     $scope.checkPasswordInput = function(currentItem) {
 
+        if ($scope.passwordInput !== undefined && $scope.passwordInput !== null){
+            newListingSvc.checkPassword($scope.passwordInput, currentItem).then(function (data) {
+                data.replace(/\s+/g, '');
+                data = parseInt(data);
+                console.log(data);
 
-        newListingSvc.checkPassword($scope.passwordInput, currentItem).then(function (data) {
-            data.replace(/\s+/g, '');
-            data = parseInt(data);
-            console.log(data);
+                if ( data === 1) {
+                    currentItem.password = $scope.passwordInput;
+                    console.log("password correct")
+                    var modalInstance = $modal.open({
+                        templateUrl: 'app/newlisting/newListing.html',
+                        controller: 'newListingCtrl',
+                        backdrop:'static',
+                        resolve: {
+                            listing: function() {
+                                return currentItem;
+                            },
+                            type: function() {
+                                return $scope.typeOfObject;
+                            }
+                        },
+                        size: 'lg'
+                    })
 
-            if ( data === 1) {
-            currentItem.password = $scope.passwordInput;
-            console.log("password correct")
-            var modalInstance = $modal.open({
-                templateUrl: 'app/newlisting/newListing.html',
-                controller: 'newListingCtrl',
-                backdrop:'static',
-                resolve: {
-                    listing: function() {
-                        return currentItem;
-                    },
-                    type: function() {
-                        return $scope.typeOfObject;
-                    }
-                },
-                size: 'lg'
-            })
+                    //Code for updating editing and deletion on the front end
+                    modalInstance.result.then(function() {
+                        if (newListingSvc.getDeleteId() != 0) {
+                            $scope.item = newListingSvc.getNewListing();
+                            $scope.close();
+                        } else {
+                            $scope.item = newListingSvc.getNewListing();
+                        }
 
-            //Code for updating editing and deletion on the front end
-            modalInstance.result.then(function() {
-                if (newListingSvc.getDeleteId() != 0) {
-                    $scope.item = newListingSvc.getNewListing();
-                    $scope.close();
-                } else {
-                    $scope.item = newListingSvc.getNewListing();
+
+                    });
                 }
-
-
-            });
-
-
-        }
-        else {
-          console.log("password incorrect");
-          //yeah that's right fuck angular im using jquery to invalid password
-          jQuery('.passwordField').addClass('has-error');
-          $scope.wrongPassword = true;
-        }
-        })
-
-
+            })
+        }  else {
+              console.log("password incorrect");
+              //yeah that's right fuck angular im using jquery to invalid password
+              jQuery('.passwordField').addClass('has-error');
+              $scope.wrongPassword = true;
+          }
     }
 
 
@@ -213,6 +214,25 @@
         $scope.editButton = true;
         $scope.passwordSubmitButton = false;
     };
+
+    $scope.enterReason = false;
+    $scope.reportSubmitted = false;
+    $scope.reportPost = function() {
+        console.log($scope.reportReason);
+        if ($scope.reportReason !== undefined && $scope.reportReaspn !== null){
+            if ($scope.reportReason != ""){
+               infoSvc.report($scope.item, $scope.reportReason).then(function(response) {
+                    console.log("Your report has been submitted");
+                    //Code that will display "Your report has been submitted" on the info card; will probably require some type of ng-hide function
+                    $scope.reportSubmitted = true;
+                });
+            }
+        } else {
+          jQuery('.reportField').addClass('has-error');
+          console.log('please enter a reason');
+          $scope.enterReason = true;
+        }
+    }
 
   }]);
 }());
