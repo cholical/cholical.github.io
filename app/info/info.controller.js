@@ -6,6 +6,7 @@
   app = angular.module("tclassified");
   app.controller('infoCtrl', ['$scope', '$modalInstance', '$modal', '$stateParams', '$state', 'accessoriesSvc', 'textbooksSvc', 'newListingSvc', '$location', '$log', function infoCtrl($scope, $modalInstance, $modal, $stateParams, $state, accessoriesSvc, textbooksSvc, newListingSvc, $location, $log){
 
+    //:( Mac!!!
 
     //var accessoryNumber = parseInt(document.location.hash.slice(22));
     //console.log(accessoryNumber);
