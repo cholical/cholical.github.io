@@ -197,7 +197,12 @@
 
 
                     });
-                }
+                }else {
+                      console.log("password incorrect");
+                      //yeah that's right fuck angular im using jquery to invalid password
+                      jQuery('.passwordField').addClass('has-error');
+                      $scope.wrongPassword = true;
+                  }
             })
         }  else {
               console.log("password incorrect");
