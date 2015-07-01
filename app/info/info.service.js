@@ -24,7 +24,7 @@
             method: "post",
             url: "report.php",
             data: {
-              "listingType" : "accessories",
+              "listingType" : listingType,
               "item_id" : itemId,
               "reason" : reason
             }

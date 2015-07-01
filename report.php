@@ -6,7 +6,7 @@
     @$item_id = $request->item_id;
     $item_id = (string)$item_id;
     @$reason = $request->reason;
-    $recipient = "ronding@live.unc.edu";
+    $recipient = "admin@campuscache.org";
     $subject = "Listing Report";
     $email_content = "Report on " . $listingType . ": " . $item_id . " because: " . $reason;
     $email_headers = "REPORT";
