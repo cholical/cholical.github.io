@@ -178,12 +178,30 @@
 				</select>
 			</div>
 		</div>
+
 		<div class="form-group">
-			<label for="uploadImage" class="col-sm-4 control-label">Upload Images</label>
-			<div class="col-sm-5">
-				<input type="file" id="exampleInputFile" multiple accept="image/*">
-				<p class="help-block">Optionally upload images to showcase the beautiful item that you are selling..</p>
-			</div>
+				<label for="uploadImage" class="col-sm-4 control-label">Upload Images</label>
+				<div class="col-sm-5">
+					<input type="file" multiple accept="image/*" id="fileupload" type="file" name="files[]" data-url="lib/fileUploadJQ/server/php/">
+					<script>
+					$(function () {
+					    $('#fileupload').fileupload({
+					        dataType: 'json',
+					        done: function (e, data) {
+					            $.each(data.result.files, function (index, file) {
+
+									console.log("uploaded " + file.name);
+									$scope.imageName = file.name;
+					            });
+					        }
+					    });
+					});
+					</script>
+					<p class="help-block">Optionally upload images to showcase the beautiful item that you are selling..</p>
+				</div>
+				<div class="col-sm-2">
+				</div>
+
 		</div>
 
 	</div>
@@ -219,7 +237,7 @@
 				</div>
 			</div>
 			<div class="col-md-3">
-				<button type="submit" class="btn btn-default btn-lg submitBtn" ng-disabled="mainForm.$invalid">
+				<button type="submit"  name="submit" class="btn btn-default btn-lg submitBtn" ng-disabled="mainForm.$invalid">
 					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 					  <span ng-hide="hideNewMessage">Submit Listing</span>
 					  <span ng-hide="hideEditMessage">Save Changes</span>

@@ -7,7 +7,7 @@
   app.controller('newListingCtrl', ['$scope', '$modalInstance', 'newListingSvc', '$stateParams', '$log', 'listing', 'type', function newListingCtrl($scope, $modalInstance, newListingSvc, $stateParams, $log, listing, type) {
 
     $scope.typeOfObject = type;
-
+    $scope.imageName = 'maaaaac';
     $scope.class2 = true;
     $scope.class3 = true;
     $scope.class4 = true;
@@ -26,7 +26,7 @@
         $scope.textbookHideObject = false;
         $scope.accessoryHideObject = true;
         $scope.serviceHideObject = true;
-            
+
 
     } else if ($scope.typeOfObject === "accessory") {
         console.log("accessory type");
@@ -70,8 +70,8 @@
         $scope.hideEditMessage = true;
     }
 
-    
-    
+
+
 
     $scope.addClass2 = function() {
         $scope.class2 = false;
@@ -89,11 +89,12 @@
         $modalInstance.dismiss('close');
     };
 
+
     $scope.alreadyClicked = false;
     $scope.submitListing = function() {
 
         if ($scope.alreadyClicked == false){
-
+            console.log($scope.imageName);
             $scope.alreadyClicked = true;
 
             $scope.newListing.date = angular.copy(new Date());
@@ -143,14 +144,12 @@
         //call the php script
         newListingSvc.deleteListing($scope.newListing).then(function(data) {
             //$scope.phpDebug = data;
-            
+
 
         });
         console.log('listing deleted');
         $modalInstance.close();
     };
-    
+
   }]);
 }());
-
-
