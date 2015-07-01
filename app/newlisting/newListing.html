@@ -27,7 +27,7 @@
 				<input ng-hide="textbookHideObject" type="text" class="form-control" name="inputTexTitle" placeholder="Rising Up: A book on Erectile Dysfunction" ng-model="newListing.textbookName"ng-required="!textbookHideObject">
 				<span  ng-hide="textbookHideObject" class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
 				<span ng-show="mainForm.inputTexTitle.$invalid && mainForm.inputTexTitle.$touched" class="help-block">A title is required.</span>
-				<input ng-hide="accessoryHideObject" type="text" class="form-control" name="inputAccTitle" placeholder="Used Condom" ng-model="newListing.accessoryName" ng-required="!accessoryHideObject">
+				<input ng-hide="accessoryHideObject" type="text" class="form-control" name="inputAccTitle" placeholder="Special Boxes" ng-model="newListing.accessoryName" ng-required="!accessoryHideObject">
 				<span ng-hide="accessoryHideObject" class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
 				<span ng-show="mainForm.inputAccTitle.$invalid && mainForm.inputAccTitle.$touched" class="help-block">A title is required.</span>
 				<input ng-hide="serviceHideObject" type="text" class="form-control" name="inputSerTitle" placeholder="Rising Up: Mac will never read this. i am ronald ding and i am an asshole" ng-model="newListing.serviceName" ng-required="!serviceHideObject">
@@ -76,7 +76,7 @@
 			<div class="col-sm-3" ng-class="{'has-error':mainForm.inputPrice.$touched && mainForm.inputPrice.$invalid}">
 				<div class="input-group">
 				  <span class="input-group-addon">$</span>
-				  <input type="number" min="0" class="form-control" aria-label="Price" name="inputPrice" placeholder="666" ng-model="newListing.price">
+				  <input type="number" min="0" class="form-control" aria-label="Price" name="inputPrice" placeholder="123" ng-model="newListing.price">
 				</div>
 				<span ng-show="mainForm.inputPrice.$invalid && mainForm.inputPrice.$dirty" class="help-block">You can't buy something with those dollars.</span>
 			</div>
