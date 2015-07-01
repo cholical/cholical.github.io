@@ -70,62 +70,28 @@
 
     });
 
+    $scope.$watch( function () { return newListingSvc.getDeleteId()}, function(newValue, oldValue) {
+      console.log("Watch statement from deletion entered");
+      if (newValue != 0) {
+
+       angular.forEach($scope.textbooks, function(textbook) {
+          if (newValue == textbook.textbook_id) {
+            var index = $scope.textbooks.indexOf(textbook);
+            if (index > -1) {
+              $scope.textbooks.splice(index, 1);
+            }
+          }
+       })
+       newListingSvc.setDeleteId(0);
+      }
+
+    });
+
     $scope.getTextbookInfo = function(textbook) {
       newListingSvc.setInfo($scope.textbooks);
 
       $state.go('textbooks.info', {textbook_id: textbook.textbook_id});
-    // 	var modalInstance = $modal.open({
-    // 		templateUrl: 'app/info/info.html',
-    // 		controller: 'infoCtrl',
-    // 		resolve: {
-    // 			data: function() {
-    // 				return textbook;
-    // 			}
-    // 		},
-    // 	  size: 'lg'
-    // 	})
-    //   modalInstance.result.then(function() {}, function() {
-
-
-    //     newValue = newListingSvc.getNewListing();
-    //     if (newListingSvc.getDeleteId() != 0) {
-
-    //       angular.forEach($scope.textbooks, function(textbooks) {
-    //             if (textbook.textbook_id == newValue.textbook_id) {
-    //                 //function to remove accessory from $scope.accessories;
-    //                 var index = $scope.textbooks.indexOf(textbook);
-    //                 if (index > -1) {
-    //                     $scope.textbooks.splice(index, 1);
-    //                 }
-    //             }
-    //         });
-    //         newListingSvc.setDeleteId(0);
-
-    //     } else {
-    //         angular.forEach($scope.textbooks, function(textbook) {
-    //           if (textbook.textbook_id == newValue.textbook_id) {
-    //               //change each property of accessory into angular.copy() of that of scope.tempLisitng;
-    //               textbook.textbookName = newValue.textbookName;
-    //               textbook.price = newValue.price;
-    //               textbook.acceptingOffers = newValue.acceptingOffers;
-    //               textbook.sellerName = newValue.sellerName;
-    //               textbook.description = newValue.description;
-    //               textbook.contactInfo = newValue.contactInfo;
-    //               textbook.password = newValue.password;
-    //               textbook.date = newValue.date;
-    //               textbook.classes = newValue.classes;
-    //               textbook.edition = newValue.edition;
-    //               textbook.author = newValue.author;
-    //               textbook.class1 = newValue.classes[0];
-    //               textbook.class2 = newValue.classes[1];
-    //               textbook.class3 = newValue.classes[2];
-    //               textbook.class4 = newValue.classes[3];
-    //               textbook.class5 = newValue.classes[4];
-    //           }
-    //       });
-    //       }
-
-    //   });
+  
      };
 
     var onPostSuccess = function(data) {
