@@ -1,61 +1,19 @@
 <div ng-include="'headerTemplate.html'"></div>
-<div class="container-fluid limWidth mainContent">
-    <div class="row"></div>
-    <div class="row">
-        <div class="content aboutContent">
-            <h3 class="text-center">Campus Cache: For the Students, Without a Catch</h3>
 
-            <p>
-                 Campus Cache allows students to easily list their textbooks for sale and find listings for other textbooks that they need. Through this direct system of exchange, without a profitting middle party, students can earn back more money on textbook sales, save on new textbooks, and decrease the monetary burdens of higher education. In addition to textbooks, Campus Cache provides students with a means to list other items for sale and enlist the help of other students in times of need.
-            </p>
-        </div>
-        <div class="row profileRow text-center">
-            <h3>Our Team</h3><br><br>
-            <div class="profilePageArea">
-                <dir-stylescripts>
-                    <div class="profile">
-                        <img src="img/ronaldjpg.jpg" />
-                        <div class="profileInfo">
-                            <h4>Ronald Ding</h4>
-                            <h5>Founder, Developer</h5>
-                            <p>Ronald is currently pursuing a dual major in Computer Science and Business Administration at UNC Chapel Hill. With a strong interest in entrepreneurship especially in the technology field, he wants to one day run his own company. This summer, he gained valuable experience working as a front-end developer at Academic Benchmarking Consortium, a start-up in Chapel Hill. In his spare time, Ronald enjoys swimming, debating, creating overzealous ideas, and talking about himself in the third person. </p>
-                        </div>
-                    </div>
-                    <div class="profile">
-                        <img src="img/mac.jpg" />
-                        <div class="profileInfo">
-                            <h4>Mac Vogelsang</h4>
-                            <h5>Developer, web design</h5>
-                            <p>Mac is a Cox Research Scholar at Indiana University pursuing a degree in Computer Science and Cognitive Science. He currently works at a cognitive science lab at IU designing applications that test mental reactions and responses. After college, Mac is interested in pursuing a career developing applications that aid in research and the sciences. Mac enjoys long romantic walks on the beach, other people writing his biography, and implying that Ronald is an asshole.</p>
-                        </div>
-                    </div>
-                </dir-stylescripts>
-            </div>
-        </div>
-        <div class="content aboutContent row">
-            <div class="aboutLetter">
-                    <h3>How it All Began</h3>
-                    <h4>A Message from the Founder</h4>
-                        <p>Up until now, the textbook trade has been dominated by student bookstores, online textbook services, and the occasional self-purported “savior” start-up that merely reduces the markup of used textbooks by cutting into their profits. However, they are making profits all the same, and at every turn of the game, the students are still being screwed.
+<select ng-model="type">
+  <option value="general">General Question or Comment</option>
+  <option value="support">Support with Listing</option>
+  <option value="bug">Report a bug</option>
+  <option value="other">Other/Send Love</option>
+</select>
+<br>
 
-                        <p>My vehement “distaste” for how the textbook exchange is handled first developed during my freshman year at UNC. Young, optimistic, and naïve, I bought an Economics textbook from the student bookstore for my ECON 101 class. The textbook was substantial in size, glossy to the touch, and brand spanking new because that was the first year that this particular textbook would be used for the curriculum. It was also a whopping three hundred and fifty dollars.
+Your Name: <input type="text" ng-model="senderName" placeholder="Captain America"><br>
+Your E-mail Here: <input type="text" ng-model="senderEmail" placeholder="iamironman@live.unc.edu"><br>
 
-                        <p>Throughout the semester, I perused it occasionally and kept it in top notch condition expecting to be able to sell it back after my course was over. When I finally filled out that last bubble on the Econ final, I carried the monster back to the student bookstore in anticipation of a sizable payout. What I was met with was a firm fifteen dollars. Fifteen dollars! Fifteen dollars for an almost new, originally three hundred and fifty dollar textbook that I slaved over to keep in great condition! To add insult to injury, I was offered one dollar for a Calculus textbook that I had bought used from the exact same bookstore for one hundred and thirty dollars. Furious was not strong enough a term to describe how I felt.
+<input type="text" ng-model="message" placeholder="Your Message Here"><br>
 
-                        <p>In the following semester, I refused to set foot into that bookstore and refused to purchase any textbooks from such businesses. Through my search for alternatives, I found the Textbook Exchange Facebook group for UNC. On the Facebook page, students listed the textbooks that they were selling and the textbooks that they wanted to buy. Upon first discovering the group, I was overjoyed at finding a platform to buy and sell textbooks without the markup of bookstores. However, I soon realized its inefficiency as well. Though noble in its ideal, as a standard Facebook group, the Textbook Exchange page sorted its listings by date and recent activity. There was also no search feature or a way to compare prices between similar listings.
 
-                        <p>That was when the idea for Campus Cache was born. A new interface was need that organized textbook listings properly, allowed searches based on title, class, and edition, and provided students with the means of finding the best deal. All without a profiting third party.
+<button type="button" ng-show="submitComplete" ng-click="submit()">Send</button>
 
-                    <h3>Our Solution</h3>
-
-                        <p>Campus Cache serves that very purpose: it allows students to find what they need and get rid of what they don’t need. It is a lightweight online application compatible with mobile that allows students to post the textbooks they want to sell and search for textbooks they need. When a promising deal is found, a student can merely contact the other party and directly negotiate an exchange. Fast, simple, and without making money off students, Campus Cache is created with the goal of maximizing efficiency and reducing loss. There are no transaction fees, no subscription obligations, no spam, and currently no ads. Campus Cache is for the students, without a catch.
-                        <br>
-                        <br>
-                        <i>Here’s to Saving Money,</i>
-                        <br>
-                        <br>
-                        <h3><i>Ronald Ding</i></br>
-            </div>
-        </div>
-    </div>
-</div>
+<div ng-hide="submitComplete"><h3>Thank you for contacting us. We will get back to you as soon as possible!</h3></div>
