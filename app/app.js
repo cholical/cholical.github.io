@@ -77,8 +77,8 @@
       })
       .state('contact', {
         url: '/contact',
-        //templateUrl: 'app/contact/contact.html',
-        //controller: 'contactCtrl'
+        templateUrl: 'app/contact/contact.html',
+        controller: 'contactCtrl'
       })
       .state('superimportant', {
         url: '/superImportantPage',
