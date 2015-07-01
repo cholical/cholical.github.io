@@ -149,7 +149,6 @@
 
 
     $scope.close = function () {
-            newListingSvc.setNewListing($scope.item);
 		    $modalInstance.dismiss('close');
 	  };
 
