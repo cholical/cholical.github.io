@@ -44,6 +44,23 @@
 
     });
 
+    $scope.$watch( function () { return newListingSvc.getDeleteId()}, function(newValue, oldValue) {
+      console.log("Watch statement from deletion entered");
+      if (newValue != 0) {
+
+       angular.forEach($scope.accessories, function(accessory) {
+          if (newValue == accessory.accessory_id) {
+            var index = $scope.accessories.indexOf(accessory);
+            if (index > -1) {
+              $scope.accessories.splice(index, 1);
+            }
+          }
+       })
+       newListingSvc.setDeleteId(0);
+      }
+
+    });
+
     $scope.getAccessoryInfo = function(accessory) {
       newListingSvc.setInfo($scope.accessories);
       $state.go('accessories.info', {accessory_id: accessory.accessory_id});
