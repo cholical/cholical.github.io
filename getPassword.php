@@ -19,6 +19,10 @@
     @$listingID = (int)$request->accessory_id;
     $query = "SELECT password FROM $listingType WHERE accessory_id=$listingID;";
   }
+  if ($listingType == "services"){
+    @$listingID = (int)$request->service_id;
+    $query = "SELECT password FROM $listingType WHERE service_id=$listingID;";
+  }
 
   $result = mysqli_query($db_server, $query);
 

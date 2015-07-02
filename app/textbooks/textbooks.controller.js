@@ -26,7 +26,7 @@
           textbook.classes[4] = textbook.class5;
       }
       
-      textbook.price = parseInt(textbook.price);
+      textbook.price = parseFloat(textbook.price);
       textbook.date = new Date(textbook.date);
     })
     };

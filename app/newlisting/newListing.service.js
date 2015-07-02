@@ -79,6 +79,32 @@
           return response.data;
         });
         }
+
+        if (newListingVar.hasOwnProperty("serviceName")) {
+          console.log("sumitted new Listing for service");
+        return $http({
+            method: "post",
+            url: "submitNewListing.php", 
+            data: {
+              "listingType" : "services",
+              "serviceName" : newListingVar.serviceName,
+              "price" : newListingVar.price,
+              "acceptingOffers": newListingVar.acceptingOffers,
+              "sellerName" : newListingVar.sellerName,
+              "description" : newListingVar.description,
+              "contactInfo" : newListingVar.contactInfo,
+              "password" : newListingVar.password,
+              "date" : newListingVar.date,
+              "service_id" : newListingVar.service_id
+
+
+
+            }
+
+          }).then(function(response) {
+          return response.data;
+        });
+        }
     };
 
     deleteListing = function(newListing) {
@@ -108,6 +134,21 @@
             data: {
               "listingType" : "accessories",
               "accessory_id" : newListingVar.accessory_id
+            }
+
+          }).then(function(response) {
+          return response.data;
+        });
+        }
+
+        if (newListingVar.hasOwnProperty("serviceName")) {
+          console.log("deleted Listing for services");
+        return $http({
+            method: "post",
+            url: "deleteListing.php", 
+            data: {
+              "listingType" : "services",
+              "service_id" : newListingVar.service_id
             }
 
           }).then(function(response) {
@@ -155,6 +196,21 @@
               "listingType" : "accessories",
               "password" : passwordInput,
               "accessory_id" : currentItem.accessory_id
+            }
+
+          }).then(function(response) {
+          return response.data;
+        });
+      }
+
+      else if (currentItem.hasOwnProperty("serviceName")) {
+        return $http({
+            method: "post",
+            url: "getPassword.php", 
+            data: {
+              "listingType" : "services",
+              "password" : passwordInput,
+              "service_id" : currentItem.service_id
             }
 
           }).then(function(response) {

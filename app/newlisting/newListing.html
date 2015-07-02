@@ -72,7 +72,9 @@
 				<span ng-show="mainForm.inputAuthor.$invalid && mainForm.inputAuthor.$touched" class="help-block">Every book has an author.</span>
 			</div>
 
-			<label for="inputPrice" class="col-sm-2 control-label">Price</label>
+			<label ng-hide="textbookHideObject" for="inputPrice" class="col-sm-2 control-label">Price</label>
+			<label ng-hide="accessoryHideObject" for="inputPrice" class="col-sm-2 control-label">Price</label>
+			<label ng-hide="serviceHideObject" for="inputPrice" class="col-sm-2 control-label">Compensation</label>
 			<div class="col-sm-3" ng-class="{'has-error':mainForm.inputPrice.$touched && mainForm.inputPrice.$invalid}">
 				<div class="input-group">
 				  <span class="input-group-addon">$</span>

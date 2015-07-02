@@ -98,6 +98,13 @@
         controller: 'infoCtrl',
         size: 'lg'
       });
+
+      modalStateProvider.state('services.info', {
+        url: '/listing/:service_id',
+        templateUrl: 'app/info/info.html',
+        controller: 'infoCtrl',
+        size: 'lg'
+      });
     
     $urlRouterProvider.otherwise('/home');
     

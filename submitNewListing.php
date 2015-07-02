@@ -75,9 +75,32 @@
             $query2 = "SELECT accessory_id FROM $listingType WHERE date='$date' and sellerName='$sellerName';";
 
         } 
-    else {
-        //this is a service listing most likely unless ronald was stupid and passed in something other than services
-    };
+    elseif ($listingType =="services") {
+
+            //service exclusive fields
+            @$serviceName = mysqli_real_escape_string($db_server, $request->serviceName);
+
+            @$service_id = (int)$request->service_id;
+
+            $query = "SELECT price FROM $listingType WHERE service_id=$service_id;";
+            $result = mysqli_query($db_server, $query) or die("Error in Selecting " . mysqli_error($db_server));
+
+            if (mysqli_num_rows($result) > 0) { 
+            //if a listing with the passed in id exists, update instead of insert
+               
+                $query = "UPDATE $listingType SET serviceName='$serviceName', price='$price', acceptingOffers='$acceptingOffers', sellerName='$sellerName', description='$description', contactInfo='$contactInfo', password='$password', date='$date' WHERE service_id=$service_id;";
+                
+            
+            } else {
+            //this is a new listing, so use insert into
+
+                $query = "INSERT INTO $listingType VALUES ('$serviceName', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', NULL);"; 
+
+            };
+
+            $query2 = "SELECT service_id FROM $listingType WHERE date='$date' and sellerName='$sellerName';";
+
+        } 
 
     //do query
     $result = mysqli_query($db_server, $query);

@@ -10,7 +10,7 @@
     var onAccessoriesSuccess = function(data) {
       $scope.accessories = data;
       angular.forEach($scope.accessories, function(accessory) {
-        accessory.price = parseInt(accessory.price);
+        accessory.price = parseFloat(accessory.price);
         accessory.date = new Date(accessory.date);
       });
 

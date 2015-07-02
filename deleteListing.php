@@ -21,10 +21,13 @@
 
             $query = "DELETE FROM $listingType WHERE accessory_id=$accessory_id;";
 
-   } else {
-        //this is a service listing most likely unless ronald was stupid and passed in something other than services
-    
-    };
+    } elseif ($listingType =="services") {
+
+            @$service_id = (int)$request->service_id;
+
+            $query = "DELETE FROM $listingType WHERE service_id=$service_id;";
+
+    } 
 
     //do query
     $result = mysqli_query($db_server, $query);

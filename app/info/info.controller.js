@@ -4,7 +4,7 @@
   var app;
 
   app = angular.module("tclassified");
-  app.controller('infoCtrl', ['$scope', '$modalInstance', '$modal', '$stateParams', '$state', 'accessoriesSvc', 'textbooksSvc', 'newListingSvc', 'infoSvc', '$location', '$log', function infoCtrl($scope, $modalInstance, $modal, $stateParams, $state, accessoriesSvc, textbooksSvc, newListingSvc, infoSvc, $location, $log){
+  app.controller('infoCtrl', ['$scope', '$modalInstance', '$modal', '$stateParams', '$state', 'accessoriesSvc', 'textbooksSvc', 'servicesSvc', 'newListingSvc', 'infoSvc', '$location', '$log', function infoCtrl($scope, $modalInstance, $modal, $stateParams, $state, accessoriesSvc, textbooksSvc, servicesSvc, newListingSvc, infoSvc, $location, $log){
 
     //:( Mac!!!
 
@@ -56,6 +56,23 @@
 
     });
 
+    $scope.$watch( function () { return $stateParams.service_id}, function(newValue, oldValue) {
+        if (newValue != oldValue) {
+            console.log("StateParam below");
+            console.log($stateParams.service_id);
+            console.log("StateParam changed; watch function entered");
+            console.log($scope.itemList);
+            angular.forEach($scope.itemList, function(service) {
+                if (service.service_id == $stateParams.service_id) {
+                    $scope.item = service;
+                    console.log($scope.item);
+                }
+            })
+
+        }
+
+    });
+
 
     var onItemsSuccess = function(data) {
       $scope.itemList = data;
@@ -69,6 +86,11 @@
           }
           if (tempItem.hasOwnProperty("textbook_id")) {
             if (tempItem.textbook_id == $stateParams.textbook_id) {
+            $scope.item = tempItem;
+            }
+          }
+          if (tempItem.hasOwnProperty("service_id")) {
+            if (tempItem.service_id == $stateParams.service_id) {
             $scope.item = tempItem;
             }
           }
@@ -106,6 +128,9 @@
         if ($state.current.name == "textbooks.info") {
             textbooksSvc.getTextbooks().then(onItemsSuccess)
         }
+        if ($state.current.name == "service.info") {
+            servicesSvc.getServices().then(onItemsSuccess)
+        }
 
     } else {
         console.log("data has been loaded");
@@ -119,9 +144,13 @@
           if (tempItem.hasOwnProperty("textbook_id")) {
             if (tempItem.textbook_id == $stateParams.textbook_id) {
             $scope.item = tempItem;
+            }
           }
-        }
-
+          if (tempItem.hasOwnProperty("service_id")) {
+            if (tempItem.service_id == $stateParams.service_id) {
+            $scope.item = tempItem;
+            }
+          }
       });
         if ($scope.item.hasOwnProperty("textbookName")) {
         console.log("textbook passed in");
@@ -162,9 +191,11 @@
     $scope.checkPasswordInput = function(currentItem) {
 
         if ($scope.passwordInput !== undefined && $scope.passwordInput !== null){
+            console.log($scope.passwordInput)
             newListingSvc.checkPassword($scope.passwordInput, currentItem).then(function (data) {
                 data.replace(/\s+/g, '');
                 data = parseInt(data);
+                console.log("Return from getPassword below");
                 console.log(data);
 
                 if ( data === 1) {

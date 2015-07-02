@@ -5,8 +5,14 @@
 			<h1 ng-hide="accessoryHideObject"><small>TITLE</small> {{item.accessoryName}}</h1>
 			<h1 ng-hide="serviceHideObject"><small>TITLE</small> {{item.serviceName}}</h1>
 		</div>
-		<div class="col-xs-4 text-center">
+		<div ng-hide="textbookHideObject" class="col-xs-4 text-center">
 			<h2><small>PRICE</small> {{item.price | currency}} </h2>
+		</div>
+		<div ng-hide="accessoryHideObject" class="col-xs-4 text-center">
+			<h2><small>PRICE</small> {{item.price | currency}} </h2>
+		</div>
+		<div ng-hide="serviceHideObject" class="col-xs-4 text-center">
+			<h2><small>Compensation</small> {{item.price | currency}} </h2>
 		</div>
 	</div>
 	<div class="row">

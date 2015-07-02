@@ -14,8 +14,9 @@
     $scope.class5 = true;
     $scope.newListing = angular.copy(listing);
     if ($scope.newListing.hasOwnProperty("price")) {
-        $scope.newListing.price = parseInt($scope.newListing.price);
+        $scope.newListing.price = parseFloat($scope.newListing.price);
     }
+    $scope.alreadyClicked = false;
     $scope.phpDebug;
     $scope.itemId;
     $scope.deleteId;
@@ -26,8 +27,6 @@
         $scope.textbookHideObject = false;
         $scope.accessoryHideObject = true;
         $scope.serviceHideObject = true;
-
-
     } else if ($scope.typeOfObject === "accessory") {
         console.log("accessory type");
         $scope.accessoryHideObject = false;
@@ -90,7 +89,7 @@
     };
 
 
-    $scope.alreadyClicked = false;
+    
     $scope.submitListing = function() {
 
         if ($scope.alreadyClicked == false){
@@ -139,6 +138,9 @@
             }
         if ($scope.newListing.hasOwnProperty("textbook_id")) {
                 $scope.deleteId = $scope.newListing.textbook_id;
+            }
+        if ($scope.newListing.hasOwnProperty("service_id")) {
+                $scope.deleteId = $scope.newListing.service_id;
             }
             newListingSvc.setDeleteId($scope.deleteId);
         //call the php script
