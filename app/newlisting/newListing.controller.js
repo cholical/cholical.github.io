@@ -17,6 +17,9 @@
         $scope.newListing.price = parseFloat($scope.newListing.price);
     }
     $scope.alreadyClicked = false;
+    if (! $scope.newListing.images){
+        $scope.newListing.images = [];
+    };
     $scope.phpDebug;
     $scope.itemId;
     $scope.deleteId;
