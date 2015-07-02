@@ -182,25 +182,11 @@
 		<div class="form-group">
 				<label for="uploadImage" class="col-sm-4 control-label">Upload Images</label>
 				<div class="col-sm-5">
-					<input type="file" multiple accept="image/*" id="fileupload" type="file" name="files[]" data-url="lib/fileUploadJQ/server/php/">
-					<script>
-					$(function () {
-					    $('#fileupload').fileupload({
-					        dataType: 'json',
-					        done: function (e, data) {
-					            $.each(data.result.files, function (index, file) {
-
-									console.log("uploaded " + file.name);
-									$scope.imageName = file.name;
-					            });
-					        }
-					    });
-					});
-					</script>
+					<file-uploader>
+					</file-uploader>
 					<p class="help-block">Optionally upload images to showcase the beautiful item that you are selling..</p>
 				</div>
-				<div class="col-sm-2">
-				</div>
+
 
 		</div>
 

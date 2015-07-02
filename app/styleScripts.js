@@ -10,6 +10,7 @@ app.directive("dirStylescripts", function() {
     //     fade:400,
     //     centeredY:false
     // });
+    console.log('style scripts initialized');
     var headerHeight = $('.profileInfo h4').outerHeight(true);
     var oldTop = $('.profile').height() - headerHeight;
     $('.profileInfo').css('top',oldTop);
