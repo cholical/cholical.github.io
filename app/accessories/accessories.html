@@ -2,7 +2,7 @@
 <div class="container-fluid limWidth mainContent">
 
     <div class="row">
-        <div class="col-md-6"><h2>Accessories Listings</h2></div>
+        <div class="col-md-6"><h2>Accessories Listings {{accessories}}</h2></div>
 
         <div class="col-md-6 text-right">
             <button type="button" class="btn btn-default btn-lg newListing" ng-click="createNewListing()">
@@ -75,6 +75,12 @@
 
                     </a>
                 </li>
+                <li>
+                    <input type="checkbox" ng-model="buyToggle.acceptingOffers" ng-true-value="false" ng-false-value="'!null'">Filter By Buying
+                </li>
+                <li>
+                    <input type="checkbox" ng-model="buyToggle.acceptingOffers" ng-true-value="1" ng-false-value="'!null'">Filter By Selling
+                </li>
               </ul>
 
 
@@ -107,7 +113,7 @@
     </div>
 
     <div class="row cardRow" >
-        <div class="listingCard col-lg-4" dir-paginate-start="accessory in accessories | orderBy:sortType:sortReverse | filter:searchBar | itemsPerPage:pageSize" current-page="currentPage">
+        <div class="listingCard col-lg-4" dir-paginate-start="accessory in accessories | orderBy:sortType:sortReverse | filter:searchBar | itemsPerPage:pageSize | filter:buyToggle track by $index" current-page="currentPage">
             <!-- <div class="clickLayer" ng-click="getTextbookInfo(textbook)">
             </div> -->
             <div class="mainPanel animated fadeInUp" ng-click="getAccessoryInfo(accessory)">

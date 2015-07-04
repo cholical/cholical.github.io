@@ -70,6 +70,7 @@
     } else {
         $scope.hideNewMessage = false;
         $scope.hideEditMessage = true;
+        $scope.newListing.acceptingOffers = true;
     }
 
 

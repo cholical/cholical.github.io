@@ -88,6 +88,12 @@
 
                     </a>
                 </li>
+                <li>
+                    <input type="checkbox" ng-model="buyToggle.acceptingOffers" ng-true-value="false" ng-false-value="'!null'">Filter By Buying
+                </li>
+                <li>
+                    <input type="checkbox" ng-model="buyToggle.acceptingOffers" ng-true-value="1" ng-false-value="'!null'">Filter By Selling
+                </li>
               </ul>
 
 
@@ -120,7 +126,7 @@
     </div>
 
     <div class="row cardRow" >
-        <div class="listingCard col-lg-4" dir-paginate-start="textbook in textbooks | orderBy:sortType:sortReverse | filter:searchBar | itemsPerPage:pageSize" current-page="currentPage">
+        <div class="listingCard col-lg-4" dir-paginate-start="textbook in textbooks | orderBy:sortType:sortReverse | filter:searchBar | itemsPerPage:pageSize | filter:buyToggle track by $index" current-page="currentPage">
             <!-- <div class="clickLayer" ng-click="getTextbookInfo(textbook)">
             </div> -->
             <div class="mainPanel animated fadeInUp" ng-click="getTextbookInfo(textbook)">
