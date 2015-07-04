@@ -12,6 +12,12 @@
       angular.forEach($scope.services, function(service) {
         service.price = parseFloat(service.price);
         service.date = new Date(service.date);
+        service.images = eval(service.images);
+        if (typeof service.images === 'undefined'){
+          service.images = false; //no image array exists
+        } else if (service.images.length == 0) {
+          service.images = false; //no images in array
+        }
       });
 
     };
@@ -95,10 +101,10 @@
                     service.service_id = angular.copy($scope.itemId);
                 }
       })
-      
 
 
-      }, 
+
+      },
       function() {
         console.log("new list not created");
       });
@@ -116,6 +122,6 @@
         document.getElementById(activeParameter).className = "clickSort activeSort";
 
     }
-    
+
   }]);
 }());

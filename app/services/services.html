@@ -126,7 +126,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 listingDescription">
+                    <div ng-hide="service.images == false" class="col-xs-3">
+                        <div class="thumbnailPosition"> <img src="{{imageDir + 'thumbnail/' + service.images[0]}}"> </div>
+                    </div>
+                    <div class="listingDescription" ng-class="{'col-xs-12' : service.images==false, 'col-xs-9':service.images!=false}">
                         <p>
                             {{service.description}}
                         </p>

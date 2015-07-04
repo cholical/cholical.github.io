@@ -1,10 +1,7 @@
-<input type="file" multiple accept="image/*" id="fileupload" type="file" >
-{{newListing}}
-
-
+<span class="btn btn-default btn-md">    
+    Browse... <input accept="image/*" id="fileupload" type="file" multiple >
+</span>
+<div class="errorBlock"></div>
 <!-- The container for the uploaded files -->
-<div id="files" class="files"></div>
-<button ng-hide="" type="button" class="uploadQueue btn btn-default btn-md deleteBtn" ng-click="">
-	<span class="fa fa-upload" aria-hidden="true"></span>
-	Upload
-</button>
+<div id="files" class="files panel"></div>
+<!-- <div class="deleteAll" style="border:1px solid red;">delete all</div> -->

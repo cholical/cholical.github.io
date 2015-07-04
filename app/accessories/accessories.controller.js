@@ -12,6 +12,12 @@
       angular.forEach($scope.accessories, function(accessory) {
         accessory.price = parseFloat(accessory.price);
         accessory.date = new Date(accessory.date);
+        accessory.images = eval(accessory.images);
+        if (typeof accessory.images === 'undefined'){
+          accessory.images = false; //no image array exists
+        } else if (accessory.images.length == 0) {
+          accessory.images = false; //no images in array
+        }
       });
 
     };
@@ -95,15 +101,15 @@
                     accessory.accessory_id = angular.copy($scope.itemId);
                 }
       })
-      
 
 
-      }, 
+
+      },
       function() {
         console.log("new list not created");
       });
     };
-    
+
 
   	$scope.changeBarActive = function() {
         document.getElementById("accessoriesBar").className = "active";
@@ -117,6 +123,6 @@
         document.getElementById(activeParameter).className = "clickSort activeSort";
 
     }
-    
+
   }]);
 }());

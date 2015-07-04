@@ -12,10 +12,6 @@
         </div>
 
     </div>
-
-
-
-
 	<div class="row">
 		<div class="col-md-12">
 			<div class="content">
@@ -140,7 +136,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 listingDescription">
+                    <div ng-hide="textbook.images == false" class="col-xs-3">
+                        <div class="thumbnailPosition"> <img src="{{imageDir + 'thumbnail/' + textbook.images[0]}}"> </div>
+                    </div>
+                    <div class="listingDescription" ng-class="{'col-xs-12' : textbook.images==false, 'col-xs-9':textbook.images!=false}">
                         <p>
                             {{textbook.description}}
                         </p>
