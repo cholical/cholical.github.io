@@ -2,7 +2,7 @@
 
   "use strict";
   var app, newListingVar, itemIdVar, deleteIdVar, getNewListing, setNewListing, deleteListing, setItemId, getItemId, setDeleteId, getDeleteId, checkPassword, setInfo, getInfo;
-  
+
   app = angular.module('tclassified');
 
   app.factory('newListingSvc', ['$http', '$log', function newListingSvc($http, $log) {
@@ -25,7 +25,7 @@
         console.log("sumitted new Listing for textbook");
         return $http({
             method: "post",
-            url: "submitNewListing.php", 
+            url: "submitNewListing.php",
             data: {
               "listingType" : "textbooks",
               "textbookName" : newListing.textbookName,
@@ -37,7 +37,7 @@
               "password" : newListingVar.password,
               "date" : newListingVar.date,
               "textbook_id": newListingVar.textbook_id,
-              
+              "images": newListingVar.images,
               "author" : newListingVar.author,
               "edition" : newListingVar.edition,
               "class1" :newListingVar.class1,
@@ -48,9 +48,9 @@
             }
 
           }).then(function(response) {
-          return response.data;
+            return response.data;
         });
-        
+
         }
 
         //new if
@@ -58,7 +58,7 @@
           console.log("sumitted new Listing for accessories");
         return $http({
             method: "post",
-            url: "submitNewListing.php", 
+            url: "submitNewListing.php",
             data: {
               "listingType" : "accessories",
               "accessoryName" : newListingVar.accessoryName,
@@ -69,8 +69,8 @@
               "contactInfo" : newListingVar.contactInfo,
               "password" : newListingVar.password,
               "date" : newListingVar.date,
-              "accessory_id" : newListingVar.accessory_id
-
+              "accessory_id" : newListingVar.accessory_id,
+              "images" : newListingVar.images
 
 
             }
@@ -84,7 +84,7 @@
           console.log("sumitted new Listing for service");
         return $http({
             method: "post",
-            url: "submitNewListing.php", 
+            url: "submitNewListing.php",
             data: {
               "listingType" : "services",
               "serviceName" : newListingVar.serviceName,
@@ -95,7 +95,8 @@
               "contactInfo" : newListingVar.contactInfo,
               "password" : newListingVar.password,
               "date" : newListingVar.date,
-              "service_id" : newListingVar.service_id
+              "service_id" : newListingVar.service_id,
+              "images" : newListingVar.images
 
 
 
@@ -113,7 +114,7 @@
         console.log("deleted Listing for textbook");
         return $http({
             method: "post",
-            url: "deleteListing.php", 
+            url: "deleteListing.php",
             data: {
               "listingType" : "textbooks",
               "textbook_id": newListingVar.textbook_id
@@ -122,7 +123,7 @@
           }).then(function(response) {
           return response.data;
         });
-        
+
         }
 
         //new if
@@ -130,7 +131,7 @@
           console.log("deleted Listing for accessories");
         return $http({
             method: "post",
-            url: "deleteListing.php", 
+            url: "deleteListing.php",
             data: {
               "listingType" : "accessories",
               "accessory_id" : newListingVar.accessory_id
@@ -145,7 +146,7 @@
           console.log("deleted Listing for services");
         return $http({
             method: "post",
-            url: "deleteListing.php", 
+            url: "deleteListing.php",
             data: {
               "listingType" : "services",
               "service_id" : newListingVar.service_id
@@ -177,7 +178,7 @@
       if (currentItem.hasOwnProperty("textbookName")) {
         return $http({
             method: "post",
-            url: "getPassword.php", 
+            url: "getPassword.php",
             data: {
               "listingType" : "textbooks",
               "password" : passwordInput,
@@ -191,7 +192,7 @@
       else if (currentItem.hasOwnProperty("accessoryName")) {
         return $http({
             method: "post",
-            url: "getPassword.php", 
+            url: "getPassword.php",
             data: {
               "listingType" : "accessories",
               "password" : passwordInput,
@@ -206,7 +207,7 @@
       else if (currentItem.hasOwnProperty("serviceName")) {
         return $http({
             method: "post",
-            url: "getPassword.php", 
+            url: "getPassword.php",
             data: {
               "listingType" : "services",
               "password" : passwordInput,
@@ -217,7 +218,7 @@
           return response.data;
         });
       }
-      
+
     }
 
     setInfo = function(info) {
@@ -242,8 +243,8 @@
       checkPassword: checkPassword,
       setInfo,
       getInfo
-     
+
     };
   }]);
-  
+
 }());

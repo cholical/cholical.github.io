@@ -132,7 +132,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 listingDescription">
+                    <div ng-hide="accessory.images == false" class="col-xs-3">
+                        <div class="thumbnailPosition"> <img src="{{imageDir + 'thumbnail/' + accessory.images[0]}}"> </div>
+                    </div>
+                    <div class="listingDescription" ng-class="{'col-xs-12' : accessory.images==false, 'col-xs-9':accessory.images!=false}">
                         <p>
                             {{accessory.description}}
                         </p>

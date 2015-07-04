@@ -89,11 +89,12 @@
         $scope.class5 = false;
     };
     $scope.close = function() {
+        $scope.deleteUploads();
         $modalInstance.dismiss('close');
     };
 
 
-    
+
     $scope.submitListing = function() {
 
         if ($scope.alreadyClicked == false){
@@ -112,6 +113,7 @@
                 $scope.newListing.class5 = $scope.newListing.classes[4];
             }
             newListingSvc.setNewListing($scope.newListing).then(function(data) {
+                console.log(data);
                 $scope.itemId = data;
                 $scope.itemId = $scope.itemId.replace(/\s+/g, '');
                 newListingSvc.setItemId($scope.itemId);

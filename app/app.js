@@ -1,12 +1,12 @@
 (function () {
- 
+
   'use strict';
   var app = angular.module('tclassified', ['ui.router', 'ui.bootstrap', 'angularUtils.directives.dirPagination', 'ui.bootstrap.modal']);
-  
+
   //=======The code within these comments doesn't actually exist===
 
     //No it sure doesn't Mac. Where did it go? My beloved app.js is clutterfree.
-    
+
     //penis
 
   //==================================================================
@@ -25,7 +25,7 @@
                 modalInstance.result.then(
                   function () {
 
-                  }, 
+                  },
                   function() {
                     $state.go('^');
 
@@ -47,7 +47,7 @@
   })
 
   app.config(['$stateProvider', 'modalStateProvider', '$urlRouterProvider', configRoutes]);
-  
+
   function configRoutes ($stateProvider, modalStateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
@@ -105,14 +105,16 @@
         controller: 'infoCtrl',
         size: 'lg'
       });
-    
+
     $urlRouterProvider.otherwise('/home');
-    
+
   };
 
 
 
+
+
   app.run(['$state', function ($state) {
-  }]);  
+  }]);
 
 }());

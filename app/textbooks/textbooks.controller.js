@@ -9,31 +9,38 @@
     var onTextbookSuccess = function(data) {
       $scope.textbooks = data;
       angular.forEach($scope.textbooks, function (textbook) {
-      textbook.classes = [];
-      if (textbook.class1 != "") {
-          textbook.classes[0] = textbook.class1;
-      };
-      if (textbook.class1 != "") {
-          textbook.classes[1] = textbook.class2;
-      };
-      if (textbook.class1 != "") {
-          textbook.classes[2] = textbook.class3;
-      };
-      if (textbook.class1 != "") {
-          textbook.classes[3] = textbook.class4;
-      };
-      if (textbook.class1 != "") {
-          textbook.classes[4] = textbook.class5;
-      }
-      
-      textbook.price = parseFloat(textbook.price);
-      textbook.date = new Date(textbook.date);
-    })
+        textbook.classes = [];
+        if (textbook.class1 != "") {
+            textbook.classes[0] = textbook.class1;
+        };
+        if (textbook.class1 != "") {
+            textbook.classes[1] = textbook.class2;
+        };
+        if (textbook.class1 != "") {
+            textbook.classes[2] = textbook.class3;
+        };
+        if (textbook.class1 != "") {
+            textbook.classes[3] = textbook.class4;
+        };
+        if (textbook.class1 != "") {
+            textbook.classes[4] = textbook.class5;
+        }
+
+        textbook.price = parseFloat(textbook.price);
+        textbook.date = new Date(textbook.date);
+        textbook.images = eval(textbook.images);
+        if (typeof textbook.images === 'undefined'){
+          textbook.images = false; //no image array exists
+        } else if (textbook.images.length == 0) {
+          textbook.images = false; //no images in array
+        }
+        
+      })
     };
     textbooksSvc.getTextbooks().then(onTextbookSuccess);
 
 
-
+    $scope.imageDir = 'img/useruploads/files/';
     $scope.pageSize = 12;
     $scope.currentPage = 1;
     $scope.sortType = "date";
@@ -91,7 +98,7 @@
       newListingSvc.setInfo($scope.textbooks);
 
       $state.go('textbooks.info', {textbook_id: textbook.textbook_id});
-  
+
      };
 
     var onPostSuccess = function(data) {
@@ -128,7 +135,7 @@
                     textbook.textbook_id = angular.copy($scope.itemId);
                 }
               }
-      )}, 
+      )},
       function() {
         console.log("new list not created");
       });
@@ -149,8 +156,8 @@
 
     }
 
-    
 
-    
+
+
   }]);
 }());
