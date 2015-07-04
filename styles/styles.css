@@ -821,6 +821,54 @@ INFO PANEL PAGE STYLES
   border-left: 1px solid #ddd;
 }
 
+.carousel {
+  width:700px;
+  height:500px;
+  margin:0px auto 20px auto;
+}
+.carousel-control {
+  background-image:none !important;
+  color:#3c6178;
+  opacity: 1;
+}
+
+.carousel-control:hover {
+  color:#0e1721;
+}
+.carousel-control.right {
+  right:-100px;
+}
+.carousel-control.left {
+  left:-100px;
+}
+
+.carousel-indicators {
+bottom:-40px;
+}
+.carousel-indicators li {
+  border-color:#3c6178;
+}
+.carousel-indicators .active {
+  background-color:#3c6178;
+}
+.imagePosition {
+  width:700px;
+  height:500px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.imagePosition img {
+  height:100%;
+  position:absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+}
+
 .closeInfo {
   background:#ffab8a;
   color:#111;

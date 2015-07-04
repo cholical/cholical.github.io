@@ -22,6 +22,7 @@
 
     };
   	servicesSvc.getServices().then(onServicesSuccess);
+    $scope.imageDir = 'img/useruploads/files/';
   	$scope.pageSize = 12;
     $scope.currentPage = 1;
     $scope.sortType = "date";

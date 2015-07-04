@@ -44,6 +44,16 @@
 <div class="modal-body infoDescription">
 	<p>{{item.description}}</p>
 </div>
+<div ng-hide="item.images == false" class="modal-body infoImages">
+	<carousel interval="0">
+      <slide ng-repeat="image in item.images track by $index">
+      	<div class="imagePosition">
+	        <a ng-href="{{imageDir+image}}" target="_blank"><img ng-src="{{imageDir+image}}" style="margin:auto;"></a>
+	        
+	    </div>
+      </slide>
+    </carousel>
+</div>
 <div class="modal-footer infoFooter">
 	<div class="row">
 		<div class="col-md-12 text-left">

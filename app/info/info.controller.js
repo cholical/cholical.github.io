@@ -21,6 +21,8 @@
     $scope.reportReason;
     $scope.urlValue;
 
+    $scope.imageDir = 'img/useruploads/files/';
+
 
     $scope.$watch( function () { return $stateParams.accessory_id}, function(newValue, oldValue) {
         if (newValue != oldValue) {
@@ -73,50 +75,59 @@
 
     });
 
+    var itemSetup = function(data){
+        angular.forEach(data, function(tempItem) {
+
+            if (tempItem.hasOwnProperty("accessory_id")) {
+              if (tempItem.accessory_id == $stateParams.accessory_id) {
+                  $scope.item = tempItem;
+              }
+            }
+            if (tempItem.hasOwnProperty("textbook_id")) {
+              if (tempItem.textbook_id == $stateParams.textbook_id) {
+                  $scope.item = tempItem;
+              }
+            }
+            if (tempItem.hasOwnProperty("service_id")) {
+              if (tempItem.service_id == $stateParams.service_id) {
+                  $scope.item = tempItem;
+              }
+            }
+
+        });
+
+          if ($scope.item.hasOwnProperty("textbookName")) {
+              console.log("textbook passed in");
+              $scope.typeOfObject = "textbook";
+              $scope.textbookHideObject = false;
+              $scope.accessoryHideObject = true;
+              $scope.serviceHideObject = true;
+          } else if ($scope.item.hasOwnProperty("accessoryName")) {
+              console.log("accessory passed in");
+              $scope.typeOfObject = "accessory";
+              $scope.textbookHideObject = true;
+              $scope.accessoryHideObject = false;
+              $scope.serviceHideObject = true;
+          } else if ($scope.item.hasOwnProperty("serviceName")) {
+              console.log("service passed in");
+              $scope.typeOfObject = "service";
+              $scope.textbookHideObject = true;
+              $scope.accessoryHideObject = true;
+              $scope.serviceHideObject = false;
+          }
+
+        $scope.item.images = eval($scope.item.images);
+        if (typeof $scope.item.images === 'undefined'){
+          $scope.item.images = false; //no image array exists
+        } else if ($scope.item.images.length == 0) {
+          $scope.item.images = false; //no images in array
+        }
+    };
 
     var onItemsSuccess = function(data) {
       $scope.itemList = data;
       console.log("data has been loaded");
-      angular.forEach($scope.itemList, function(tempItem) {
-
-          if (tempItem.hasOwnProperty("accessory_id")) {
-            if (tempItem.accessory_id == $stateParams.accessory_id) {
-            $scope.item = tempItem;
-            }
-          }
-          if (tempItem.hasOwnProperty("textbook_id")) {
-            if (tempItem.textbook_id == $stateParams.textbook_id) {
-            $scope.item = tempItem;
-            }
-          }
-          if (tempItem.hasOwnProperty("service_id")) {
-            if (tempItem.service_id == $stateParams.service_id) {
-            $scope.item = tempItem;
-            }
-          }
-
-      });
-
-      if ($scope.item.hasOwnProperty("textbookName")) {
-        console.log("textbook passed in");
-        $scope.typeOfObject = "textbook";
-        $scope.textbookHideObject = false;
-        $scope.accessoryHideObject = true;
-        $scope.serviceHideObject = true;
-      } else if ($scope.item.hasOwnProperty("accessoryName")) {
-        console.log("accessory passed in");
-        $scope.typeOfObject = "accessory";
-        $scope.textbookHideObject = true;
-        $scope.accessoryHideObject = false;
-        $scope.serviceHideObject = true;
-      } else if ($scope.item.hasOwnProperty("serviceName")) {
-        console.log("service passed in");
-        $scope.typeOfObject = "service";
-        $scope.textbookHideObject = true;
-        $scope.accessoryHideObject = true;
-        $scope.serviceHideObject = false;
-      }
-
+      itemSetup($scope.itemList);
     };
 
     if ($scope.itemList === undefined) {
@@ -134,52 +145,13 @@
 
     } else {
         console.log("data has been loaded");
-        angular.forEach($scope.itemList, function(tempItem) {
-
-          if (tempItem.hasOwnProperty("accessory_id")) {
-            if (tempItem.accessory_id == $stateParams.accessory_id) {
-            $scope.item = tempItem;
-            }
-          }
-          if (tempItem.hasOwnProperty("textbook_id")) {
-            if (tempItem.textbook_id == $stateParams.textbook_id) {
-            $scope.item = tempItem;
-            }
-          }
-          if (tempItem.hasOwnProperty("service_id")) {
-            if (tempItem.service_id == $stateParams.service_id) {
-            $scope.item = tempItem;
-            }
-          }
-      });
-        if ($scope.item.hasOwnProperty("textbookName")) {
-        console.log("textbook passed in");
-        $scope.typeOfObject = "textbook";
-        $scope.textbookHideObject = false;
-        $scope.accessoryHideObject = true;
-        $scope.serviceHideObject = true;
-      } else if ($scope.item.hasOwnProperty("accessoryName")) {
-        console.log("accessory passed in");
-        $scope.typeOfObject = "accessory";
-        $scope.textbookHideObject = true;
-        $scope.accessoryHideObject = false;
-        $scope.serviceHideObject = true;
-      } else if ($scope.item.hasOwnProperty("serviceName")) {
-        console.log("service passed in");
-        $scope.typeOfObject = "service";
-        $scope.textbookHideObject = true;
-        $scope.accessoryHideObject = true;
-        $scope.serviceHideObject = false;
-      }
-
+        itemSetup($scope.itemList);
     }
 
-
-
-
+    
     $scope.close = function () {
-		    $modalInstance.dismiss('close');
-	  };
+	   $modalInstance.dismiss('close');
+	};
 
     $scope.yoCheckDisOut = function(){
         $scope.UrlToCopy = window.location.href;
