@@ -7,7 +7,8 @@
     app.directive("fileUploader", function() {
         var linkFunction = function(scope, element, attributes) {
 
-            var uploadCount = 0;
+            var uploadCount = scope.newListing.images.length;
+            console.log('uploadCount: ' + uploadCount);
             var maxUploads = 4;
             var maxFileSize = 2500000;
             var acceptFileTypes = /^image\/(gif|jpe?g|png)$/i;
@@ -89,7 +90,7 @@
                 previewMaxHeight: 100,
                 previewCrop: true
             }).on('fileuploadadd', function (e, data) {
-                data.context = $('<div/>').addClass('thumbnailDiv').appendTo('#files');
+                data.context = $('<div/>').addClass('thumbnailDiv').appendTo('.files');
                 $.each(data.files, function (index, file) {
                     var node = $('<p/>')
                     .append($('<span/>').text(file.name));
@@ -186,56 +187,118 @@
             }).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
 
-            $('#files').on('click', '.delete', function (e) {
+            var toBeDeleted = [];
+            $('#currentFiles').on('click', '.delete', function (e) {
                 e.preventDefault();
-
                 var $link = $(this);
-                var req = $.ajax({
-                    dataType: 'json',
-                    url: $link.data('url'),
-                    type: 'DELETE'
-                });
+                 console.log('clicked current delete',$link);
+                 $link[0].parentElement.remove();
 
-                req.success(function () {
+                 //updates count
+                 uploadCount = uploadCount - 1;
 
-                    //remove file from all Files array
-                    var divIndex = $link.parent().index();
-                    allFiles.splice(divIndex,1);
+                 var clickedFile = {
+                     'url':$link.data('url'),
+                     'name':$link[0].id
+                 }
 
-                    //remove thumbnail div
-                    $link[0].parentElement.remove();
-
-                    //redefines the newlisting object and removes the image that was just deleted
-                    scope.newListing.images = $.grep(scope.newListing.images, function(value) {
-                      return value != $link[0].id;
-                    });
-
-                    //reset errorBlock
-                    $('.errorBlock')
-                    .css({
-                        'max-height':'0px',
-                        'background-color': 'transparent',
-                        'border-color': 'transparent'
-                    });
-
-                    //updates count
-                    uploadCount = uploadCount - 1;
-                    console.log($link[0].id + 'was successfully deleted.','  uploadCount: ' + uploadCount );
-                });
+                 toBeDeleted.push(clickedFile);
             });
+            $('#files').on('click', '.delete', function (e) {
+               
+                var $link = $(this);
+                 console.log('clicked delete',$link);
+
+                    e.preventDefault();
+                    var request = $.ajax({
+                        dataType: 'json',
+                        url: $link.data('url'),
+                        type: 'DELETE'
+                    });
+
+                    request.success(function () {
+
+                        //remove file from all Files array
+                        var divIndex = $link.parent().index();       
+                        allFiles.splice(divIndex,1);
+
+                        //remove thumbnail div
+                        $link[0].parentElement.remove();
+
+                        //redefines the newlisting object and removes the image that was just deleted
+                        scope.newListing.images = $.grep(scope.newListing.images, function(value) {
+                          return value != $link[0].id;
+                        });
+
+                        //reset errorBlock
+                        $('.errorBlock')
+                        .css({
+                            'max-height':'0px',
+                            'background-color': 'transparent',
+                            'border-color': 'transparent'
+                        });
+
+                        //updates count
+                        uploadCount = uploadCount - 1;
+                        console.log($link[0].id + 'was successfully deleted.','  uploadCount: ' + uploadCount, scope.newListing.images );
+                    });
+                
+                
+            });
+
+            //actually deletes the queued files from the server on submit
+            scope.deleteToBeDeleted = function(){
+                console.log('files to be deleted',toBeDeleted);
+                var successes = 0;
+                if(toBeDeleted.length != 0){
+                    $.each(toBeDeleted, function(index,file) {
+                        var request = $.ajax({
+                            dataType: 'json',
+                            url: file.url,
+                            type: 'DELETE'
+                        });
+
+                        request.success(function () {
+                            //redefines the newlisting object and removes the image that was just deleted
+                            scope.newListing.images = $.grep(scope.newListing.images, function(value) {
+                              return value != file.name;
+                            });
+                            console.log(file.name + 'was successfully deleted.','  uploadCount: ' + uploadCount, scope.newListing.images );
+                           
+                            successes++;
+                            if (successes==toBeDeleted.length){
+                                scope.continueSubmission();
+                            }
+
+                        });
+                    });
+                } else {
+                    scope.continueSubmission();
+                }
+                console.log(scope.newListing.images);
+            };
+
 
             scope.deleteUploads = function(){
                 $('.delete').click();
             }
-            $('.deleteAll').click(function(){
-                $('.delete').click();
-            });
+            
+            scope.deleteAllUploads = function () {
+                var imagesToBeDeleted = scope.newListing.images;
+                $.each(imagesToBeDeleted, function(index, file){
+                    var url = scope.imageDeleteUrl + file;
 
+                    var request = $.ajax({
+                        dataType: 'json',
+                        url: url,
+                        type: 'DELETE'
+                    });
 
-            $('#files').on('click','.uploadBtn', function(){
-               
-            });
-
+                    request.success(function () {
+                        console.log('Deleted ' + file + ' from server.');
+                    });
+                });
+            };
 
 
 

@@ -46,6 +46,7 @@
             service.contactInfo = newValue.contactInfo;
             service.password = newValue.password;
             service.date = newValue.date;
+            service.images = newValue.images;
          }
        })
 

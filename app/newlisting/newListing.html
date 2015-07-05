@@ -180,15 +180,21 @@
 			</select>
 		</div>
 	</div>
-
+	<div class="form-group" ng-hide="hideCurrentImages">
+		<label for="uploadImage" class="col-sm-4 control-label">Your images<br><p class="help-block"><em>These are your current images. Delete these or upload new ones below.</em></p></label>
+		<div class="col-sm-5" id="currentFiles">
+				<div class="currentImage text-center" ng-repeat="image in currentImages track by $index">
+					 <div class="thumbnailPosition"><img ng-src="{{'img/useruploads/files/thumbnail/'+image}}"></div>
+					 <div class="delete current-delete" data-type="DELETE" data-url="{{imageDeleteUrl+image}}" id="{{image}}"><i class="fa fa-times"></i></div>
+				</div>
+		</div>
+	</div>
 	<div class="form-group">
 		<label for="uploadImage" class="col-sm-4 control-label">Upload Images<br><p class="help-block"><em>Optionally upload images to showcase the beautiful item that you are selling</em></p></label>
 		<div class="col-sm-5">
 			<file-uploader>
 			</file-uploader>
 		</div>
-
-
 	</div>
 
 </div>

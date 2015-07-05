@@ -20,6 +20,15 @@
     if (! $scope.newListing.images){
         $scope.newListing.images = [];
     };
+    if ($scope.newListing.images.length == 0){
+        $scope.hideCurrentImages = true;
+    } else {
+        $scope.hideCurrentImages = false;
+        $scope.currentImages = angular.copy($scope.newListing.images);
+    }
+
+    $scope.imageDeleteUrl = window.location.origin + window.location.pathname + 'img/useruploads/index.php?file=';
+    //http://localhost:8888/cholical.github.io/img/useruploads/index.php?file=9d1640e4003dcd960136f325f43cc85a.jpg
     $scope.phpDebug;
     $scope.itemId;
     $scope.deleteId;
@@ -101,29 +110,36 @@
             console.log($scope.imageName);
             $scope.alreadyClicked = true;
 
-            $scope.newListing.date = angular.copy(new Date());
-            if ($scope.newListing.hasOwnProperty("textbookName")) {
-                while ($scope.newListing.classes.length != 5) {
-                    $scope.newListing.classes.push("");
-                }
-                $scope.newListing.class1 = $scope.newListing.classes[0];
-                $scope.newListing.class2 = $scope.newListing.classes[1];
-                $scope.newListing.class3 = $scope.newListing.classes[2];
-                $scope.newListing.class4 = $scope.newListing.classes[3];
-                $scope.newListing.class5 = $scope.newListing.classes[4];
-            }
-            newListingSvc.setNewListing($scope.newListing).then(function(data) {
-                console.log(data);
-                $scope.itemId = data;
-                $scope.itemId = $scope.itemId.replace(/\s+/g, '');
-                newListingSvc.setItemId($scope.itemId);
-                console.log($scope.newListing);
-                $modalInstance.close();
-            });
+            $scope.deleteToBeDeleted();
+            //deletes any queued files then runs continueSubmission when finished
+
         } else {
             console.log('you already pressed submit');
         }
     };
+
+    //second part of submitListing
+    $scope.continueSubmission = function() {
+        $scope.newListing.date = angular.copy(new Date());
+        if ($scope.newListing.hasOwnProperty("textbookName")) {
+            while ($scope.newListing.classes.length != 5) {
+                $scope.newListing.classes.push("");
+            }
+            $scope.newListing.class1 = $scope.newListing.classes[0];
+            $scope.newListing.class2 = $scope.newListing.classes[1];
+            $scope.newListing.class3 = $scope.newListing.classes[2];
+            $scope.newListing.class4 = $scope.newListing.classes[3];
+            $scope.newListing.class5 = $scope.newListing.classes[4];
+        }
+        newListingSvc.setNewListing($scope.newListing).then(function(data) {
+            console.log(data);
+            $scope.itemId = data;
+            $scope.itemId = $scope.itemId.replace(/\s+/g, '');
+            newListingSvc.setItemId($scope.itemId);
+            console.log($scope.newListing);
+            $modalInstance.close();
+        });
+    }
 
     $scope.hideDeleteButton = false;
     $scope.hideConfirmDelete = true;
@@ -149,11 +165,11 @@
                 $scope.deleteId = $scope.newListing.service_id;
             }
             newListingSvc.setDeleteId($scope.deleteId);
+       
+        $scope.deleteAllUploads();
         //call the php script
         newListingSvc.deleteListing($scope.newListing).then(function(data) {
             //$scope.phpDebug = data;
-
-
         });
         console.log('listing deleted');
         $modalInstance.close();

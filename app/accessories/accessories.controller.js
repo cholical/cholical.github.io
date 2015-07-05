@@ -46,6 +46,7 @@
             accessory.contactInfo = newValue.contactInfo;
             accessory.password = newValue.password;
             accessory.date = newValue.date;
+            accessory.images = newValue.images;
          }
        })
 
