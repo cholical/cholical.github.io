@@ -85,10 +85,9 @@
                     </a>
                 </li>
                 <li>
-                    <input type="checkbox" ng-model="buyToggle.acceptingOffers" ng-true-value="false" ng-false-value="'!null'">Filter By Buying
-                </li>
+                    <button type="button" class="btn btn-primary" ng-model="buyToggle.acceptingOffers" btn-checkbox btn-checkbox-true="'true'" btn-checkbox-false="'!null'" uncheckable>Display Sell Lisitngs Only</button>
                 <li>
-                    <input type="checkbox" ng-model="buyToggle.acceptingOffers" ng-true-value="1" ng-false-value="'!null'">Filter By Selling
+                    <button type="button" class="btn btn-primary" ng-model="buyToggle.acceptingOffers" btn-checkbox btn-checkbox-true="'false'" btn-checkbox-false="'!null'" uncheckable>Display Buy Listings Only</button>
                 </li>
               </ul>
 
@@ -122,7 +121,7 @@
     </div>
 
     <div class="row cardRow" >
-        <div class="listingCard col-lg-4" dir-paginate-start="textbook in textbooks | orderBy:sortType:sortReverse | filter:searchBar | itemsPerPage:pageSize | filter:buyToggle track by $index" current-page="currentPage">
+        <div class="listingCard col-lg-4" dir-paginate-start="textbook in textbooks | orderBy:sortType:sortReverse | filter:searchBar | filter:buyToggle | itemsPerPage:pageSize track by $index" current-page="currentPage">
             <!-- <div class="clickLayer" ng-click="getTextbookInfo(textbook)">
             </div> -->
             <div class="mainPanel animated fadeInUp" ng-click="getTextbookInfo(textbook)">
@@ -151,7 +150,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="row listingDate" ng-class="{'wantListing': textbook.acceptingOffers != 1}">
+                <div class="row listingDate" ng-class="{'wantListing': textbook.acceptingOffers != 'true'}">
                     <div class="col-xs-3 text-left">
                             <p class="wantListing"></p>
                     </div>

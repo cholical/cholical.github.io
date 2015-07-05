@@ -21,7 +21,7 @@
       }
       if (item.hasOwnProperty("service_id")) {
           listingType = "services";
-          itemId = item.accessory_id;
+          itemId = item.service_id;
       }
 
       return $http({

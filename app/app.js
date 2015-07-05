@@ -84,6 +84,11 @@
         url: '/superImportantPage',
         templateUrl: 'superImportantPage.html'
       })
+      .state('prototype1', {
+        url: '/prototype1',
+        templateUrl: 'app/prototypes/prototype1.html',
+        controller: 'prototype1Ctrl'
+      })
 
       modalStateProvider.state('accessories.info', {
         url: '/listing/:accessory_id',
