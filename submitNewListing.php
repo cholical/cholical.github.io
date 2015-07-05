@@ -72,7 +72,6 @@
             //this is a new listing, so use insert into
 
                 $query = "INSERT INTO $listingType VALUES ('$accessoryName', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', '$images', NULL);";
-                echo $query;
             };
 
             $query2 = "SELECT accessory_id FROM $listingType WHERE date='$date' and sellerName='$sellerName';";

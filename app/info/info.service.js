@@ -16,7 +16,11 @@
           itemId = item.textbook_id;
       }
       if (item.hasOwnProperty("accessory_id")) {
-          listingType = "accessory";
+          listingType = "accessories";
+          itemId = item.accessory_id;
+      }
+      if (item.hasOwnProperty("service_id")) {
+          listingType = "services";
           itemId = item.accessory_id;
       }
 
