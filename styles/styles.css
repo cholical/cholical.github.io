@@ -8,9 +8,10 @@ GENERAL STYLES
 }
 
 #wrapper {
-  max-height:99999px;
-  transition:max-height 500ms;
-  min-height: 1460px;
+}
+
+.listingPage {
+  min-height: 1400px;
 }
 
 body {
@@ -600,7 +601,7 @@ TEXTBOOK AND ACCCESSORY PAGE STYLES
 .paginateControls {
     background-color: #f8f8f8;
     z-index: 3;
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 .pagination > .active > a {
@@ -1026,4 +1027,20 @@ ABOUT PAGE STYLES
   width:77%;
   overflow:hidden;
   margin:3px auto;
+}
+
+/*///////////////////////////////////
+CONTACT PAGE STYLES
+//////////////////////////////////*/
+
+.contactContent {
+
+}
+
+.contactForm .help-block {
+  font-size:13px;
+}
+
+.contactForm em {
+  font-size:12px;
 }
