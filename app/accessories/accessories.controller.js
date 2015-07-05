@@ -29,7 +29,7 @@
     $scope.sortReverse = true;
     $scope.listing = {
       //price: 0,
-      acceptingOffers: true
+      acceptingOffers: "true"
     }
     $scope.itemId;
 

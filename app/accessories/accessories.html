@@ -79,7 +79,7 @@
                     <input type="checkbox" ng-model="buyToggle.acceptingOffers" ng-true-value="false" ng-false-value="'!null'">Filter By Buying
                 </li>
                 <li>
-                    <input type="checkbox" ng-model="buyToggle.acceptingOffers" ng-true-value="1" ng-false-value="'!null'">Filter By Selling
+                    <input type="checkbox" ng-model="buyToggle.acceptingOffers" ng-true-value="true" ng-false-value="'!null'">Filter By Selling
                 </li>
               </ul>
 
@@ -141,7 +141,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="row text-right listingDate" ng-class="{'wantListing': accessory.acceptingOffers != 1}">
+                <div class="row text-right listingDate" ng-class="{'wantListing': accessory.acceptingOffers != 'true'}">
                     <div class="col-xs-3 text-left">
                             <p class="wantListing"></p>
                     </div>
