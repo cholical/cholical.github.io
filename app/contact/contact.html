@@ -1,19 +1,48 @@
 <div ng-include="'headerTemplate.html'"></div>
+<div class="container-fluid limWidth mainContent">
+    <div class="content contactContent row">
+        <div class="col-md-6" style="">
+            <h2>Contact Us</h2>
+            <p>We are constantly looking to improve CampusCache. For this reason we cherish every single typed character and letter (including space) that is sent to us via this contact form. Feel free to personally insult the creators, criticize  our product, submit spam, or maybe even send us useful feedback. We will read every message at least 3 times and then write a 4-6 page heartfelt letter of appreciation in return. This is how much we care about our users at CampusCache, and in a future update this contact form will become the home page of the site to further emphasize that stance.</p><br><br><br>
+            <div ng-hide="submitComplete" class="text-center">
+            <h3>Thank you for contacting us. We will get back to you as soon as possible!</h3>
+        </div>
+        </div>
+        <div class="col-md-6" style="padding:30px;padding-bottom:0px">
+            <form name="contactForm" class="contactForm form-horizontal"  ng-submit="submit(contactForm.$valid)" novalidate>
+                <div class="form-group">
+                    <label>Type of submission</label>
+                    <select ng-model="type" class="form-control">
+                      <option value="general">General Question or Comment</option>
+                      <option value="support">Support with Listing</option>
+                      <option value="bug">Report a bug</option>
+                      <option value="other">Other/Send Love</option>
+                    </select>
+                    <span class="help-block">If you want to report a specific listing please use the report button on that listing's info page instead.</span>
+                </div>
+                <div class="form-group" ng-class="{'has-error':contactForm.name.$invalid && contactForm.name.$touched}">
+                    <label>Name</label>
+                    <input name="name" class="form-control" type="text" ng-model="senderName" placeholder="Captain America" required>
+                    <span ng-show="contactForm.name.$invalid && contactForm.name.$touched" class="help-block">We need a name.</span>
+                </div>
+                <div class="form-group" ng-class="{'has-error':contactForm.email.$invalid && contactForm.email.$touched}">
+                    <label>Email</label>
+                    <!-- <em>Not required but without an email we can't reply to you.</em> -->
+                    <input name="email" class="form-control" type="email" ng-model="senderEmail" placeholder="iamironman@live.unc.edu" required>
+                    <span ng-show="contactForm.email.$invalid && contactForm.email.$touched" class="help-block">We need an email.</span>
+                </div>
+                <div class="form-group" ng-class="{'has-error':contactForm.message.$invalid && contactForm.message.$touched}">
+                    <label>Message</label>
+                    <textarea name="message" rows="5" class="form-control" type="text" ng-model="message" placeholder="Your Message Here" required></textarea>
+                    <span ng-show="contactForm.message.$invalid && contactForm.message.$touched" class="help-block">We need a message.</span>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" name="submit" class="btn btn-default" ng-show="submitComplete" ng-disabled="contactForm.$invalid">Send</button>
+                </div>
 
-<select ng-model="type">
-  <option value="general">General Question or Comment</option>
-  <option value="support">Support with Listing</option>
-  <option value="bug">Report a bug</option>
-  <option value="other">Other/Send Love</option>
-</select>
-<br>
 
-Your Name: <input type="text" ng-model="senderName" placeholder="Captain America"><br>
-Your E-mail Here: <input type="text" ng-model="senderEmail" placeholder="iamironman@live.unc.edu"><br>
-
-<input type="text" ng-model="message" placeholder="Your Message Here"><br>
-
-
-<button type="button" ng-show="submitComplete" ng-click="submit()">Send</button>
-
-<div ng-hide="submitComplete"><h3>Thank you for contacting us. We will get back to you as soon as possible!</h3></div>
+            </form>
+        </div>
+        
+    </div>
+</div>
