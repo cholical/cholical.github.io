@@ -14,8 +14,8 @@
 
 		<div class="form-group">
 			<label ng-hide="textbookHideObject" for="inputTitle" class="col-sm-2 control-label">Textbook Title</label>
-			<label ng-hide="accessoryHideObject" for="inputTitle" class="col-sm-2 control-label">Accessory Title</label>
-			<label ng-hide="serviceHideObject" for="inputTitle" class="col-sm-2 control-label">Service Title</label>
+			<label ng-hide="accessoryHideObject" for="inputTitle" class="col-sm-2 control-label">Item</label>
+			<label ng-hide="serviceHideObject" for="inputTitle" class="col-sm-2 control-label">Post Title</label>
 
 			<div
 			class="col-sm-4 has-feedback"
@@ -30,7 +30,7 @@
 			<input ng-hide="accessoryHideObject" type="text" class="form-control" name="inputAccTitle" placeholder="Special Boxes" ng-model="newListing.accessoryName" ng-required="!accessoryHideObject">
 			<span ng-hide="accessoryHideObject" class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
 			<span ng-show="mainForm.inputAccTitle.$invalid && mainForm.inputAccTitle.$touched" class="help-block">A title is required.</span>
-			<input ng-hide="serviceHideObject" type="text" class="form-control" name="inputSerTitle" placeholder="Rising Up: Mac will never read this. i am ronald ding and i am an asshole" ng-model="newListing.serviceName" ng-required="!serviceHideObject">
+			<input ng-hide="serviceHideObject" type="text" class="form-control" name="inputSerTitle" placeholder="Piggy back rides" ng-model="newListing.serviceName" ng-required="!serviceHideObject">
 			<span ng-hide="serviceHideObject" class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
 			<span ng-show="mainForm.inputSerTitle.$invalid && mainForm.inputSerTitle.$touched" class="help-block">A title is required.</span>
 		</div>

@@ -554,11 +554,21 @@ TEXTBOOK AND ACCCESSORY PAGE STYLES
   color:#444;
   margin-left:inherit !important;
   cursor:default;
+  line-height: 26px;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color:#444 !important;
+
 }
 .navbar-listings .navbar-nav > li > a {
   font-size:14px;
   background:#9ac2d9;
   color:#666;
+  line-height: 26px;
+  padding-left:15px;
+  padding-right: 15px;
 }
 
 .navbar-listings .navbar-nav > li > a:hover,
@@ -657,6 +667,43 @@ TEXTBOOK AND ACCCESSORY PAGE STYLES
   border-radius: 0px 4px 4px 0px;
 }
 
+.btn-filter {
+ border-radius: 0px;
+ margin: 0px;
+ background: transparent;
+ color: #555;
+ border:none;
+ margin-right: -4px;
+ margin-top: 11px;
+ position: relative;
+ left: 40px;
+
+}
+
+.btn-filter:hover {
+  border:none;
+}
+
+.btn-filter:nth-child(2):hover {
+  background:#FFDCDC;
+}
+.btn-filter:nth-child(1):hover {
+  background:#E1EBFC;
+}
+.btn-filter:nth-child(2).active {
+  background:#FFDCDC;
+  color:#0e1721 !important;
+  font-weight: bold  !important;
+}
+.btn-filter:nth-child(1).active {
+  background:#E1EBFC;
+  color:#0e1721 !important;
+  font-weight: bold !important;
+}
+.btn-filter:focus {
+  background:transparent;
+  color:#555;
+}
 /*///////////////////////////////////
 LISTING CARD STYLES
 //////////////////////////////////*/
@@ -890,10 +937,17 @@ bottom:-40px;
   background:transparent;
 }
 
+
 #hiddenControls .panel {
     margin:0px;
     border:none;
     box-shadow:none;
+}
+.toolbarRow2:empty {
+  display: none;
+}
+#hiddenControls:empty {
+  margin-top:0px !important;
 }
 
 .infoInputField {
@@ -931,9 +985,32 @@ button.normalBtn:hover {
   color:#333;
 }
 
-.infoFooter .text-right {
+.toolbarRow button {
+  margin-left:0px !important;
+  font-size:15px;
 
 }
+
+.toolbarRow .normalBtn {
+  background:#F8F8F8;
+  border:1px solid transparent;
+}
+
+.toolbarRow .normalBtn:hover,
+.toolbarRow .normalBtn:focus {
+  border-color:#3c6178;
+}
+
+.tooltip-inner {
+  background:#3c6178;
+  color:#f8f8f8;
+}
+
+.tooltip-arrow {
+  border-top-color:#3c6178 !important;
+  background:transparent;
+}
+
 
 /*///////////////////////////////////
 ABOUT PAGE STYLES
