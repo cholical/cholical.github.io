@@ -28,7 +28,12 @@
 					<h4 style="display:inline;"><small>POSTED ON</small> {{item.date | date:'medium'}}</h4>
 				</div>
 			</div>
-			<div class="row classesRow" ng-hide="textbookHideObject">
+			<div class="row isbnRow" ng-hide="textbookHideObject || item.ISBN.length==0">
+				<div class="col-md-12">
+					<h4><small>ISBN</small> {{item.ISBN}}</h4>
+				</div>
+			</div>
+			<div class="row classesRow" ng-hide="textbookHideObject || item.classes.length==0">
 				<div class="col-md-12">
 					<h4><small>CLASSES</small> <span>{{item.classes[0]}}</span><span class="classitem">{{item.classes[1]}}</span><span class="classitem">{{item.classes[2]}}</span><span class="classitem">{{item.classes[3]}}</span><span class="classitem">{{item.classes[4]}}</span></h4>
 				</div>

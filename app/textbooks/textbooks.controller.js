@@ -73,6 +73,7 @@
             textbook.class4 = newValue.classes[3];
             textbook.class5 = newValue.classes[4];
             textbook.images = newValue.images;
+            textbook.ISBN = newValue.ISBN;
          }
        })
 

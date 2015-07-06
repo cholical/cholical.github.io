@@ -32,6 +32,7 @@
         @$class3 = mysqli_real_escape_string($db_server, $request->class3);
         @$class4 = mysqli_real_escape_string($db_server, $request->class4);
         @$class5 = mysqli_real_escape_string($db_server, $request->class5);
+        @$ISBN = mysqli_real_escape_string($db_server, $request->ISBN);
 
         @$textbook_id = (int)$request->textbook_id;
 
@@ -41,12 +42,12 @@
         if (mysqli_num_rows($result) > 0) {
         //if a listing with the passed in id exists, update instead of insert
 
-            $query = "UPDATE $listingType SET textbookName='$textbookName', author='$author', edition='$edition', class1='$class1', class2='$class2', class3='$class3', class4='$class4', class5='$class5', price='$price', acceptingOffers='$acceptingOffers', sellerName='$sellerName', description='$description', contactInfo='$contactInfo', password='$password', date='$date', images='$images' WHERE textbook_id=$textbook_id;";
+            $query = "UPDATE $listingType SET textbookName='$textbookName', author='$author', edition='$edition', class1='$class1', class2='$class2', class3='$class3', class4='$class4', class5='$class5', ISBN='$ISBN', price='$price', acceptingOffers='$acceptingOffers', sellerName='$sellerName', description='$description', contactInfo='$contactInfo', password='$password', date='$date', images='$images' WHERE textbook_id=$textbook_id;";
 
         } else {
         //this is a new listing, so use insert into
 
-            $query = "INSERT INTO $listingType VALUES ('$textbookName', '$author', '$edition', '$class1', '$class2', '$class3', '$class4', '$class5', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', '$images', NULL);";
+            $query = "INSERT INTO $listingType VALUES ('$textbookName', '$author', '$edition', '$class1', '$class2', '$class3', '$class4', '$class5', '$ISBN', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', '$images', NULL);";
 
         };
 

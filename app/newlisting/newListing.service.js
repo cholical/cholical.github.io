@@ -44,7 +44,8 @@
               "class2" : newListingVar.class2,
               "class3" : newListingVar.class3,
               "class4" : newListingVar.class4,
-              "class5" : newListingVar.class5
+              "class5" : newListingVar.class5,
+              "ISBN" : newListingVar.ISBN
             }
 
           }).then(function(response) {

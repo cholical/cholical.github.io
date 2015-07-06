@@ -92,6 +92,13 @@
 			<textarea type="text" rows="5" class="form-control" name="inputDescription" placeholder="You don't even know." ng-model="newListing.description"></textarea>
 		</div>
 	</div>
+	<div class="form-group" ng-hide="textbookHideObject">
+		<label for="inputISBN" class="col-sm-2 control-label">ISBN</label>
+		<div class="col-sm-4" ng-class="{'has-error':mainForm.inputISBN.$invalid}">
+			<input type="text" class="form-control" name="inputISBN" placeholder="1234567890" ng-model="newListing.ISBN" ng-minlength="10" ng-maxlength="13">
+			<span ng-show="mainForm.inputISBN.$invalid" class="help-block">An ISBN must be 10 or 13 characters</span>
+		</div>
+	</div>
 	<div class="form-group" ng-hide="textbookHideObject" >
 		<label for="inputClass" class="col-sm-2 control-label">Class</label>
 		<div class="col-sm-9">
