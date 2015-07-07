@@ -275,8 +275,9 @@ HOME PAGE STYLES
 /*only for webkit  browsers*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     .splashBackground{
-        background-attachment: inherit;
-        background-position:50% 63%;
+      background:url('../img/unc-well-chrome.jpg');
+      background-attachment: inherit;
+      background-position:51% 0%;
     }
 }
 .typeSelect {
@@ -357,14 +358,59 @@ HOME PAGE STYLES
   background:#faf2e8;
   text-align: center;
   color:#333;
+  border-bottom:1px solid #777;
+
 }
 
 .missionRow .homeBody {
   display:inline-block;
   padding-bottom:50px;
-  border-bottom:1px solid #777;
 }
 
+.info-row {
+  background:#f8f8f8;
+  margin:0px auto;
+}
+
+.info-row hr {
+  border-top: 1px solid #3c6178;
+  opacity: 0.5;
+  width: 36%;
+}
+
+.info-text {
+  padding:40px;
+  text-align: left;
+}
+
+.info-text span {
+  margin-top:17%;
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+  display: block;
+}
+.info-text h2 {
+  color:#3c6178;
+  font-size:24px;
+  font-weight: bold;
+}
+.info-text p {
+  font-size:18px;
+/*  border-bottom:1px solid #3c6178;
+*/  padding-bottom:10px;
+}
+
+.info-image {
+  padding:40px;
+}
+
+.info-image img {
+  border-radius:3px;
+  width:80%;
+  margin:auto auto;
+  box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+}
 /*///////////////////////////////////
 NEWLISTING PAGE FORM STYLES
 //////////////////////////////////*/
