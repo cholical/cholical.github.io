@@ -64,9 +64,11 @@
                 };
                 
                 $this.off('click').text('Abort').on('click', function () {
-                    
+
                     uploadCount = uploadCount-1;
-                    $('.submitBtn').removeAttr('disabled');
+                    if ($('.submitBtn').hasClass('form-incomplete') == false){
+                        $('.submitBtn').removeAttr('disabled');
+                    }
                     $this.remove();
                     data.abort();
 
@@ -163,8 +165,10 @@
                     console.log(scope.newListing.images);
                     // console.log(file);
                     // console.log(data.context);
+                    if ($('.submitBtn').hasClass('form-incomplete') == false){
+                        $('.submitBtn').removeAttr('disabled');
+                    }
                     
-
                     //Append delete button
                     $('<div/>')
                     .addClass('delete')

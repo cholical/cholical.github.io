@@ -237,7 +237,7 @@
 			</div>
 		</div>
 		<div class="col-md-3">
-			<button type="submit"  name="submit" class="btn btn-default btn-lg submitBtn" ng-disabled="mainForm.$invalid">
+			<button type="submit"  name="submit" class="btn btn-default btn-lg submitBtn" ng-disabled="mainForm.$invalid" ng-class="{'form-incomplete':mainForm.$invalid}">
 				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 				<span ng-hide="hideNewMessage">Submit Listing</span>
 				<span ng-hide="hideEditMessage">Save Changes</span>
