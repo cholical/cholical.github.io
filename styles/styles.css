@@ -82,6 +82,15 @@ HEADER AND FOOTER STYLES
     height:39px;
     width:auto;
     font-family: 'Quicksand', sans-serif;
+    color:#faf2e8;
+}
+
+.navbar-header {
+  transition:opacity 400ms;
+}
+.navbar-header:hover {
+  opacity:0.74;
+  
 }
 
 .navbar-header h1 img {
