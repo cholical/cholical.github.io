@@ -64,8 +64,12 @@
                 };
                 
                 $this.off('click').text('Abort').on('click', function () {
+                    
+                    uploadCount = uploadCount-1;
+                    $('.submitBtn').removeAttr('disabled');
                     $this.remove();
                     data.abort();
+
                 });
 
                 data.submit().always(function () {
@@ -104,6 +108,16 @@
                 });
                 
                 
+            }).on('fileuploadstart', function (e,data) {
+                //count uploaded files
+                if (uploadCount >= maxUploads){
+                    ///do nothing
+                } else {
+                    uploadCount=uploadCount + 1;
+                }
+                console.log('uploadCount: ' + uploadCount);
+                $('.submitBtn').attr('disabled', 'disabled');
+
             }).on('fileuploadprocessalways', function (e, data) {
                 var index = data.index,
                 file = data.files[index],
@@ -149,14 +163,7 @@
                     console.log(scope.newListing.images);
                     // console.log(file);
                     // console.log(data.context);
-
-                    //count uploaded files
-                    if (uploadCount >= maxUploads){
-                        ///do nothing
-                    } else {
-                        uploadCount=uploadCount + 1;
-                    }
-                    console.log('uploadCount: ' + uploadCount);
+                    
 
                     //Append delete button
                     $('<div/>')
