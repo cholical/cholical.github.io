@@ -242,8 +242,8 @@
       setDeleteId: setDeleteId,
       getDeleteId: getDeleteId,
       checkPassword: checkPassword,
-      setInfo,
-      getInfo
+      setInfo: setInfo,
+      getInfo: getInfo
 
     };
   }]);
