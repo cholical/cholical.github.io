@@ -92,16 +92,23 @@ a:hover,a:focus {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
+
+pre {
+  font-family:inherit;
+  font-size:inherit;
+  color:#333;
+  border: none;
+  background: transparent;
+  line-height: inherit;
+  font-size: inherit;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 0px;
+}
 /*///////////////////////////////////
 HEADER AND FOOTER STYLES
 //////////////////////////////////*/
-pre {
-  font-family: 'gandhi_sansregular', sans-serif;
-  font-size:14px;
-  color:#333;
-  background-color:#f8f8f8;
-  border:none;
-}
+
 .homeHeader div {
   background:#f8f8f8;
 }
@@ -850,13 +857,15 @@ LISTING CARD STYLES
 }
 
 .listingCard h3 {
-  color:#3C7094;
-  max-height:26px;
-  overflow:hidden;
-  z-index:1;
-  white-space:nowrap;
-  text-overflow:ellipsis;
+  color: #3C7094;
+  max-height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  z-index: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   transition: max-height 400ms ease-in-out,color 400ms;
+  margin-top: 17px;
 }
 
 .listingCard h3:hover {
@@ -916,8 +925,9 @@ LISTING CARD STYLES
 
 .listingDescription {
   padding:0px 6px;
-  height:66px;
+  height:62px;
   overflow:hidden;
+  margin-bottom:7px;
 }
 
 .listingDescription p {
@@ -931,6 +941,7 @@ LISTING CARD STYLES
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   transition:border-color 400ms;
+  margin-bottom:0px;
 }
 
 
@@ -962,6 +973,7 @@ INFO PANEL PAGE STYLES
   color:#333;
   background:#f8f8f8;
   padding:25px;
+  white-space:  pre-wrap; 
 }
 
 .classesRow .classitem:not(:empty){
@@ -992,8 +1004,9 @@ INFO PANEL PAGE STYLES
 }
 
 .carousel-indicators {
-bottom:-40px;
+  bottom:-40px;
 }
+
 .carousel-indicators li {
   border-color:#3c6178;
 }
