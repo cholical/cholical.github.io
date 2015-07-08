@@ -22,7 +22,7 @@
     $scope.reportReason;
     $scope.urlValue;
     $scope.noComments = false;
-
+    $scope.liarMessage = true;
     $scope.imageDir = 'img/useruploads/files/';
 
 
@@ -250,10 +250,15 @@
         $scope.verifyComment = false;
     }
     $scope.submitCommentButton = function () {
-      if ($scope.verifyComment){
-          $scope.checkPasswordInput($scope.item);
+      if ($scope.newComment.name == "-Listing Author-") {
+        $scope.liarMessage = false;
+        document.getElementById("liarBox").className = "form-group has-error";
       } else {
-          $scope.submitComment();   
+        if ($scope.verifyComment){
+            $scope.checkPasswordInput($scope.item);
+        } else {
+            $scope.submitComment();   
+        }
       }
     };
 
