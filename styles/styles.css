@@ -275,12 +275,14 @@ HOME PAGE STYLES
 .specialNav .mainlinks > li > a {
   color:#faf2e8;
   background:transparent;
+  transition:color 300ms;
 }
 
 .specialNav .mainlinks > li > a:hover,
 .specialNav .mainlinks > li > a:focus {
-  color:rgba(60,97,120) ;
-  background:#faf2e8  ;
+  color:#7CBBCA;
+  background:transparent;
+
 }
 
 .specialNav .active:hover,
@@ -337,7 +339,7 @@ HOME PAGE STYLES
   height:350px;
 }
 
-.typeSelect .col-md-4 {
+.typeSelect .col-xs-4 {
   position:relative;
   top:-150px;
 }
@@ -346,6 +348,7 @@ HOME PAGE STYLES
   margin:0px auto;
   max-width: 1000px;
   height:350px;
+  min-width:500px;
 }
 
 .homeBody {
@@ -363,7 +366,7 @@ HOME PAGE STYLES
 .homeBlurb h3 {
   color:#3C7094;
 }
-.typeSelect .col-md-4 p {
+.typeSelect .col-xs-4 p {
   text-align: center;
   font-size:17px;
 }
@@ -983,7 +986,7 @@ INFO PANEL PAGE STYLES
 }
 
 .carousel {
-  width:700px;
+  width:77.8%;
   height:500px;
   margin:0px auto 20px auto;
 }
@@ -1014,7 +1017,7 @@ INFO PANEL PAGE STYLES
   background-color:#3c6178;
 }
 .imagePosition {
-  width:700px;
+  width:77.8%;
   height:500px;
   overflow: hidden;
   position: relative;

@@ -164,8 +164,9 @@
 		<div class="row new-comment round-bot">
 			<form ng-hide="submittedComment" name="commentForm" class="commentForm form-horizontal" ng-submit="submitCommentButton(commentForm.$valid)" novalidate>
 				<div id="liarbox" class="form-group">
-					<div class="col-xs-4" ng-class="{'has-error':commentForm.name.$invalid && commentForm.name.$touched}">
-						<input type="text" name="name" ng-model="newComment.name" class="form-control" placeholder="Name" required> <span ng-hide="liarMessage"><font color="red">Liar!!! Prove you're the listing author.</font></span>
+					<div class="col-xs-4" ng-class="{'has-error':(commentForm.name.$invalid && commentForm.name.$touched)}">
+						<input type="text" name="name" ng-model="newComment.name" class="form-control" placeholder="Name" required> 
+						<span class="help-block" ng-hide="liarMessage">Liar!!! Prove you're the listing author.</span>
 					</div>
 					<div class="col-xs-8 text-right">
 						
