@@ -47,7 +47,7 @@
         } else {
         //this is a new listing, so use insert into
 
-            $query = "INSERT INTO $listingType VALUES ('$textbookName', '$author', '$edition', '$class1', '$class2', '$class3', '$class4', '$class5', '$ISBN', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', '$images', NULL);";
+            $query = "INSERT INTO $listingType VALUES ('$textbookName', '$author', '$edition', '$class1', '$class2', '$class3', '$class4', '$class5', '$ISBN', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', '$images', '', NULL);";
 
         };
 
@@ -72,7 +72,7 @@
             } else {
             //this is a new listing, so use insert into
 
-                $query = "INSERT INTO $listingType VALUES ('$accessoryName', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', '$images', NULL);";
+                $query = "INSERT INTO $listingType VALUES ('$accessoryName', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', '$images', '', NULL);";
             };
 
             $query2 = "SELECT accessory_id FROM $listingType WHERE date='$date' and sellerName='$sellerName';";
@@ -97,7 +97,7 @@
             } else {
             //this is a new listing, so use insert into
 
-                $query = "INSERT INTO $listingType VALUES ('$serviceName', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', '$images', NULL);";
+                $query = "INSERT INTO $listingType VALUES ('$serviceName', '$price', '$acceptingOffers', '$sellerName', '$description', '$contactInfo', '$password', '$date', '$images', '', NULL);";
 
             };
 

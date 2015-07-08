@@ -18,6 +18,8 @@
         } else if (service.images.length == 0) {
           service.images = false; //no images in array
         }
+        service.comments = eval(service.comments);
+
       });
 
     };
@@ -47,6 +49,7 @@
             service.password = newValue.password;
             service.date = newValue.date;
             service.images = newValue.images;
+            service.comments = newValue.comments;
          }
        })
 

@@ -1,7 +1,7 @@
 (function () {
 
   "use strict";
-  var app, newListingVar, itemIdVar, deleteIdVar, getNewListing, setNewListing, deleteListing, setItemId, getItemId, setDeleteId, getDeleteId, checkPassword, setInfo, getInfo;
+  var app, newListingVar, itemIdVar, deleteIdVar, getNewListing, setNewListing, deleteListing, setItemId, getItemId, setDeleteId, getDeleteId, checkPassword, setInfo, getInfo, addCommentToPost;
 
   app = angular.module('tclassified');
 
@@ -11,6 +11,7 @@
     var itemIdVar;
     var deleteIdVar = 0;
     var infoVar;
+    var commentVar;
 
     getNewListing = function() {
         return newListingVar;
@@ -139,7 +140,7 @@
             }
 
           }).then(function(response) {
-          return response.data;
+            return response.data;
         });
         }
 
@@ -154,7 +155,7 @@
             }
 
           }).then(function(response) {
-          return response.data;
+            return response.data;
         });
         }
     };
@@ -230,6 +231,55 @@
       return infoVar;
     }
 
+    addCommentToPost = function(currentItem) {
+      if (currentItem.hasOwnProperty("textbookName")) {
+        return $http({
+            method: "post",
+            url: "addComment.php",
+            data: {
+              "listingType" : "textbooks",
+              "comments" : currentItem.comments,
+              "textbook_id" : currentItem.textbook_id
+            }
+
+          }).then(function(response) {
+              newListingVar = currentItem;
+              return response.data;
+        });
+      }
+      else if (currentItem.hasOwnProperty("accessoryName")) {
+        return $http({
+            method: "post",
+            url: "addComment.php",
+            data: {
+              "listingType" : "accessories",
+              "comments" : currentItem.comments,
+              "accessory_id" : currentItem.accessory_id
+            }
+
+          }).then(function(response) {
+              newListingVar = currentItem;
+              return response.data;
+        });
+      }
+
+      else if (currentItem.hasOwnProperty("serviceName")) {
+        return $http({
+            method: "post",
+            url: "addComment.php",
+            data: {
+              "listingType" : "services",
+              "comments" : currentItem.comments,
+              "service_id" : currentItem.service_id
+            }
+
+          }).then(function(response) {
+              newListingVar = currentItem;
+              return response.data;
+        });
+      }
+    };
+
     return {
       newListingVar: newListingVar,
       itemIdVar: itemIdVar,
@@ -243,7 +293,8 @@
       getDeleteId: getDeleteId,
       checkPassword: checkPassword,
       setInfo: setInfo,
-      getInfo: getInfo
+      getInfo: getInfo,
+      addCommentToPost: addCommentToPost
 
     };
   }]);

@@ -15,13 +15,16 @@
     $scope.wrongPassword = false;
     $scope.blankPassword = false;
     $scope.passwordField = true;
+    $scope.verifyComment = false;
     $scope.editButton = false;
     $scope.passwordSubmitButton = true;
     $('.normalBtn').tooltip();
     $scope.reportReason;
     $scope.urlValue;
+    $scope.noComments = false;
 
     $scope.imageDir = 'img/useruploads/files/';
+
 
 
     $scope.$watch( function () { return $stateParams.accessory_id}, function(newValue, oldValue) {
@@ -118,10 +121,19 @@
 
         $scope.item.images = eval($scope.item.images);
         if (typeof $scope.item.images === 'undefined'){
-          $scope.item.images = false; //no image array exists
+            $scope.item.images = false; //no image array exists
         } else if ($scope.item.images.length == 0) {
-          $scope.item.images = false; //no images in array
+            $scope.item.images = false; //no images in array
         }
+        $scope.item.comments =  eval($scope.item.comments);
+        if (! $scope.item.comments){
+            $scope.noComments = true;
+        }
+
+        console.log($scope.item.comments);
+
+        //eval comments
+
     };
 
     var onItemsSuccess = function(data) {
@@ -171,35 +183,42 @@
                 console.log(data);
 
                 if ( data === 1) {
-                    currentItem.password = $scope.passwordInput;
-                    console.log("password correct")
-                    var modalInstance = $modal.open({
-                        templateUrl: 'app/newlisting/newListing.html',
-                        controller: 'newListingCtrl',
-                        backdrop:'static',
-                        resolve: {
-                            listing: function() {
-                                return currentItem;
-                            },
-                            type: function() {
-                                return $scope.typeOfObject;
-                            }
-                        },
-                        size: 'lg'
-                    })
+                    console.log("password correct");
 
-                    //Code for updating editing and deletion on the front end
-                    modalInstance.result.then(function() {
-                        if (newListingSvc.getDeleteId() != 0) {
-                            $scope.item = newListingSvc.getNewListing();
-                            $scope.close();
-                        } else {
-                            $scope.item = newListingSvc.getNewListing();
-                        }
+                    if ($scope.verifyComment) {
+                      //run submit comment
+                      $scope.submitComment();
+                    } else {
+                      console.log('password for edit post');
+                      currentItem.password = $scope.passwordInput;
+                      var modalInstance = $modal.open({
+                          templateUrl: 'app/newlisting/newListing.html',
+                          controller: 'newListingCtrl',
+                          backdrop:'static',
+                          resolve: {
+                              listing: function() {
+                                  return currentItem;
+                              },
+                              type: function() {
+                                  return $scope.typeOfObject;
+                              }
+                          },
+                          size: 'lg'
+                      })
+
+                      //Code for updating editing and deletion on the front end
+                      modalInstance.result.then(function() {
+                          if (newListingSvc.getDeleteId() != 0) {
+                              $scope.item = newListingSvc.getNewListing();
+                              $scope.close();
+                          } else {
+                              $scope.item = newListingSvc.getNewListing();
+                          }
 
 
-                    });
-                }else {
+                      });
+                  }
+                } else {
                       console.log("password incorrect");
                       //yeah that's right fuck angular im using jquery to invalid password
                       jQuery('.passwordField').addClass('has-error');
@@ -220,6 +239,59 @@
         $scope.passwordField = false;
         $scope.editButton = true;
         $scope.passwordSubmitButton = false;
+    };
+
+    $scope.verifyDistinction = function() {
+      $scope.verifyComment = true;
+      //use this to check if verify button was pressed so that before submitting you can check for password correct
+    }
+
+    $scope.cancelVerify = function () {
+        $scope.verifyComment = false;
+    }
+    $scope.submitCommentButton = function () {
+      if ($scope.verifyComment){
+          $scope.checkPasswordInput($scope.item);
+      } else {
+          $scope.submitComment();   
+      }
+    };
+
+    $scope.submittedComment = false;
+    $scope.submitComment = function () {
+        if (! $scope.item.comments){
+            $scope.item.comments = [];
+        };
+        if ($scope.item.comments.length==0){
+            $scope.item.comments = [];
+        };
+
+        if ($scope.verifyComment){
+            var newComment = {
+                'name':'-Listing Author-',
+                'content':$scope.newComment.content,
+                'date': angular.copy(new Date())
+            };
+        } else {
+            var newComment = {
+                'name':$scope.newComment.name,
+                'content':$scope.newComment.content,
+                'date': angular.copy(new Date())
+            };
+        }
+
+        $scope.item.comments.push(newComment);
+
+        console.log('Comment submitted with verify as',$scope.verifyComment,$scope.item);
+        
+      //make ajax call to sevice 
+        newListingSvc.addCommentToPost($scope.item).then(function(data) {
+          console.log('return from php:',data);
+          console.log('Comment submitted. Comments array:',$scope.comments);
+          $scope.submittedComment = true;
+          $scope.noComments = false;
+          //$scope.phpDebug = data;
+        });
     };
 
     $scope.enterReason = false;

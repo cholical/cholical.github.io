@@ -18,6 +18,8 @@
         } else if (accessory.images.length == 0) {
           accessory.images = false; //no images in array
         }
+        accessory.comments = eval(accessory.comments);
+
       });
 
     };
@@ -47,6 +49,7 @@
             accessory.password = newValue.password;
             accessory.date = newValue.date;
             accessory.images = newValue.images;
+            accessory.comments = newValue.comments;
          }
        })
 

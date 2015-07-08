@@ -62,6 +62,36 @@ a:hover,a:focus {
     cursor: pointer;
 }
 
+.modal-footer {
+  background:#fff;
+}
+
+.modal-content {
+  background: transparent;
+  border:none;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.modal-body {
+  background: #fff;
+}
+
+.modal-area {
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+
+.round-bot {
+  border-bottom-left-radius:6px;
+  border-bottom-right-radius:6px;
+}
+
+.round-top {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
 /*///////////////////////////////////
 HEADER AND FOOTER STYLES
 //////////////////////////////////*/
@@ -1065,6 +1095,85 @@ button.normalBtn:hover {
   border-top-color:#3c6178 !important;
   background:transparent;
 }
+
+.transparentArea {
+  background: transparent;
+  height:80px;
+}
+
+.comment-header {
+  background:#3c6178;
+}
+
+.comment-header small {
+  color:#f8f8f8;
+}
+
+.info-comments {
+  padding:0px;
+  background:transparent;
+  border-radius: 6px;
+}
+
+.info-comments .row {
+  padding:15px;
+}
+
+.info-comment em {
+  opacity:0.8;
+  text-align: right;
+}
+.info-comment {
+  padding:10px 15px;
+}
+.op h3 {
+ color:#3c6178;
+ font-weight: bold;
+}
+
+
+.info-comment p {
+  margin-top:10px;
+  font-size:18px;
+}
+.info-comment:nth-child(even) {
+  background:#EDEDED;
+}
+
+.info-comment:nth-child(odd) {
+  background:#f8f8f8;
+}
+
+.info-comment h3 {
+  margin:0px;
+  font-size:14px;
+}
+
+.info-comment h5 {
+  margin:0px;
+}
+
+.new-comment {
+  background: #fff;
+}
+
+form.commentForm {
+  padding:40px;
+}
+
+.distBtn {
+  border: 1px solid #3c6178;
+  color:#3c6178;
+  background:transparent;
+}
+
+.distBtn:hover,
+.distBtn:focus {
+  background:transparent;
+  color:#777;
+  border-color:#777;
+}
+
 
 
 /*///////////////////////////////////

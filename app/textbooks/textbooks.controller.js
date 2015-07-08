@@ -34,7 +34,8 @@
         } else if (textbook.images.length == 0) {
           textbook.images = false; //no images in array
         }
-        
+        textbook.comments = eval(textbook.comments);
+
       })
     };
     textbooksSvc.getTextbooks().then(onTextbookSuccess);
@@ -74,7 +75,8 @@
             textbook.class5 = newValue.classes[4];
             textbook.images = newValue.images;
             textbook.ISBN = newValue.ISBN;
-         }
+            textbook.comments = newValue.comments;
+          }
        })
 
     });
