@@ -149,7 +149,11 @@
                 </div>
                 <div class="row text-right listingDate" ng-class="{'wantListing': service.acceptingOffers != 'true'}">
                     <div class="col-xs-3 text-left">
-                            <p class="wantListing"></p>
+                        <p>
+                            <span ng-show="service.comments">
+                             {{service.comments.length}} comment<span ng-hide="service.comments.length<2">s</span>
+                            </span>
+                        </p>
                     </div>
                     <div class="col-xs-9">
                             <p>{{service.date | date:'mediumDate'}}</p>

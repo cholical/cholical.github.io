@@ -1103,11 +1103,13 @@ button.normalBtn:hover {
 
 .comment-header {
   background:#3c6178;
+  color:#f8f8f8;
 }
 
 .comment-header small {
   color:#f8f8f8;
 }
+
 
 .info-comments {
   padding:0px;
