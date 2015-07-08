@@ -95,7 +95,13 @@ a:hover,a:focus {
 /*///////////////////////////////////
 HEADER AND FOOTER STYLES
 //////////////////////////////////*/
-
+pre {
+  font-family: 'gandhi_sansregular', sans-serif;
+  font-size:14px;
+  color:#333;
+  background-color:#f8f8f8;
+  border:none;
+}
 .homeHeader div {
   background:#f8f8f8;
 }
