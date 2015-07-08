@@ -1,7 +1,7 @@
 (function () {
 
   'use strict';
-  var app = angular.module('tclassified', ['ui.router', 'ui.bootstrap', 'angularUtils.directives.dirPagination', 'ui.bootstrap.modal']);
+  var app = angular.module('tclassified', ['ui.router', 'ui.bootstrap', 'angularUtils.directives.dirPagination', 'ui.bootstrap.modal', 'angular-loading-bar', 'ngAnimate']);
 
   //=======The code within these comments doesn't actually exist===
 
@@ -46,9 +46,9 @@
     };
   })
 
-  app.config(['$stateProvider', 'modalStateProvider', '$urlRouterProvider', configRoutes]);
+  app.config(['$stateProvider', 'modalStateProvider', '$urlRouterProvider', '$locationProvider', configRoutes]);
 
-  function configRoutes ($stateProvider, modalStateProvider, $urlRouterProvider) {
+  function configRoutes ($stateProvider, modalStateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       .state('home', {
         url: '/home',
