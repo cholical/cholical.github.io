@@ -113,6 +113,10 @@
 
     $urlRouterProvider.otherwise('/home');
 
+    // $locationProvider.html5Mode({
+    //   enabled: true
+    // });
+
   };
 
 

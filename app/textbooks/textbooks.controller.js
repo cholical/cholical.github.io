@@ -159,7 +159,9 @@
         document.getElementById(activeParameter).className = "clickSort activeSort";
 
     }
-
+    $scope.search = function(row) {
+      return (angular.lowercase(row.textbookName).indexOf($scope.query || '') !== -1 ||  String(row.price).indexOf($scope.query || '') !== -1 ||  angular.lowercase(row.sellerName).indexOf($scope.query || '') !== -1 || angular.lowercase(row.description).indexOf($scope.query || '') !== -1 || angular.lowercase(row.contactInfo).indexOf($scope.query || '') !== -1 || String(row.textbook_id).indexOf($scope.query || '') !== -1 || angular.lowercase(row.author).indexOf($scope.query || '') !== -1 || angular.lowercase(row.ISBN).indexOf($scope.query || '') !== -1 || angular.lowercase(row.edition).indexOf($scope.query || '') !== -1 || angular.lowercase(String(row.classes)).indexOf($scope.query || '') !== -1 );
+    }
 
 
 

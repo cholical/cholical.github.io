@@ -129,5 +129,9 @@
 
     }
 
+    $scope.search = function(row) {
+      return (angular.lowercase(row.accessoryName).indexOf($scope.query || '') !== -1 ||  String(row.price).indexOf($scope.query || '') !== -1 ||  angular.lowercase(row.sellerName).indexOf($scope.query || '') !== -1 || angular.lowercase(row.description).indexOf($scope.query || '') !== -1 || angular.lowercase(row.contactInfo).indexOf($scope.query || '') !== -1 || String(row.accessory_id).indexOf($scope.query || '') !== -1);
+    }
+
   }]);
 }());
