@@ -976,7 +976,6 @@ INFO PANEL PAGE STYLES
   color:#333;
   background:#f8f8f8;
   padding:25px;
-  white-space:  pre-wrap; 
 }
 
 .classesRow .classitem:not(:empty){
