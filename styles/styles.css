@@ -132,9 +132,10 @@ HEADER AND FOOTER STYLES
     color:#faf2e8;
 }
 
+
 .schoolName {
   position: relative;
-  margin: -8px 0px 0px 79px;
+  margin: -3px 0px 0px 103px;
   font-size: 14px;
   color:#faf2e8;
 
@@ -143,9 +144,9 @@ HEADER AND FOOTER STYLES
 .navbar-header {
   transition:opacity 400ms;
 }
+
 .navbar-header:hover {
   opacity:0.74;
-  
 }
 
 .navbar-header h1 img {
@@ -157,6 +158,11 @@ HEADER AND FOOTER STYLES
 
 .navbar-header h1 img.icon {
     margin:-5px 8px 0px 8px;
+}
+
+.homeTitle h1 img.icon {
+  height:150%;
+  margin: 9px 3px 0px 8px;
 }
 
 .navbar-header small {
@@ -314,7 +320,7 @@ HOME PAGE STYLES
 .splash div {
   color:#f8f8f8;
   width:900px;
-  margin:160px auto;
+  margin:174px auto;
   font-size: 16px;
   text-align: center;
 }
