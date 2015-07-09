@@ -1,7 +1,7 @@
 (function () {
 
   'use strict';
-  var app = angular.module('tclassified', ['ui.router', 'ui.bootstrap', 'angularUtils.directives.dirPagination', 'ui.bootstrap.modal', 'angular-loading-bar', 'ngAnimate']);
+  var app = angular.module('tclassified', ['ui.router', 'ui.bootstrap', 'ngTouch', 'angularUtils.directives.dirPagination', 'ui.bootstrap.modal', 'angular-loading-bar', 'ngAnimate']);
 
   //=======The code within these comments doesn't actually exist===
 
