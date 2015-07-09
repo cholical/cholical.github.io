@@ -295,6 +295,7 @@
           console.log('Comment submitted. Comments array:',$scope.comments);
           $scope.submittedComment = true;
           $scope.noComments = false;
+          $scope.verifyComment = false;
           //$scope.phpDebug = data;
         });
     };
