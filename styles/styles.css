@@ -324,11 +324,12 @@ HOME PAGE STYLES
 }
 .splash div h3 {
   font-size:40px;
-  text-align: left;
+  text-align: center;
 }
 
 .splash div p {
-    text-align: left;
+  font-size:17px;
+  text-align:center;
 }
 
 .splashBackground {
@@ -1319,4 +1320,23 @@ CONTACT PAGE STYLES
 
 .contactForm em {
   font-size:12px;
+}
+
+/*RONALD STYLES*/
+.homepage-logo {
+  background: #faf2e8;
+  text-align:center;
+  color: #333;
+}
+#home-logo {
+  width:400px;
+}
+.center {
+  text-align:center;
+}
+.footer-left {
+  text-align:left;
+}
+.footer-right {
+  text-align:right;
 }
