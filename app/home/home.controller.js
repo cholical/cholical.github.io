@@ -9,8 +9,8 @@
     $scope.changeBarActive = function() {
         document.getElementById("homeBar").className = "active";
         document.getElementById("homeCustomStyle").className = "specialNav";
-        document.getElementById("siteTitle").className = "animated fadeInDown";
-        document.getElementById('schoolName').className = "animated fadeinDown schoolName";
+        document.getElementById("siteTitle").className = "homeTitle animated fadeInDown";
+        document.getElementById('schoolName').className = "schoolName";
     }
 
 
