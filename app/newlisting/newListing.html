@@ -32,7 +32,7 @@
 			<input ng-hide="accessoryHideObject" type="text" class="form-control" name="inputAccTitle" placeholder="Special Boxes" ng-model="newListing.accessoryName" ng-required="!accessoryHideObject">
 			<span ng-hide="accessoryHideObject" class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
 			<span ng-show="mainForm.inputAccTitle.$invalid && mainForm.inputAccTitle.$touched" class="help-block">A title is required.</span>
-			<input ng-hide="serviceHideObject" type="text" class="form-control" name="inputSerTitle" placeholder="Piggy back rides" ng-model="newListing.serviceName" ng-required="!serviceHideObject">
+			<input ng-hide="serviceHideObject" type="text" class="form-control" name="inputSerTitle" placeholder="Piggy Back Rides" ng-model="newListing.serviceName" ng-required="!serviceHideObject">
 			<span ng-hide="serviceHideObject" class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
 			<span ng-show="mainForm.inputSerTitle.$invalid && mainForm.inputSerTitle.$touched" class="help-block">A title is required.</span>
 		</div>
@@ -69,7 +69,7 @@
 	<div class="form-group">
 		<label ng-hide="textbookHideObject" for="inputAuthor" class="col-sm-2 control-label">Author</label>
 		<div ng-hide="textbookHideObject" class="col-sm-4 has-feedback" ng-class="{'has-error':mainForm.inputAuthor.$invalid && mainForm.inputAuthor.$touched}">
-			<input type="text" class="form-control" name="inputAuthor" placeholder="Ronald Ding" ng-model="newListing.author" ng-required="!textbookHideObject">
+			<input type="text" class="form-control" name="inputAuthor" placeholder="Barack Obama Mama" ng-model="newListing.author" ng-required="!textbookHideObject">
 			<span class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
 			<span ng-show="mainForm.inputAuthor.$invalid && mainForm.inputAuthor.$touched" class="help-block">Every book has an author.</span>
 		</div>
@@ -160,7 +160,7 @@
 	<div class="form-group">
 		<label for="inputContactInfo" class="col-sm-4 control-label">Contact Information <br><em>unc.edu e-mail preferred</em></label>
 		<div class="col-sm-5 has-feedback" ng-class="{'has-error':mainForm.inputContactInfo.$touched && mainForm.inputContactInfo.$invalid}">
-			<input type="text" class="form-control" name="inputContactInfo" placeholder="nope@duke.edu" ng-model="newListing.contactInfo" required>
+			<input type="text" class="form-control" name="inputContactInfo" placeholder="thebookthief@live.unc.edu" ng-model="newListing.contactInfo" required>
 			<span class="fa fa-asterisk reqIcon form-control-feedback" aria-hidden="true"></span>
 			<span ng-show="mainForm.inputContactInfo.$touched && mainForm.inputContactInfo.$invalid" class="help-block">Do you want people to buy from you or not?</span>
 		</div>
