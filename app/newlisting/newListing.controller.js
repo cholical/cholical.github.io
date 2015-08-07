@@ -6,6 +6,7 @@
   app = angular.module("tclassified");
   app.controller('newListingCtrl', ['$scope', '$modalInstance', 'newListingSvc', '$stateParams', '$log', 'listing', 'type', function newListingCtrl($scope, $modalInstance, newListingSvc, $stateParams, $log, listing, type) {
 
+    $scope.editListing = false;
     $scope.typeOfObject = type;
     $scope.imageName = 'maaaaac';
     $scope.class2 = true;
@@ -55,6 +56,7 @@
         //Will work properly only if sellerName is intialized; will be fixed when validation is created;
         $scope.hideNewMessage = true;
         $scope.hideEditMessage = false;
+        $scope.editListing = true;
         if (listing.hasOwnProperty("classes")) {
             $scope.numClasses = 0;
             var i;
@@ -102,7 +104,21 @@
         $modalInstance.dismiss('close');
     };
 
+    $scope.finalSubmitStage = false;
+    $scope.continueSubmit = function() {
+        if ($scope.editListing){
+            $scope.submitListing();
+        } else {
+            $scope.finalSubmitStage = true;
+            $scope.hideNewMessage = true;
 
+         }
+    }
+
+    $scope.backToNewListing = function() {
+        $scope.finalSubmitStage = false;
+        $scope.hideNewMessage = false;
+    }
 
     $scope.submitListing = function() {
 

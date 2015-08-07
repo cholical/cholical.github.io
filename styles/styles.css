@@ -271,6 +271,13 @@ HEADER AND FOOTER STYLES
   font-style:italic;
 }
 
+.footer-left {
+  text-align:left;
+}
+.footer-right {
+  text-align:right;
+}
+
 /*///////////////////////////////////
 HOME PAGE STYLES
 //////////////////////////////////*/
@@ -434,6 +441,15 @@ HOME PAGE STYLES
   color:#333;
   border-bottom:1px solid #777;
 
+}
+
+.missionRow img {
+  width:350px;
+  margin-top:-20px;
+}
+
+.home-logo {
+  width: 350px;
 }
 
 .missionRow .homeBody {
@@ -1142,14 +1158,17 @@ button.normalBtn:hover {
 }
 
 .comment-header {
-  background:#3c6178;
-  color:#f8f8f8;
+  background:#f8f8f8;
+  color:#3c6178;
+  border-bottom: 1px solid #3c6178;
 }
 
+.comment-header h1 {
+  margin:0px;
+}
 .comment-header small {
-  color:#f8f8f8;
+  color:#3c6178;
 }
-
 
 .info-comments {
   padding:0px;
@@ -1328,21 +1347,3 @@ CONTACT PAGE STYLES
   font-size:12px;
 }
 
-/*RONALD STYLES*/
-.homepage-logo {
-  background: #faf2e8;
-  text-align:center;
-  color: #333;
-}
-#home-logo {
-  width:400px;
-}
-.center {
-  text-align:center;
-}
-.footer-left {
-  text-align:left;
-}
-.footer-right {
-  text-align:right;
-}
