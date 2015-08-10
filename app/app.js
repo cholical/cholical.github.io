@@ -84,6 +84,14 @@
         url: '/superImportantPage',
         templateUrl: 'superImportantPage.html'
       })
+      .state('terms', {
+        url: '/termsofservice',
+        templateUrl: 'app/about/terms.html'
+      })
+      .state('safety', {
+        url: '/safetyguidelines',
+        templateUrl: 'app/about/safety.html'
+      })
       .state('prototype1', {
         url: '/prototype1',
         templateUrl: 'app/prototypes/prototype1.html',
