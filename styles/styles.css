@@ -2,7 +2,9 @@
 GENERAL STYLES
 //////////////////////////////////*/
 
-
+::selection{
+  background:#FEB896;
+}
 #page-wrapper {
   margin-left: 350px;
 }
@@ -149,6 +151,10 @@ HEADER AND FOOTER STYLES
 .navbar-header:hover {
   opacity:0.74;
 }
+
+.navbar-header h1 b {
+/*  color:#FE925D;
+*/}
 
 .navbar-header h1 img {
     height:100%;
