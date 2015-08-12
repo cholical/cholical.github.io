@@ -8,6 +8,7 @@ GENERAL STYLES
 }
 
 #wrapper {
+  background: #f8f8f8;
 }
 
 .listingPage {
@@ -445,7 +446,9 @@ HOME PAGE STYLES
 
 .missionRow img {
   width:350px;
-  margin-top:-20px;
+  display: inline;
+  text-align: center;
+  margin:-96px 0px 0px 0px;
 }
 
 .home-logo {
