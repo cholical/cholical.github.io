@@ -34,7 +34,6 @@
     $scope.itemId;
     $scope.deleteId;
 
-
     if ($scope.typeOfObject === "textbook") {
         console.log("textbook type");
         $scope.textbookHideObject = false;

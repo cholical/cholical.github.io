@@ -215,8 +215,10 @@
 		<label for="inputBuyorSell" class="col-sm-4 control-label">Submission Type</label>
 		<div class="col-sm-5">
 			<select class="form-control" ng-model="newListing.acceptingOffers">
-				<option value="true">I want to sell this item</option>
-				<option value="false">I want to buy this item</option>
+				<option value="true" ng-show="serviceHideObject">I want to sell this item</option>
+				<option value="false" ng-show="serviceHideObject">I want to buy this item</option>
+				<option selected="selected" value="true" ng-hide="serviceHideObject">I am offering this service</option>
+				<option value="false" ng-hide="serviceHideObject">I am requesting this service</option>
 			</select>
 		</div>
 	</div>
