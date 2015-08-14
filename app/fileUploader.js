@@ -63,7 +63,10 @@
                     return;
                 };
                 
-                $this.off('click').text('Abort').on('click', function () {
+                $this.off('click').css({
+                    'background':'transparent',
+                    'border':'none',
+                }).html('<img width="22px" height="22px" tooltip="Click to abort upload" src="img/loading.gif">').on('click', function () {
 
                     uploadCount = uploadCount-1;
                     if ($('.submitBtn').hasClass('form-incomplete') == false){

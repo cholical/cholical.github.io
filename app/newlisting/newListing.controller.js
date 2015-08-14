@@ -28,7 +28,7 @@
         $scope.currentImages = angular.copy($scope.newListing.images);
     }
 
-    $scope.imageDeleteUrl = window.location.origin + window.location.pathname + 'img/useruploads/index.php?file=';
+    $scope.imageDeleteUrl = window.location.origin + '/img/useruploads/index.php?file=';
     //http://localhost:8888/cholical.github.io/img/useruploads/index.php?file=9d1640e4003dcd960136f325f43cc85a.jpg
     $scope.phpDebug;
     $scope.itemId;
@@ -153,6 +153,7 @@
             newListingSvc.setItemId($scope.itemId);
             console.log($scope.newListing);
             $modalInstance.close();
+            $scope.alreadyClicked = false;
         });
     }
 

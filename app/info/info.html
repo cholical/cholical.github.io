@@ -86,14 +86,14 @@
 
 			</div>
 		</div>
-		<div class="row toolbarRow2">
+		<div class="row toolbarRow2 toolbarRow">
 			<div class="col-md-12"  style="margin-top: 7px;" id="hiddenControls">
 				<div class="panel">
 					<div id="passwordStuff" class="collapse">
 						<div class="form-group passwordField infoInputField text-left" ng-hide="passwordField">
 							<span ng-show="wrongPassword" class="help-block">Incorrect password</span>
 
-							<input class="form-control" type="password" placeholder="Enter Password to Edit Post" ng-model="passwordInput">
+							<input code="13" dl-key-code="checkPasswordInput(item)" class="form-control" type="password" placeholder="Enter Password to Edit Post" ng-model="passwordInput">
 						</div>
 						<button ng-hide="passwordSubmitButton" type="button" class="btn btn-default btn-sm normalBtn" ng-click="checkPasswordInput(item)">
 							<span class="glyphicon glyphicon-check" aria-hidden="true">
@@ -105,7 +105,7 @@
 					<div id="reportStuff" class="collapse">
 						<div class="form-group infoInputField reportField text-left" ng-hide="reportSubmitted">
 							<span ng-show="enterReason" class="help-block">Please enter a reason.</span>
-							<input class="form-control" type="text" placeholder="Reason for report" ng-model="reportReason">
+							<input code="13" dl-key-code="reportPost(item)" class="form-control" type="text" placeholder="Reason for report" ng-model="reportReason">
 						</div>
 						<button ng-hide="reportSubmitted" type="button" class="btn btn-default btn-sm normalBtn" ng-click="reportPost(item)">
 							<span class="glyphicon glyphicon-flag" aria-hidden="true">
