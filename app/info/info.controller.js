@@ -144,14 +144,14 @@
 
     if ($scope.itemList === undefined) {
         console.log("item is undefined");
-        console.log($state.current);
+
         if ($state.current.name == "accessories.info") {
             accessoriesSvc.getAccessories().then(onItemsSuccess);
         }
         if ($state.current.name == "textbooks.info") {
             textbooksSvc.getTextbooks().then(onItemsSuccess)
         }
-        if ($state.current.name == "service.info") {
+        if ($state.current.name == "services.info") {
             servicesSvc.getServices().then(onItemsSuccess)
         }
 
