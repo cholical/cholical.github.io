@@ -22,7 +22,7 @@ app.directive("dirStylescripts", function() {
             top:newTop
         },400);
         $(this).find('img').stop(true).animate({
-            width:($(this).width()* 1.0)
+            width:($(this).width()* 1.025)
         },400);
 
     }).mouseleave(function(){
